@@ -35,7 +35,14 @@ public class HomeController {
     	}
     	else {
     		session.setAttribute("login", member);
+    		//LoginVo vo  = dao.login("?");
+    		//if(vo == null) {로그인 실패 return "board/logn"}
+    		//else if (vo != null) {return "board/listPage?num=1";}
+    		
     		return "board/listPage?num=1";
+    		
+    		
+
     	}		
     }
     
