@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-@RequestMapping("/board/")
+@RequestMapping("/")
 @Controller
-public class LoginController {
+public class HomeController {
     
     @Inject
     private LoginService service;
@@ -24,7 +24,11 @@ public class LoginController {
     		
     	HttpSession session = req.getSession();
     	LoginVO member = service.login(vo);
-
+    	String name = req.getParameter("username");
+    	String password = req.getParameter("password");
+    	System.out.println(name+" "+password);
+    	
+    	
     	if (member == null) {
     		session.setAttribute("login", null);
     		return "board/login";
@@ -33,6 +37,12 @@ public class LoginController {
     		session.setAttribute("login", member);
     		return "board/listPage?num=1";
     	}		
+    }
+    
+    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
+    public String showList(HttpServletRequest req) throws Exception {
+    		
+    	return "board/listAll";
     }
 
 }

@@ -111,7 +111,7 @@
                             		}
                             		
                             	</SCRIPT>
-                            	<c:forEach items="${objectList }" var="objectVO">
+                            	<c:forEach items="${objectList}" var="objectVO">
                             		<tr>
                             		<td><c:out value="${obejctVO.code}"/></td>
                             		<!--  <td onclick=GotoModify("${memberVO.comSeq}")><c:out value="${memberVO.name}"/></td>-->

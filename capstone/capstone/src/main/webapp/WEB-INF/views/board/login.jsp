@@ -24,15 +24,27 @@
                         <h4>한성대학교 기자재실</h4>
                         <div class="col-12">
                             <label>Username</label>
-                            <input type="text" name="username" class="form-control" placeholder="Username">
+                            <input id="username"  type="text" name="username" class="form-control" placeholder="Username">
                         </div>
                         <div class="col-12">
-                            <label>Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Password">
+                            <label >Password</label>
+                            <input id="password" type="password" name="password" class="form-control" placeholder="Password">
                         </div>
                        
                         <div class="col-12">
-                            <button type="submit" class="btn btn-dark float-end">Login</button>
+                        <SCRIPT language="Javascript">
+                        	function submitLogin() {
+                        		
+                        		var name = document.getElementById("username").value;
+                        		var password = document.getElementById("password").value;
+                        		
+                        		
+                        		
+                        		location.href="/login?name="+name+"&password="+password;
+                        	}
+                        
+                        </SCRIPT>
+                            <button type="submit" class="btn btn-dark float-end" onclick = submitLogin()>Login</button>
                         </div>
                     </form>
                     <hr class="mt-4">
