@@ -7,143 +7,74 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>기자재 목록 </title>
-<script type="text/javascript">
-    var result ='${msg}';
+		<title>기자재 목록 </title>
+		<script type="text/javascript">
+		
+			function search() {
+				var name = document.getElementById("searchName").value;
+				console.log(name);
+						
+				location.href = "/"+"?Option=Search&Name="+name;
+				//location.href="/"+"?Option=Modify&Name=${dataVO.name}&PhoneNumber=${dataVO.phoneNumber}&Address1=${dataVO.address1}&Address2=${dataVO.address2}&Time=${dataVO.time}";
+			}
+		</script>
+		
+ 	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
     
-    if(result == '성공'){
-        alert(result+'입니다.');
-    }else{
-        alert(result+'게시판등록 실패입니다.');
-    }
-    
-    
-    <!-- 오빠꺼 보고 한거 -->
-	function search() {
-		var name = document.getElementById("searchName").value;
-		console.log(name);
-				
-		location.href = "/"+"?Option=Search&Name="+name;
-		//location.href="/"+"?Option=Modify&Name=${dataVO.name}&PhoneNumber=${dataVO.phoneNumber}&Address1=${dataVO.address1}&Address2=${dataVO.address2}&Time=${dataVO.time}";
-	}
-</script>
- 
  
 </head>
 <body>
  	<div class="contents">
  	 	<!-- 맨 윗상단 메뉴 -->
         <div class="header">
-            <p>기자재 관리</p>
+              <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <a class="navbar-brand" href="#"> 한성대 기자재실</a>
+                    <ul class="navbar-nav">
+                    <!--Dropdown-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">기자재 현황</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Samsung</a></li>
+                          <li><a class="dropdown-item" href="#">LG</a></li>
+                          <li><a class="dropdown-item" href="#">Apple</a></li>
+                          </ul>
+                      </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">마이 페이지</a>
+                    </li>
+                  </ul>
+             </nav>
+
+        </div>
+        <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th scope="col">번호</th>
+                      <th scope="col">이름</th>
+                      <th scope="col">상태</th>
+                      <th scope="col"> </th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+				<c:forEach items="${objList}" var="objectVO" varStatus="status">
+					<tr>
+                        <td><c:out value="${objectVO.code}"/></td>
+                        <td><c:out value="${objectVO.status}"/></td>
+                        <td><c:out value="${objectVO.name}" /></td>
+                        <td><button type="submit" class="btn btn-dark float-end">대여</button></td>
+                     </tr>
+                </c:forEach>
+                    
+    
+                </tbody>
+              </table>
         </div>
         
-        <!-- 컨텐츠 내용 -->
-        
-            <div class="contents-body">
-            	<div class="body-board">
-                	<div class="filter">
-                    <p>검색하기</p>
-                    <input type="text" class="inp_long" id="searchName">
-               		</div>
-               		
-               		<div class="filter">
-	                    <p>지역검색</p>
-	                    <select>
-	                        <option>서울</option>
-	                        <option>대전</option>
-	                        <option>부산</option>
-	                    </select>
-	                    <select>
-	                        <option>강남구</option>
-	                        <option>ㅇㅇ구</option>
-	                        <option>ㅇㅇ구</option>
-	                    </select>
-	                    <select>
-	                        <option>도곡동</option>
-	                        <option>ㅇㅇ동</option>
-	                        <option>ㅇㅇ동</option>
-	                    </select>
 
-                    	<button class="btn submit_btn" onclick="search()">검색</button>
-                	</div>
-                </div>
-                <div class="body-board">
-                <div class="board_head">
-                    <p>스터디카페 목록 (총 100개)
-                        <select>
-                            <option>10개씩</option>
-                            <option>20개씩</option>
-                            <option>30개씩</option>
-                            <option>40개씩</option>
-                        </select>
-                    </p>
-
-            <!--    <div class="board_head_right">
-                        <input type="file" id="uploadFile" class="inp_btn" placeholder="파일 업로드">
-                        <label for="uploadFile" class="btn inp_btn">파일 업로드</label>
-
-                        <a class="btn inp_btn" href="" download="">파일 다운</a>
-                        <a href="/registration" class="btn submit_btn">등록하기</a>
-                    </div>  -->
-                </div>
-
-                <div class="board_content">
-                    <div class="tab_div">
-                        <table class="list_tab">
-                            <thead>
-                                <tr>
-                                    <th>등록번호</th>
-                                    <th>상호명</th>
-                                    <th>전화번호</th>
-                                    <th>주소</th>
-                                    <th>상세주소</th>
-                                    <th>영업시간</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            	<SCRIPT language="Javascript">
-                            		function GotoModify(value) {
-										console.log("go to modify with "+value);
-										
-										
-										location.href="/modify?key="+value;
-										
-                            		}
-                            		
-                            	</SCRIPT>
-                            	<c:forEach items="${objectList}" var="objectVO">
-                            		<tr>
-                            		<td><c:out value="${obejctVO.code}"/></td>
-                            		<!--  <td onclick=GotoModify("${memberVO.comSeq}")><c:out value="${memberVO.name}"/></td>-->
-                  
-                            		<td><c:out value="${obejctVO.status}"/></td>
-                            		<td><c:out value="${obejctVO.name}"/></td>
-                            		
-                            		
-                            		</tr>
-                            	 </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-				
-                <div class="paging">
-                    <a class=“first”> < </a>
-                    <a class=”ac”> 1 </a>
-                    <a> 2</a>
-                    <a> 3 </a>
-                    <a> 4</a>
-                    <a> 5 </a>
-                    <a class=“last”> > </a>
-                </div> 
-
-            </div>
-             
-            </div>
-        
-     
-     
-    
-	</div>
+    <!— Bootstrap JS —>
+	 <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

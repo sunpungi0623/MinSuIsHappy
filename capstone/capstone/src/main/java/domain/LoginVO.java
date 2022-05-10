@@ -42,5 +42,6 @@ public class LoginVO {
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
+    
 
 }
