@@ -14,4 +14,8 @@
 		where id=#{id}
 		and password=#{password}
 	</select>
+	
+	<insert id="SignUp" parameterType="domain.LoginVO">
+		insert into User(id, password, userName, userPhone, Type) values(#{id},#{password},#{userName},#{userPhone},#{Type});
+	</insert>
 </mapper>

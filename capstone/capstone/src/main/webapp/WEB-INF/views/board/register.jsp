@@ -24,23 +24,36 @@
                             <h4>회원가입</h4>
                             <div class="col-12">
                                 <label>ID</label>
-                                <input type="text" name="id" class="form-control" placeholder="ID">
+                                <input id="userId" type="text" class="form-control" placeholder="ID">
                             </div>
                             <div class="col-12">
                                 <label>Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input id="password" type="password" class="form-control" placeholder="Password">
                             </div>
                             <div class="col-12">
                                 <label>User name</label>
-                                <input type="text" name="name" class="form-control" placeholder="name">
+                                <input id="userName" type="text" class="form-control" placeholder="name">
                             </div>
                             <div class="col-12">
                                 <label>User Phone number</label>
-                                <input type="text" name="phone number" class="form-control" placeholder="phone number">
+                                <input id="userPhone" type="text" class="form-control" placeholder="phoneNumber">
                             </div>
                             
                             <div class="col-12">
-                                <button type="submit" class="btn btn-dark float-end">submit</button>
+                            <SCRIPT language="Javascript">
+                        	function submitRegister() {
+                        		console.log("ㅋㅋ");
+                        		var userId = document.getElementById("userId").value;
+                        		var userName = document.getElementById("userName").value;
+                        		var password = document.getElementById("password").value;
+                        		var userPhone = document.getElementById("userPhone").value;
+                        		
+                        		
+                        		location.href="/login?mode=register&userName="+userName+"&password="+password+"&userId="+userId+"&userPhone="+userPhone;
+                        	}
+                        
+                        </SCRIPT>
+							<input type="button" class="btn btn-dark float-end" value="submit" onclick="submitRegister();" />
                             </div>
                         </form>
                     </div>
@@ -48,7 +61,7 @@
             </div>
         </div>
 
-    <!-- Bootstrap JS -->
+    <!— Bootstrap JS —>
     <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
 
     </body>

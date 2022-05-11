@@ -24,32 +24,36 @@
                         <h4>한성대학교 기자재실</h4>
                         <div class="col-12">
                             <label>Username</label>
-                            <input id="username"  type="text" name="username" class="form-control" placeholder="Username">
+                            <input id="userId"  type="text"  class="form-control" placeholder="UserId">
                         </div>
                         <div class="col-12">
                             <label >Password</label>
-                            <input id="password" type="password" name="password" class="form-control" placeholder="Password">
+                            <input id="password" type="password" class="form-control" placeholder="Password">
                         </div>
                        
                         <div class="col-12">
                         <SCRIPT language="Javascript">
                         	function submitLogin() {
                         		
-                        		var name = document.getElementById("username").value;
+                        		var userId = document.getElementById("userId").value;
                         		var password = document.getElementById("password").value;
                         		
                         		
                         		
-                        		location.href="/login?name="+name+"&password="+password;
+                        		location.href="/login?mode=login&userId="+userId+"&password="+password;
                         	}
                         
                         </SCRIPT>
-                            <button type="submit" class="btn btn-dark float-end" onclick = submitLogin()>Login</button>
+                           <input type="button" class="btn btn-dark float-end" value="log in" onclick="submitLogin();" />
+                            
                         </div>
                     </form>
                     <hr class="mt-4">
                     <div class="col-12">
-                        <p class="text-center mb-0">Have not account yet? <a href="#">Signup</a></p>
+                        <p class="text-center mb-0">Have not account yet? <a href="/register">Sign up</a></p>
+                        
+                        
+                       
                     </div>
                 </div>
             </div>

@@ -20,5 +20,12 @@ public class LoginDAOImp implements LoginDAO {
     public LoginVO login(LoginVO vo) throws Exception {
 		return sqlSession.selectOne(namespace+".login", vo);	
 	}
+
+
+	@Override
+	public void SignUp(LoginVO vo) throws Exception {
+		sqlSession.insert(namespace+".SignUp", vo);
+		return;
+	}
     
 }
