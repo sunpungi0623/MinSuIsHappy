@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page session="false" %>
@@ -41,7 +40,19 @@
                           </ul>
                       </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">마이 페이지</a>
+                      <SCRIPT language="Javascript">
+                        	function submitLogin() {
+                        		
+                        		var userId = document.getElementById("userId").value;
+                        		var password = document.getElementById("password").value;
+                        		
+                        		
+                        		
+                        		location.href="/login?mode=login&userId="+userId+"&password="+password;
+                        	}
+                        
+                      </SCRIPT>
+                      <a class="nav-link" href="/mypage" value="mypage">마이 페이지</a>
                     </li>
                   </ul>
              </nav>
@@ -51,8 +62,8 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                      <th scope="col">번호</th>
-                      <th scope="col">이름</th>
+                      <th scope="col">코드</th>
+                      <th scope="col">기자재명</th>
                       <th scope="col">상태</th>
                       <th scope="col"> </th>
                     </tr>
@@ -62,8 +73,9 @@
 				<c:forEach items="${objList}" var="objectVO" varStatus="status">
 					<tr>
                         <td><c:out value="${objectVO.code}"/></td>
-                        <td><c:out value="${objectVO.status}"/></td>
                         <td><c:out value="${objectVO.name}" /></td>
+                        <td><c:out value="${objectVO.status}"/></td>
+                        
                         <td><button type="submit" class="btn btn-dark float-end">대여</button></td>
                      </tr>
                 </c:forEach>

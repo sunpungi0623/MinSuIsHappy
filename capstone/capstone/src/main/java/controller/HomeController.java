@@ -1,18 +1,22 @@
 package controller;
 
+import java.io.PrintWriter;
 import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import domain.*;
-import dao.*;
-import service.*;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import dao.LoginDAO;
+import dao.ObjectDAO;
+import domain.LoginVO;
+import domain.ObjectVO;
 
 @RequestMapping("/")
 @Controller
@@ -26,7 +30,7 @@ public class HomeController {
 
 	 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model) throws Exception {
+	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 
 		HttpSession session = req.getSession();
 		LoginVO member = ldao.login(vo);
@@ -61,7 +65,10 @@ public class HomeController {
 
 
 			if (result == null) {
-				//alert 로그인실패!
+				response.setContentType("text/html; charset=euc-kr");
+	            PrintWriter out = response.getWriter();
+	            out.println("<script>alert('로그인실패! 아이디 또는 패스워드를 확인해주세요.'); </script>");
+	            out.flush();
 				System.out.println("로그인 실패");
 				return "board/login";
 			}
@@ -87,4 +94,9 @@ public class HomeController {
 		return "board/register";
 	}
 
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String getMypage(HttpServletRequest req) throws Exception {
+
+		return "board/mypage";
+	}
 }

@@ -33,15 +33,15 @@
                        
                         <div class="col-12">
                         <SCRIPT language="Javascript">
-                        	function submitLogin() {
-                        		
-                        		var userId = document.getElementById("userId").value;
-                        		var password = document.getElementById("password").value;
-                        		
-                        		
-                        		
-                        		location.href="/login?mode=login&userId="+userId+"&password="+password;
-                        	}
+                           function submitLogin() {
+                              
+                              var userId = document.getElementById("userId").value;
+                              var password = document.getElementById("password").value;
+                              
+                              
+                              
+                              location.href="/login?mode=login&userId="+userId+"&password="+password;
+                           }
                         
                         </SCRIPT>
                            <input type="button" class="btn btn-dark float-end" value="log in" onclick="submitLogin();" />
@@ -50,7 +50,7 @@
                     </form>
                     <hr class="mt-4">
                     <div class="col-12">
-                        <p class="text-center mb-0">Have not account yet? <a href="/register">Sign up</a></p>
+                        <p class="text-center mb-0">Have not account yet ? <a href="/register">Sign up</a></p>
                         
                         
                        
@@ -60,7 +60,7 @@
         </div>
     </div>
     
-    <!-- Bootstrap JS -->
+    <!— Bootstrap JS —>
     <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
