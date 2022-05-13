@@ -21,4 +21,28 @@
       select * from object
    </select>
    
+   <select id="showSamsungs" resultType="domain.ObjectVO">
+      select *
+      from object
+      where name like "%삼성%"
+   </select>
+   
+   <select id="showLGs" resultType="domain.ObjectVO">
+      select *
+      from object
+      where name like "%LG%"
+   </select>
+   
+   <select id="showMSIs" resultType="domain.ObjectVO">
+      select *
+      from object
+      where name like "%MSI%"
+   </select>
+   
+   <select id="showApples" resultType="domain.ObjectVO">
+      select *
+      from object
+      where name like "%애플%"
+   </select>
+   
 </mapper>

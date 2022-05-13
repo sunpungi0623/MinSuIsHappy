@@ -10,4 +10,8 @@ public interface ObjectDAO {
    public void deleteObject(ObjectVO vo);
    public ObjectVO showObject();
    public List<ObjectVO> showObjects();
+   public List<ObjectVO> showSamsungs();
+   public List<ObjectVO> showLGs();
+   public List<ObjectVO> showMSIs();
+   public List<ObjectVO> showApples();
 }

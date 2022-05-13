@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,24 +21,16 @@
         <div class="card text-white">
           <div class="card-header bg-secondary">내 정보</div>
           <div class="card-body text-dark">
-            <table class="table table-striped table-hover table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col">이름</th>
-                  <th scope="col">학번</th>
-                  <th scope="col">전화번호</th>
-                </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>권민수</td>
-                <td>1771305</td>
-                <td>010-0000-0000</td>
-                </td>
-              </tr>
-            </tbody>
-          </table>          
-        </div>
+          
+             
+            <h5 class="card-title"><b>이름</b></h5>
+              <p class="card-text"><c:out value="${userList.getUserName()}"/></p>  <!-- 왜 돼? -->
+              <h5 class="card-title"><b>학번</b></h5>
+            <p class="card-text"><c:out value="${userList.getID()}"/></p> <!-- 왜 돼? -->
+              <h5 class="card-title"><b>전화번호</b></h5>
+              <p class="card-text"><c:out value="${userList.getUserPhone()}"/></p>  <!-- 왜 돼? -->
+
+          </div></div>          
 
           <br>
 
@@ -54,20 +47,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                
+                <c:forEach items="${objList}" var="objectVO" varStatus="status">
+                
                   <tr>
-                    <td>노트북[10]</td>
-                    <td>2022.05.09 ~ 2022.05.16</td>
-                    <td>2022.05.16</td>
+                    <td><c:out value="${objectVO.name}" /></td> 
+                    <td><c:out value="${objectVO.rentDate}" /></td>
+                    <td><c:out value="${objectVO.returnDate}" /></td>
                     <td><button type="button" class="btn btn-outline-primary">연장 신청</button>
                     </td>
                   </tr>
+                </c:forEach>
                 </tbody>
               </table>
             </div>
           </div>
 
 
-        <!-- Bootstrap JS -->
+        <!— Bootstrap JS —>
     <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
 
     </body>

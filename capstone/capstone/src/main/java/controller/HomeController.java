@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -76,15 +77,40 @@ public class HomeController {
 				session.setAttribute("LoginVO", result);
 				List<ObjectVO> objList = odao.showObjects();
 				model.addAttribute("objList", objList);
-				
-				
-				
+		
 				return "board/listAll";
 
 			}
 		}
 		return "";
 
+	}
+	
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	public String getList(HttpServletRequest req, Model model) throws Exception {
+		String brand = req.getParameter("brand");
+		
+		if(brand.equals("samsung")) {
+			List<ObjectVO> objList = odao.showSamsungs();
+			model.addAttribute("objList", objList);
+		}
+		
+		if(brand.equals("lg")) {
+			List<ObjectVO> objList = odao.showLGs();
+			model.addAttribute("objList", objList);
+		}
+		
+		if(brand.equals("msi")) {
+			List<ObjectVO> objList = odao.showMSIs();
+			model.addAttribute("objList", objList);
+		}
+		
+		if(brand.equals("apple")) {
+			List<ObjectVO> objList = odao.showApples();
+			model.addAttribute("objList", objList);
+		}
+
+		return "board/listAll";
 	}
 
 
@@ -95,8 +121,13 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String getMypage(HttpServletRequest req) throws Exception {
+	   public String getMypage(HttpServletRequest req, Model model) throws Exception {
+	      HttpSession session = req.getSession();
+	      LoginVO l2vo = (LoginVO)session.getAttribute("LoginVO");
+	      model.addAttribute("userList", l2vo);
+	      System.out.print("##########" + l2vo.getID());
+	      
+	      return "board/mypage";
+	   }
 
-		return "board/mypage";
-	}
 }
