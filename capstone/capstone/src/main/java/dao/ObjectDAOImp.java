@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
+
+import domain.LoginVO;
 import domain.ObjectVO;
 import org.springframework.stereotype.Repository;
 
@@ -62,5 +64,11 @@ public class ObjectDAOImp implements ObjectDAO {
 		List<ObjectVO> objs = sqlSession.selectList(namespace + ".showApples");
 		return objs;
 	}
+	
+	@Override
+	   public List<ObjectVO> showMyObjects(LoginVO vo) {
+	      List<ObjectVO> objs = sqlSession.selectList(namespace + ".showMyObjects", vo);
+	      return objs;
+	   }
 
 }

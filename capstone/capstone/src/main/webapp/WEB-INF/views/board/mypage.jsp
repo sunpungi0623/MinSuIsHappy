@@ -51,9 +51,9 @@
                 <c:forEach items="${objList}" var="objectVO" varStatus="status">
                 
                   <tr>
-                    <td><c:out value="${objectVO.name}" /></td> 
-                    <td><c:out value="${objectVO.rentDate}" /></td>
-                    <td><c:out value="${objectVO.returnDate}" /></td>
+                    <td><c:out value="${objectVO.getName()}" /></td> 
+                    <td><c:out value="${objectVO.getRentDate()}" /></td>
+                    <td><c:out value="${objectVO.getReturnDate()}" /></td>
                     <td><button type="button" class="btn btn-outline-primary">연장 신청</button>
                     </td>
                   </tr>

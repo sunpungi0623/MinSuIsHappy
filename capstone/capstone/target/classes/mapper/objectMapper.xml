@@ -45,4 +45,11 @@
       where name like "%애플%"
    </select>
    
+   <select id="showMyObjects" resultType="domain.ObjectVO"
+      parameterType="domain.LoginVO">
+      select *
+      from object, User
+      where object.userName = User.userName and User.userName = #{userName}
+   </select>
+   
 </mapper>

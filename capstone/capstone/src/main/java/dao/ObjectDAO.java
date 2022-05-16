@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import domain.LoginVO;
 import domain.ObjectVO;
 
 public interface ObjectDAO {
@@ -14,4 +15,5 @@ public interface ObjectDAO {
    public List<ObjectVO> showLGs();
    public List<ObjectVO> showMSIs();
    public List<ObjectVO> showApples();
+   public List<ObjectVO> showMyObjects(LoginVO vo);
 }

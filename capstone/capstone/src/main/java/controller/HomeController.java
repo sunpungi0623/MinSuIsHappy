@@ -121,13 +121,16 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	   public String getMypage(HttpServletRequest req, Model model) throws Exception {
-	      HttpSession session = req.getSession();
-	      LoginVO l2vo = (LoginVO)session.getAttribute("LoginVO");
-	      model.addAttribute("userList", l2vo);
-	      System.out.print("##########" + l2vo.getID());
-	      
-	      return "board/mypage";
-	   }
+    public String getMypage(HttpServletRequest req, Model model) throws Exception {
+       HttpSession session = req.getSession();
+       LoginVO l2vo = (LoginVO)session.getAttribute("LoginVO");
+       List<ObjectVO> o2vo = odao.showMyObjects(l2vo);
+       
+       model.addAttribute("userList", l2vo);
+       model.addAttribute("objList", o2vo);
+       
+       
+       return "board/mypage";
+    }
 
 }

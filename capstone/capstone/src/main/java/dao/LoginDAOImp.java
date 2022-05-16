@@ -1,10 +1,14 @@
 package dao;
  
  
+import java.awt.List;
+
 import javax.inject.Inject;
  
 import org.apache.ibatis.session.SqlSession;
 import domain.LoginVO;
+import domain.ObjectVO;
+
 import org.springframework.stereotype.Repository;
  
 @Repository

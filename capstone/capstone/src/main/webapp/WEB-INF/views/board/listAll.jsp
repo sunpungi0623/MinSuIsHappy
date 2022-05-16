@@ -88,7 +88,7 @@
 			<tbody>
 				<c:forEach items="${objList}" var="objectVO" varStatus="status">
 					<tr>
-						<td><c:out value="${objectVO.code}" /></td>
+						<td><c:out value="${objectVO.code}"/></td>
 						<td><c:out value="${objectVO.name}" /></td>
 						<td><c:out value="${objectVO.status}" /></td>
 
