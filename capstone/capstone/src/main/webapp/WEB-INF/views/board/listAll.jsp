@@ -40,35 +40,29 @@
 					<ul class="dropdown-menu">
 						<SCRIPT language="Javascript">
 							function showSamsungs() {
-								location.href = "/listAll?brand=samsung";
+								location.href = "/listAll?mode=sort&brand=samsung";
 							}
 							
 							function showLGs() {
-								location.href = "/listAll?brand=lg";
+								location.href = "/listAll?mode=sort&brand=lg";
 							}
 							
 							function showMSIs() {
-								location.href = "/listAll?brand=msi";
+								location.href = "/listAll?mode=sort&brand=msi";
 							}
 							
 							function showApples() {
-								location.href = "/listAll?brand=apple";
+								location.href = "/listAll?mode=sort&brand=apple";
 							}
 						</SCRIPT>
-						<li><a class="dropdown-item" href="#" onclick="showSamsungs();">Samsung</a></li>
+						<li><a class="dropdown-item" href="#"
+							onclick="showSamsungs();">Samsung</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showLGs();">LG</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showMSIs();">MSI</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showApples();">Apple</a></li>
 					</ul></li>
 				<li class="nav-item"><SCRIPT language="Javascript">
-					function submitLogin() {
-
-						var userId = document.getElementById("userId").value;
-						var password = document.getElementById("password").value;
-
-						location.href = "/login?mode=login&userId=" + userId
-								+ "&password=" + password;
-					}
+					
 				</SCRIPT> <a class="nav-link" href="/mypage" value="mypage">마이 페이지</a></li>
 			</ul>
 			</nav>
@@ -86,13 +80,24 @@
 			</thead>
 
 			<tbody>
+			<script>
+				function rentBtnPushed(pname, pcode) { 
+					console.log(pname);
+					console.log(pcode);
+					location.href = "/listAll?mode=rent&oname="+pname+"&ocode="+pcode;
+					alert('대여 신청이 완료되었습니다.');
+									
+				}
+			</script>
 				<c:forEach items="${objList}" var="objectVO" varStatus="status">
 					<tr>
-						<td><c:out value="${objectVO.code}"/></td>
+						<td><c:out value="${objectVO.code}" /></td>
 						<td><c:out value="${objectVO.name}" /></td>
 						<td><c:out value="${objectVO.status}" /></td>
 
-						<td><button type="submit" class="btn btn-dark float-end">대여</button></td>
+							
+						<td><button type="submit" class="btn btn-dark float-end" onclick="rentBtnPushed(`${objectVO.name}`,`${objectVO.code}`);">대여</button></td>
+																						 
 					</tr>
 				</c:forEach>
 

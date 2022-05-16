@@ -2,7 +2,7 @@ package controller;
 
 import java.io.PrintWriter;
 import java.util.List;
-
+import java.time.LocalDate;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -88,28 +88,55 @@ public class HomeController {
 	
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public String getList(HttpServletRequest req, Model model) throws Exception {
+		
 		String brand = req.getParameter("brand");
+		String mode = req.getParameter("mode");
+		HttpSession session = req.getSession();
 		
-		if(brand.equals("samsung")) {
-			List<ObjectVO> objList = odao.showSamsungs();
-			model.addAttribute("objList", objList);
-		}
+		LocalDate now = LocalDate.now();
 		
-		if(brand.equals("lg")) {
-			List<ObjectVO> objList = odao.showLGs();
-			model.addAttribute("objList", objList);
-		}
-		
-		if(brand.equals("msi")) {
-			List<ObjectVO> objList = odao.showMSIs();
-			model.addAttribute("objList", objList);
-		}
-		
-		if(brand.equals("apple")) {
-			List<ObjectVO> objList = odao.showApples();
-			model.addAttribute("objList", objList);
-		}
 
+		if(mode.equals("sort")) {
+			if(brand.equals("samsung")) {
+				List<ObjectVO> objList = odao.showSamsungs();
+				model.addAttribute("objList", objList);
+			}
+			
+			if(brand.equals("lg")) {
+				List<ObjectVO> objList = odao.showLGs();
+				model.addAttribute("objList", objList);
+			}
+			
+			if(brand.equals("msi")) {
+				List<ObjectVO> objList = odao.showMSIs();
+				model.addAttribute("objList", objList);
+			}
+			
+			if(brand.equals("apple")) {
+				List<ObjectVO> objList = odao.showApples();
+				model.addAttribute("objList", objList);
+			}
+		}
+		else if (mode.equals("rent")) {
+			String oname = req.getParameter("oname");
+			String ocode = req.getParameter("ocode");
+			LoginVO ses = (LoginVO)session.getAttribute("LoginVO");
+			ObjectVO temp = new ObjectVO();
+			temp.setName(oname);
+			temp.setCode(ocode);
+			temp.setUserName(ses.getUserName());
+			temp.setUserPhone(ses.getUserPhone());
+			temp.setStatus("대여중");
+			temp.setRentDate(now.toString());
+			temp.setReturnDate(now.plusMonths(1).toString());
+			odao.updateObject(temp);
+			
+			List<ObjectVO> objList = odao.showObjects();
+			model.addAttribute("objList", objList);
+			
+		}
+		
+		
 		return "board/listAll";
 	}
 
@@ -132,5 +159,6 @@ public class HomeController {
        
        return "board/mypage";
     }
+	
 
 }

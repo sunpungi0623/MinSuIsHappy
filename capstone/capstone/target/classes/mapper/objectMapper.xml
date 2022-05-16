@@ -52,4 +52,11 @@
       where object.userName = User.userName and User.userName = #{userName}
    </select>
    
+   <update id="updateObject" parameterType="domain.ObjectVO">
+   
+   update object set rentDate=#{rentDate}, returnDate=#{returnDate}, status=#{status},userName=#{userName}, userPhone=#{userPhone}
+   where code=#{code} and name=#{name}
+   
+      
+   </update>   
 </mapper>

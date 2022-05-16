@@ -43,7 +43,7 @@
                       <th scope="col">비품명</th>
                       <th scope="col">대여 기간</th>
                       <th scope="col">반납 예정일</th>
-                      <th scope="col">연장 신청</th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -54,7 +54,7 @@
                     <td><c:out value="${objectVO.getName()}" /></td> 
                     <td><c:out value="${objectVO.getRentDate()}" /></td>
                     <td><c:out value="${objectVO.getReturnDate()}" /></td>
-                    <td><button type="button" class="btn btn-outline-primary">연장 신청</button>
+                    
                     </td>
                   </tr>
                 </c:forEach>

@@ -16,4 +16,5 @@ public interface ObjectDAO {
    public List<ObjectVO> showMSIs();
    public List<ObjectVO> showApples();
    public List<ObjectVO> showMyObjects(LoginVO vo);
+   public void updateObject(ObjectVO vo);
 }

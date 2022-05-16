@@ -70,5 +70,11 @@ public class ObjectDAOImp implements ObjectDAO {
 	      List<ObjectVO> objs = sqlSession.selectList(namespace + ".showMyObjects", vo);
 	      return objs;
 	   }
+	@Override
+	public void updateObject(ObjectVO vo) {
+		sqlSession.update(namespace + ".updateObject", vo);
+
+	}
+	
 
 }
