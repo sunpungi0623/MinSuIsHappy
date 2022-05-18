@@ -42,15 +42,15 @@
 							function showSamsungs() {
 								location.href = "/listAll?mode=sort&brand=samsung";
 							}
-							
+
 							function showLGs() {
 								location.href = "/listAll?mode=sort&brand=lg";
 							}
-							
+
 							function showMSIs() {
 								location.href = "/listAll?mode=sort&brand=msi";
 							}
-							
+
 							function showApples() {
 								location.href = "/listAll?mode=sort&brand=apple";
 							}
@@ -63,7 +63,10 @@
 					</ul></li>
 				<li class="nav-item"><SCRIPT language="Javascript">
 					
-				</SCRIPT> <a class="nav-link" href="/mypage" value="mypage">마이 페이지</a></li>
+				</SCRIPT> <a class="nav-link" href="/mypage" value="mypage">마이
+						페이지</a></li>
+				<a class="nav-link" href="/notebookList" value="mypage">기자재 정보</a>
+				</li>
 			</ul>
 			</nav>
 
@@ -80,24 +83,39 @@
 			</thead>
 
 			<tbody>
-			<script>
-				function rentBtnPushed(pname, pcode) { 
-					console.log(pname);
-					console.log(pcode);
-					location.href = "/listAll?mode=rent&oname="+pname+"&ocode="+pcode;
-					alert('대여 신청이 완료되었습니다.');
-									
-				}
-			</script>
+				<script>
+					function rentBtnPushed(pname, pcode) {
+						console.log(pname);
+						console.log(pcode);
+						location.href = "/listAll?mode=rent&oname=" + pname
+								+ "&ocode=" + pcode;
+						alert('대여 신청이 완료되었습니다.');
+
+					}
+					function notRent() {
+						alert('대여가 불가능 합니다');
+
+					}
+				</script>
 				<c:forEach items="${objList}" var="objectVO" varStatus="status">
 					<tr>
 						<td><c:out value="${objectVO.code}" /></td>
 						<td><c:out value="${objectVO.name}" /></td>
 						<td><c:out value="${objectVO.status}" /></td>
+						<td id="${objectVO.code}button">
+						<SCRIPT language="Javascript">
+							var btn = document.getElementById("${objectVO.code}button");
+						
+							if ("${objectVO.status}" == "대여가능") {
+								btn.innerHTML += "<button type=\"submit\" class=\"btn btn-dark float-end\" onclick=\"rentBtnPushed(\`${objectVO.name}\`,\`${objectVO.code}\`);\">대여</button>";
+							} else if ("${objectVO.status}" == "대여중") {
+								btn.innerHTML += "<button type=\"submit\" style=\"background-color:red\" class=\"btn btn-dark float-end\" onclick=\"notRent();\");\">불가</button>";
 
-							
-						<td><button type="submit" class="btn btn-dark float-end" onclick="rentBtnPushed(`${objectVO.name}`,`${objectVO.code}`);">대여</button></td>
-																						 
+							}
+						</SCRIPT>
+						</td>
+						<!-- <td><button type="submit" class="btn btn-dark float-end" onclick="rentBtnPushed(`${objectVO.name}`,`${objectVO.code}`);">대여</button></td> -->
+
 					</tr>
 				</c:forEach>
 
