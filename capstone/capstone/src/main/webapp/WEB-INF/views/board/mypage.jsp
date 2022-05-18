@@ -24,11 +24,11 @@
           
              
             <h5 class="card-title"><b>이름</b></h5>
-              <p class="card-text"><c:out value="${userList.getUserName()}"/></p>  <!-- 왜 돼? -->
-              <h5 class="card-title"><b>학번</b></h5>
-            <p class="card-text"><c:out value="${userList.getID()}"/></p> <!-- 왜 돼? -->
+              <p class="card-text"><c:out value="${userList.getUserName()}"/></p>
+              <h5 class="card-title"><b>ID</b></h5>
+            <p class="card-text"><c:out value="${userList.getID()}"/></p>
               <h5 class="card-title"><b>전화번호</b></h5>
-              <p class="card-text"><c:out value="${userList.getUserPhone()}"/></p>  <!-- 왜 돼? -->
+              <p class="card-text"><c:out value="${userList.getUserPhone()}"/></p>
 
           </div></div>          
 
@@ -40,6 +40,7 @@
               <table class="table table-striped table-hover table-bordered">
                   <thead>
                     <tr>
+                      <th scope="col">코드</th>
                       <th scope="col">비품명</th>
                       <th scope="col">대여 기간</th>
                       <th scope="col">반납 예정일</th>
@@ -51,6 +52,7 @@
                 <c:forEach items="${objList}" var="objectVO" varStatus="status">
                 
                   <tr>
+                    <td><c:out value="${objectVO.getCode()}" /></td> 
                     <td><c:out value="${objectVO.getName()}" /></td> 
                     <td><c:out value="${objectVO.getRentDate()}" /></td>
                     <td><c:out value="${objectVO.getReturnDate()}" /></td>
