@@ -16,6 +16,6 @@
 	</select>
 	
 	<insert id="SignUp" parameterType="domain.LoginVO">
-		insert into User(id, password, userName, userPhone, Type) values(#{id},#{password},#{userName},#{userPhone},#{Type});
+		insert into User(id, password, userName, userPhone, Type, isRented) values(#{id},#{password},#{userName},#{userPhone},#{Type},0);
 	</insert>
 </mapper>

@@ -7,7 +7,7 @@ public class LoginVO {
     private String password;
     private String userName;
     private String userPhone;
-    
+    private int isRented;
   
     public LoginVO(){};
     
@@ -41,6 +41,14 @@ public class LoginVO {
     }
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
+    }
+
+    public int getIsRented() {
+ 	   return isRented;
+    }
+    
+    public void setIsRented(int isRented) {
+ 	   this.isRented = isRented;
     }
     
 
