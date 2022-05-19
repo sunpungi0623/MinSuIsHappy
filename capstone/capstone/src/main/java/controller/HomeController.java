@@ -170,5 +170,17 @@ public class HomeController {
 		return "board/notebookList";
 	}
 	
+	@RequestMapping(value = "/Info", method = RequestMethod.GET)
+	public String openInfo(HttpServletRequest req) throws Exception {
+	       HttpSession session = req.getSession();
+	       String model = (String) req.getAttribute("model");
+	       if(model.equals("삼성Odyssey, NT800G5W-XD71")) {
+	    	   return "/board/od_xd71";
+	       }
+	       
+
+		return "board/notebookList";
+	}
+	
 	
 }
