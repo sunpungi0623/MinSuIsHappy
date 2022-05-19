@@ -163,9 +163,12 @@ public class HomeController {
        
        return "board/mypage";
     }
+	
 	@RequestMapping(value = "/notebookList", method = RequestMethod.GET)
 	public String getnotebookList(HttpServletRequest req) throws Exception {
 
 		return "board/notebookList";
 	}
+	
+	
 }

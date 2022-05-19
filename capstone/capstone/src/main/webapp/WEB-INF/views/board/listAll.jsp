@@ -67,9 +67,9 @@
 					</ul></li>
 				<li class="nav-item"><SCRIPT language="Javascript">
 					
-				</SCRIPT> <a class="nav-link" href="/mypage" value="mypage">마이
-						페이지</a></li>
+				</SCRIPT> <a class="nav-link" href="/mypage" value="mypage">마이페이지</a></li>
 				<a class="nav-link" href="/notebookList" value="mypage">기자재 정보</a>
+				<a class="nav-link" href="/manager" value="mypage">관리자</a>
 				</li>
 			</ul>
 			</nav>
@@ -100,11 +100,17 @@
 						alert('대여가 불가능 합니다');
 
 					}
+					
+					function ObjectInfo(value) {
+						location.href= "/Info?model="+value;
+					}
+					
 				</script>
 				<c:forEach items="${objList}" var="objectVO" varStatus="status">
-					<tr>
+					<tr  onclick="ObjectInfo('${objectVO.name}');">
+
 						<td><c:out value="${objectVO.code}" /></td>
-						<td><c:out value="${objectVO.name}" /></td>
+						<td><c:out value="${objectVO.name}"/></td>
 						<td><c:out value="${objectVO.status}" /></td>
 						<td id="${objectVO.code}button">
 						<SCRIPT language="Javascript">
