@@ -116,6 +116,10 @@ public class HomeController {
 				List<ObjectVO> objList = odao.showApples();
 				model.addAttribute("objList", objList);
 			}
+			if(brand.equals("All")) {
+				List<ObjectVO> objList = odao.showObjects();
+				model.addAttribute("objList", objList);
+			}
 		}
 		else if (mode.equals("rent")) {
 			String oname = req.getParameter("oname");

@@ -54,9 +54,13 @@
 							function showApples() {
 								location.href = "/listAll?mode=sort&brand=apple";
 							}
+							
+							function showObjects() {
+								location.href = "/listAll?mode=sort&brand=All";
+							}
 						</SCRIPT>
-						<li><a class="dropdown-item" href="#"
-							onclick="showSamsungs();">Samsung</a></li>
+						<li><a class="dropdown-item" href="#"onclick="showObjects();">전체보기</a></li>
+						<li><a class="dropdown-item" href="#"onclick="showSamsungs();">Samsung</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showLGs();">LG</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showMSIs();">MSI</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showApples();">Apple</a></li>
