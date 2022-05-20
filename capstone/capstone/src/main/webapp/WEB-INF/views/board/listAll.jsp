@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
@@ -107,10 +107,10 @@
 					
 				</script>
 				<c:forEach items="${objList}" var="objectVO" varStatus="status">
-					<tr  onclick="ObjectInfo('${objectVO.name}');">
+					<tr>
 
 						<td><c:out value="${objectVO.code}" /></td>
-						<td><c:out value="${objectVO.name}"/></td>
+						<td><a href="javascript:void(0)" onclick="ObjectInfo('${objectVO.name}');"><c:out value="${objectVO.name}"/></a></td>
 						<td><c:out value="${objectVO.status}" /></td>
 						<td id="${objectVO.code}button">
 						<SCRIPT language="Javascript">
