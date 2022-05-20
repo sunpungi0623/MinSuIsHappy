@@ -17,6 +17,10 @@
       delete from object where code = #{code}
    </delete>
    
+   <select id="showObject" resultType="domain.ObjectVO">
+      select * from object where code = #{code}
+   </select>
+   
    <select id="showObjects" resultType="domain.ObjectVO">
       select * from object
    </select>

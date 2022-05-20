@@ -36,7 +36,7 @@ public class ObjectDAOImp implements ObjectDAO {
 	}
 
 	@Override
-	public ObjectVO showObject() {
+	public ObjectVO showObject(ObjectVO vo) {
 		ObjectVO obj = sqlSession.selectOne(namespace + ".showObject");
 		return obj;
 	}

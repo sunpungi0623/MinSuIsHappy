@@ -9,7 +9,7 @@ public interface ObjectDAO {
 
    public void insertObject(ObjectVO vo);
    public void deleteObject(ObjectVO vo);
-   public ObjectVO showObject();
+   public ObjectVO showObject(ObjectVO vo);
    public List<ObjectVO> showObjects();
    public List<ObjectVO> showSamsungs();
    public List<ObjectVO> showLGs();

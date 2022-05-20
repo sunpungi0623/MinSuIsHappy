@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
@@ -54,13 +54,15 @@ pageEncoding="UTF-8"%>
 							function showApples() {
 								location.href = "/listAll?mode=sort&brand=apple";
 							}
-							
+
 							function showObjects() {
 								location.href = "/listAll?mode=sort&brand=All";
 							}
 						</SCRIPT>
-						<li><a class="dropdown-item" href="#"onclick="showObjects();">전체보기</a></li>
-						<li><a class="dropdown-item" href="#"onclick="showSamsungs();">Samsung</a></li>
+						<li><a class="dropdown-item" href="#"
+							onclick="showObjects();">전체보기</a></li>
+						<li><a class="dropdown-item" href="#"
+							onclick="showSamsungs();">Samsung</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showLGs();">LG</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showMSIs();">MSI</a></li>
 						<li><a class="dropdown-item" href="#" onclick="showApples();">Apple</a></li>
@@ -100,33 +102,38 @@ pageEncoding="UTF-8"%>
 						alert('대여가 불가능 합니다');
 
 					}
-					
+
 					function ObjectInfo(value) {
-						location.href= "/Info?model="+value;
+						location.href = "/Info?model=" + value;
 					}
-					
 				</script>
 				<c:forEach items="${objList}" var="objectVO" varStatus="status">
 					<tr>
 
 						<td><c:out value="${objectVO.code}" /></td>
-						<td><a href="javascript:void(0)" onclick="ObjectInfo('${objectVO.name}');"><c:out value="${objectVO.name}"/></a></td>
+						<td><a href="javascript:void(0)"
+							onclick="ObjectInfo('${objectVO.name}');"><c:out
+									value="${objectVO.name}" /></a></td>
 						<td><c:out value="${objectVO.status}" /></td>
-						<td id="${objectVO.code}button">
-						<SCRIPT language="Javascript">
-							var btn = document.getElementById("${objectVO.code}button");
-						
-							if ("${objectVO.status}" == "대여가능") {
-								btn.innerHTML += "<button type=\"submit\" class=\"btn btn-dark float-end\" onclick=\"rentBtnPushed(\`${objectVO.name}\`,\`${objectVO.code}\`);\">대여</button>";
-							} else if ("${objectVO.status}" == "대여중") {
-								btn.innerHTML += "<button type=\"submit\" style=\"background-color:red\" class=\"btn btn-dark float-end\" onclick=\"notRent();\");\">불가</button>";
 
-							}
-						</SCRIPT>
-						</td>
+						<c:if test="${ result.isRented == 0}">
+							<td id="${objectVO.code}button"><SCRIPT
+									language="Javascript">
+								var btn = document
+										.getElementById("${objectVO.code}button");
+
+								if ("${objectVO.status}" == "대여가능") {
+									btn.innerHTML += "<button type=\"submit\" class=\"btn btn-dark float-end\" onclick=\"rentBtnPushed(\`${objectVO.name}\`,\`${objectVO.code}\`);\">대여</button>";
+								} else if ("${objectVO.status}" == "대여중") {
+									btn.innerHTML += "<button type=\"submit\" style=\"background-color:red\" class=\"btn btn-dark float-end\" onclick=\"notRent();\");\">불가</button>";
+
+								}
+							</SCRIPT></td>
+						</c:if>
 						<!-- <td><button type="submit" class="btn btn-dark float-end" onclick="rentBtnPushed(`${objectVO.name}`,`${objectVO.code}`);">대여</button></td> -->
 
 					</tr>
+
 				</c:forEach>
 
 

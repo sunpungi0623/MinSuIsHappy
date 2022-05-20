@@ -31,5 +31,12 @@ public class LoginDAOImp implements LoginDAO {
 		sqlSession.insert(namespace+".SignUp", vo);
 		return;
 	}
+
+
+	@Override
+	public void Rent(LoginVO vo) throws Exception {
+		sqlSession.update(namespace+".Rent", vo);
+		return;
+	}
     
 }

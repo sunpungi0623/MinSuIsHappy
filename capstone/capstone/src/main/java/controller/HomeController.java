@@ -62,7 +62,7 @@ public class HomeController {
          lVo.setID(userId);
          lVo.setPassword(password);
          LoginVO result = ldao.login(lVo);
-         System.out.println(lVo.getID()+" "+lVo.getPassword());
+         System.out.println(lVo.getID()+" "+lVo.getPassword() + " " +result.getIsRented());
 
 
          if (result == null) {
@@ -75,8 +75,10 @@ public class HomeController {
             return "board/login";
          }
          else if (result != null) {
+
         	 session.setAttribute("LoginVO", result);
              List<ObjectVO> objList = odao.showObjects();
+             model.addAttribute("result", result);
              model.addAttribute("objList", objList);
              
         	 if(result.getTYPE().equals("manager")) {
@@ -97,6 +99,7 @@ public class HomeController {
       String brand = req.getParameter("brand");
       String mode = req.getParameter("mode");
       HttpSession session = req.getSession();
+      
       
       LocalDate now = LocalDate.now();
       
@@ -131,6 +134,7 @@ public class HomeController {
          String ocode = req.getParameter("ocode");
          LoginVO ses = (LoginVO)session.getAttribute("LoginVO");
          ObjectVO temp = new ObjectVO();
+         ldao.Rent(ses);
          temp.setName(oname);
          temp.setCode(ocode);
          temp.setUserName(ses.getUserName());
@@ -139,6 +143,8 @@ public class HomeController {
          temp.setRentDate(now.toString());
          temp.setReturnDate(now.plusMonths(1).toString());
          odao.updateObject(temp);
+
+
          
          List<ObjectVO> objList = odao.showObjects();
          model.addAttribute("objList", objList);
@@ -216,7 +222,7 @@ public class HomeController {
    }
    
    @RequestMapping(value = "/managerListAll", method = RequestMethod.GET)
-   public String showManagerListAll(HttpServletRequest req, Model model) throws Exception {
+   public String showManagerListAll(HttpServletRequest req, Model model, HttpServletResponse res) throws Exception {
 	   HttpSession session = req.getSession();
 	   
 	   String code = req.getParameter("code");
@@ -226,8 +232,15 @@ public class HomeController {
 	   addObj.setCode(code);
 	   addObj.setName(name);
 	   addObj.setStatus("대여가능");
+	   ObjectVO isBeing = odao.showObject(addObj);
+	   if(isBeing == null) {
+		   odao.insertObject(addObj);
+	   }
+	   else {
+		   //에러처리!!
+        return "board/addObject";
+	   }
 	   
-	   odao.insertObject(addObj);
 	   
        List<ObjectVO> objList = odao.showObjects();
        model.addAttribute("objList", objList);
