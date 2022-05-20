@@ -28,9 +28,10 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">CPU : i7-7700HQ (2.8GHz)</li>
-                        <li class="list-group-item">메모리 : A second item</li>
-                        <li class="list-group-item">GPU : A third item</li>
-                        <li class="list-group-item">화면 : A third item</li>
+                        <li class="list-group-item">메모리 : 8GB</li>
+                        <li class="list-group-item">그래픽카드 : GTX1050</li>
+                        <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
+                        <li class="list-group-item">무게 : 2.5kg</li>
                     </ul>              
                 </div>
             </div>
@@ -44,10 +45,11 @@
                         <p class="card-text">NT800G5W-XD7S</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">CPU : i7-7700HQ (2.8GHz)</li>
+                        <li class="list-group-item">메모리 : 8GB</li>
+                        <li class="list-group-item">그래픽카드 : GTX1050</li>
+                        <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
+                        <li class="list-group-item">무게 : 2.5kg</li>
                     </ul>
                 </div>
             </div>
@@ -61,12 +63,12 @@
                         <p class="card-text">NT800G5W-GD7A</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">CPU : i7-7700HQ (2.8GHz)</li>
+                        <li class="list-group-item">메모리 : 8GB</li>
+                        <li class="list-group-item">그래픽카드 : GTX1060</li>
+                        <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
+                        <li class="list-group-item">무게 : 2.5kg</li>
                     </ul>
-
                 </div>
             </div>
 
@@ -79,10 +81,11 @@
                         <p class="card-text">NT801G5H-X01/C</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">CPU : i7-7700HQ (2.8GHz)</li>
+                        <li class="list-group-item">메모리 : 16GB</li>
+                        <li class="list-group-item">그래픽카드 : GTX1060</li>
+                        <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
+                        <li class="list-group-item">무게 : 2.5kg</li>
                     </ul>
 
                 </div>
@@ -97,10 +100,11 @@
                         <p class="card-text">MVVJ2KH/A</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">CPU : i7-9750H (2.6GHz)</li>
+                        <li class="list-group-item">메모리 : 16GB</li>
+                        <li class="list-group-item">그래픽카드 : 라데온 Pro 5300M</li>
+                        <li class="list-group-item">화면 : 40.8cm(16인치)</li>
+                        <li class="list-group-item">무게 : 2.0kg</li>
                     </ul>
 
                 </div>
@@ -115,10 +119,11 @@
                         <p class="card-text">MGN63KH/A</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">CPU : 실리콘 M1</li>
+                        <li class="list-group-item">메모리 : 8GB</li>
+                        <li class="list-group-item">그래픽카드 : M1 7 core</li>
+                        <li class="list-group-item">화면 : 33.78cm(13.3인치)</li>
+                        <li class="list-group-item">무게 : 1.29kg</li>
                     </ul>
 
                 </div>
@@ -133,10 +138,11 @@
                         <p class="card-text">15Z90N-VP70ML</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">CPU : 10세대 쿼드코어 i7</li>
+                        <li class="list-group-item">메모리 : 8GB</li>
+                        <li class="list-group-item">그래픽카드 : 인텔 Iris Plus Graphics</li>
+                        <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
+                        <li class="list-group-item">무게 : 1120g</li>
                     </ul>
 
                 </div>
@@ -151,10 +157,11 @@
                         <p class="card-text">GF66-A11UD</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">CPU : 코어i7-11세대</li>
+                        <li class="list-group-item">메모리 : 8GB</li>
+                        <li class="list-group-item">그래픽카드 : RTX3050 Ti</li>
+                        <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
+                        <li class="list-group-item">무게 : 2.25kg</li>
                     </ul>
 
                 </div>
