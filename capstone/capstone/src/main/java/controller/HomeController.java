@@ -66,6 +66,7 @@ public class HomeController {
 
 
          if (result == null) {
+        	
             response.setContentType("text/html; charset=euc-kr");
                PrintWriter out = response.getWriter();
                out.println("<script>alert('로그인실패! 아이디 또는 패스워드를 확인해주세요.'); </script>");
@@ -74,10 +75,14 @@ public class HomeController {
             return "board/login";
          }
          else if (result != null) {
-            session.setAttribute("LoginVO", result);
-            List<ObjectVO> objList = odao.showObjects();
-            model.addAttribute("objList", objList);
-      
+        	 session.setAttribute("LoginVO", result);
+             List<ObjectVO> objList = odao.showObjects();
+             model.addAttribute("objList", objList);
+             
+        	 if(result.getTYPE().equals("manager")) {
+           		 
+        		 return "board/managerListAll";
+           	 }
             return "board/listAll";
 
          }
