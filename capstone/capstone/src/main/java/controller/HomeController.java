@@ -209,5 +209,33 @@ public class HomeController {
       return "board/notebookList";
    }
    
+   @RequestMapping(value = "/addObject", method = RequestMethod.GET)
+   public String addObject(HttpServletRequest req) throws Exception {
+
+      return "board/addObject";
+   }
+   
+   @RequestMapping(value = "/managerListAll", method = RequestMethod.GET)
+   public String showManagerListAll(HttpServletRequest req, Model model) throws Exception {
+	   HttpSession session = req.getSession();
+	   
+	   String code = req.getParameter("code");
+	   String name = req.getParameter("name");
+	   ObjectVO addObj = new ObjectVO();
+	   
+	   addObj.setCode(code);
+	   addObj.setName(name);
+	   addObj.setStatus("대여가능");
+	   
+	   odao.insertObject(addObj);
+	   
+       List<ObjectVO> objList = odao.showObjects();
+       model.addAttribute("objList", objList);
+
+      return "board/managerListAll";
+   }
+   
+   
+   
    
 }

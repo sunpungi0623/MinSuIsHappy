@@ -82,7 +82,7 @@ pageEncoding="UTF-8"%>
                <th scope="col">코드</th>
                <th scope="col">기자재명</th>
                <th scope="col">상태</th>
-               <th scope="col"><button type="button" class="btn btn-primary">수정</button></th>
+               <th scope="col" style="text-align: right"><a href="/addObject"><button type="button" class="btn btn-primary">추가</button></a></th>
             </tr>
          </thead>
 
