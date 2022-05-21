@@ -11,6 +11,7 @@ public interface ObjectDAO {
    public void deleteObject(ObjectVO vo);
    public ObjectVO showObject(ObjectVO vo);
    public List<ObjectVO> showObjects();
+   public List<ObjectVO> showReqObjects();
    public List<ObjectVO> showSamsungs();
    public List<ObjectVO> showLGs();
    public List<ObjectVO> showMSIs();

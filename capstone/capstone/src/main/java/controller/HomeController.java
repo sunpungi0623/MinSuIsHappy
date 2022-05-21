@@ -139,7 +139,7 @@ public class HomeController {
          temp.setCode(ocode);
          temp.setUserName(ses.getUserName());
          temp.setUserPhone(ses.getUserPhone());
-         temp.setStatus("대여중");
+         temp.setStatus("승인대기중");
          temp.setRentDate(now.toString());
          temp.setReturnDate(now.plusMonths(1).toString());
          odao.updateObject(temp);
@@ -248,7 +248,22 @@ public class HomeController {
       return "board/managerListAll";
    }
    
+   @RequestMapping(value = "/reqList", method = RequestMethod.GET)
+   public String reqList(HttpServletRequest req, Model model) throws Exception {
+	   List<ObjectVO> objList = odao.showReqObjects();
+       model.addAttribute("objList", objList);
+
+      return "board/reqList";
+   }
    
+   
+   @RequestMapping(value = "/rentList", method = RequestMethod.GET)
+   public String rentList(HttpServletRequest req, Model model) throws Exception {
+	   List<ObjectVO> objList = odao.showReqObjects();
+       model.addAttribute("objList", objList);
+
+      return "board/rentList";
+   }
    
    
 }
