@@ -124,7 +124,7 @@
 
 								if ("${objectVO.status}" == "대여가능") {
 									btn.innerHTML += "<button type=\"submit\" class=\"btn btn-dark float-end\" onclick=\"rentBtnPushed(\`${objectVO.name}\`,\`${objectVO.code}\`);\">대여</button>";
-								} else if ("${objectVO.status}" == "대여중" && "${objectVO.status}" == "승인대기중") {
+								} else if ("${objectVO.status}" == "대여중" || "${objectVO.status}" == "승인대기중") {
 									btn.innerHTML += "<button type=\"submit\" style=\"background-color:red\" class=\"btn btn-dark float-end\" onclick=\"notRent();\");\">불가</button>";
 
 								}

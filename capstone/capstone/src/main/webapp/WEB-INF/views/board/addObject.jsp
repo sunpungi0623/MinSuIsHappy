@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-4 offset-md-4">
                     <div class="login-form bg-light mt-4 p-4">
-                        <form action="/managerListAll" method="" class="row g-3">
+                        <form action="/managerListAll?mode=add" method="" class="row g-3">
                             <h4>기자재 추가</h4>
                             <div class="col-12">
                                 <label>기자재 코드</label>
@@ -37,7 +37,7 @@
                             
                             <div class="col-12">
                                 <div class="btn-group" style="float:right">
-                                    <a href="/managerListAll"><button type="button" class="btn btn-secondary">취소</button></a>
+                                    <a href="/managerListAll?mode=cancel"><button type="button" class="btn btn-secondary">취소</button></a>
                                 <button type="submit" class="btn btn-dark float-end">등록</button>
                                 </div>
                                 

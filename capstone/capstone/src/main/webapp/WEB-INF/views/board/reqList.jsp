@@ -38,22 +38,22 @@
 					<ul class="dropdown-menu">
 						<SCRIPT language="Javascript">
 							function showSamsungs() {
-								location.href = "/listAll?mode=sort&brand=samsung";
+								location.href = "/managerListAll?mode=sort&brand=samsung";
 							}
 
 							function showLGs() {
-								location.href = "/listAll?mode=sort&brand=lg";
+								location.href = "/managerListAll?mode=sort&brand=lg";
 							}
 
 							function showMSIs() {
-								location.href = "/listAll?mode=sort&brand=msi";
+								location.href = "/managerListAll?mode=sort&brand=msi";
 							}
 
 							function showApples() {
-								location.href = "/listAll?mode=sort&brand=apple";
+								location.href = "/managerListAll?mode=sort&brand=apple";
 							}
 							function showObjects() {
-								location.href = "/listAll?mode=sort&brand=All";
+								location.href = "/managerListAll?mode=sort&brand=All";
 							}
 						</SCRIPT>
 						<li><a class="dropdown-item" href="#"
