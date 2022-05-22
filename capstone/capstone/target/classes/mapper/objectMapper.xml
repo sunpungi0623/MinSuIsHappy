@@ -18,7 +18,8 @@
 	</delete>
 
 	<select id="showObject" resultType="domain.ObjectVO">
-		select * from object where code = #{code}
+		select * from object where
+		code = #{code}
 	</select>
 
 	<select id="showObjects" resultType="domain.ObjectVO">
@@ -29,44 +30,57 @@
 		select * from object
 		where status = "승인대기중"
 	</select>
+	
+	<select id="showRentObjects" resultType="domain.ObjectVO">
+		select * from object
+		where status = "대여중"
+	</select>
 
 	<select id="showSamsungs" resultType="domain.ObjectVO">
 		select *
 		from object
-		where name like "%삼성%"
+		where
+		name like "%삼성%"
 	</select>
 
 	<select id="showLGs" resultType="domain.ObjectVO">
 		select *
 		from object
-		where name like "%LG%"
+		where name
+		like "%LG%"
 	</select>
 
 	<select id="showMSIs" resultType="domain.ObjectVO">
 		select *
 		from object
-		where name like "%MSI%"
+		where name
+		like "%MSI%"
 	</select>
 
 	<select id="showApples" resultType="domain.ObjectVO">
 		select *
 		from object
-		where name like "%애플%"
+		where name
+		like "%애플%"
 	</select>
 
 	<select id="showMyObjects" resultType="domain.ObjectVO"
 		parameterType="domain.LoginVO">
 		select *
 		from object, User
-		where object.userName = User.userName and User.userName = #{userName}
+		where object.userID =
+		User.id and User.id = #{id}
 	</select>
 
 	<update id="updateObject" parameterType="domain.ObjectVO">
 
-		update object set rentDate=#{rentDate}, returnDate=#{returnDate},
-		status=#{status},userName=#{userName}, userPhone=#{userPhone}
-		where code=#{code} and name=#{name}
+		update object set
+		rentDate=#{rentDate}, returnDate=#{returnDate},
+		status=#{status},userID=#{userID}, userPhone=#{userPhone}
+		where
+		code=#{code} and name=#{name}
 
 
 	</update>
+
 </mapper>

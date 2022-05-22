@@ -37,7 +37,7 @@ public class ObjectDAOImp implements ObjectDAO {
 
 	@Override
 	public ObjectVO showObject(ObjectVO vo) {
-		ObjectVO obj = sqlSession.selectOne(namespace + ".showObject");
+		ObjectVO obj = sqlSession.selectOne(namespace + ".showObject", vo);
 		return obj;
 	}
 
@@ -79,6 +79,12 @@ public class ObjectDAOImp implements ObjectDAO {
 	@Override
 	public List<ObjectVO> showReqObjects() {
 		List<ObjectVO> objs = sqlSession.selectList(namespace + ".showReqObjects");
+	      return objs;
+	}
+
+	@Override
+	public List<ObjectVO> showRentObjects() {
+		List<ObjectVO> objs = sqlSession.selectList(namespace + ".showRentObjects");
 	      return objs;
 	}
 	

@@ -12,6 +12,7 @@ public interface ObjectDAO {
    public ObjectVO showObject(ObjectVO vo);
    public List<ObjectVO> showObjects();
    public List<ObjectVO> showReqObjects();
+   public List<ObjectVO> showRentObjects();
    public List<ObjectVO> showSamsungs();
    public List<ObjectVO> showLGs();
    public List<ObjectVO> showMSIs();

@@ -38,5 +38,13 @@ public class LoginDAOImp implements LoginDAO {
 		sqlSession.update(namespace+".Rent", vo);
 		return;
 	}
+
+
+	@Override
+	public void returnObj(String uid) throws Exception {
+		sqlSession.update(namespace+".returnObj", uid);
+		return;
+		
+	}
     
 }

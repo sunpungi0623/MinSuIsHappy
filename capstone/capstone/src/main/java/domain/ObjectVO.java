@@ -6,7 +6,7 @@ public class ObjectVO {
    private String returnDate;
    private String status;
    private String name;
-   private String userName;
+   private String userID;
    private String userPhone;
 
    public String getCode() {
@@ -49,12 +49,12 @@ public class ObjectVO {
       this.name = name;
    }
    
-   public String getUserName() {
-      return userName;
+   public String getUserID() {
+      return userID;
    }
 
-   public void setUserName(String userName) {
-      this.userName = userName;
+   public void setUserID(String userID) {
+      this.userID = userID;
    }
    
    public String getUserPhone() {

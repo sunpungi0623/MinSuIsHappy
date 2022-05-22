@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,9 +66,9 @@
 					</ul></li>
 				<li class="nav-item"><a class="nav-link" href="/notebookList"
 					value="mypage">기자재 정보</a></li>
-				<a class="nav-link" href="/reqList" value="mypage">신청 현황</a>
+				<a class="nav-link" href="/reqList?mode=req" value="mypage">신청 현황</a>
 				</li>
-				<a class="nav-link" href="/rentList" value="mypage">대여 현황</a>
+				<a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
 				</li>
 				</li>
 			</ul>
@@ -81,63 +81,30 @@
 				<tr>
 					<th scope="col">코드</th>
 					<th scope="col">기자재명</th>
-					<th scope="col">대여자</th>
+					<th scope="col">대여자 ID</th>
 					<th scope="col">대여자 번호</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
+			
+			<script>
+				function Acknowledge(pcode){
+					location.href = "/reqList?mode=ack&code=" + pcode;	
+					alert(pcode + '기자재가 대여되었습니다.');
+				}
+			</script>
 				<c:forEach items="${objList}" var="objectVO" varStatus="status">
-					<td><c:out value="${objectVO.code}" /></td>
-					<td><c:out value="${ objectVO.name }" /></td>
-					<td><c:out value="${ objectVO.userName }" /></td>
-					<td><c:out value="${ objectVO.userPhone }" /></td>
-					<td><button type="button" class="btn btn-primary">승인</button></td>
+					<tr>
+						<td><c:out value="${objectVO.code}" /></td>
+						<td><c:out value="${ objectVO.name }" /></td>
+						<td><c:out value="${ objectVO.userID }" /></td>
+						<td><c:out value="${ objectVO.userPhone }" /></td>
+						<td><button type="submit" class="btn btn-primary" onclick="Acknowledge('${objectVO.code}');">승인</button></td>
+					</tr>
 				</c:forEach>
 			</tbody>
-			<!--<tbody>
-            <script>
-               function rentBtnPushed(pname, pcode) {
-                  console.log(pname);
-                  console.log(pcode);
-                  location.href = "/listAll?mode=rent&oname=" + pname
-                        + "&ocode=" + pcode;
-                  alert('대여 신청이 완료되었습니다.');
 
-               }
-               function notRent() {
-                  alert('대여가 불가능 합니다');
-
-               }
-            </script>
-            <c:forEach items="${objList}" var="objectVO" varStatus="status">
-               <tr>
-                  
-                  <td><c:out value="${objectVO.code}" /></td>
-                  <td><c:out value="${objectVO.name}" /></td>
-                  <td><c:out value="${objectVO.status}" /></td>
-                        <td><c:out value="${objectVO.userName}" /></td>
-                        <td><c:out value="${objectVO.userPhone}" /></td>
-                  <td id="${objectVO.code}button">
-                  <SCRIPT language="Javascript">
-                     var btn = document.getElementById("${objectVO.code}button");
-                  
-                     if ("${objectVO.status}" == "대여가능") {
-                        btn.innerHTML += "<button type=\"submit\" class=\"btn btn-dark float-end\" onclick=\"rentBtnPushed(\`${objectVO.name}\`,\`${objectVO.code}\`);\">대여</button>";
-                     } else if ("${objectVO.status}" == "대여중") {
-                        btn.innerHTML += "<button type=\"submit\" style=\"background-color:red\" class=\"btn btn-dark float-end\" onclick=\"notRent();\");\">불가</button>";
-
-                     }
-                  </SCRIPT>
-               -->
-			</td>
-			<!-- <td><button type="submit" class="btn btn-dark float-end" onclick="rentBtnPushed(`${objectVO.name}`,`${objectVO.code}`);">대여</button></td> -->
-
-			</tr>
-			</c:forEach>
-
-
-			</tbody>
 		</table>
 	</div>
 

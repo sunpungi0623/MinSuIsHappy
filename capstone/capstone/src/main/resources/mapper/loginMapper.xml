@@ -22,4 +22,8 @@
 	<update id="Rent" parameterType="domain.LoginVO">
 		update User set isRented = 1 where id = #{id}
 	</update>
+	
+	<update id="returnObj" parameterType="String">
+		update User set isRented = 0 where id = #{uid}
+	</update>
 </mapper>

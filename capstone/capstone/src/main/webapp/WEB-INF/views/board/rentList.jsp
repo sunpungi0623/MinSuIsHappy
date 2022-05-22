@@ -66,9 +66,10 @@
 					</ul></li>
 				<li class="nav-item"><a class="nav-link" href="/notebookList"
 					value="mypage">기자재 정보</a></li>
-				<a class="nav-link" href="/reqList" value="mypage">신청 현황</a>
+				<a class="nav-link" href="/reqList?mode=show" value="mypage">신청
+					현황</a>
 				</li>
-				<a class="nav-link" href="/rentList" value="mypage">대여 현황</a>
+				<a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
 				</li>
 				</li>
 			</ul>
@@ -81,8 +82,7 @@
 				<tr>
 					<th scope="col">코드</th>
 					<th scope="col">기자재명</th>
-					<th scope="col">상태</th>
-					<th scope="col">대여자</th>
+					<th scope="col">대여자 ID</th>
 					<th scope="col">대여자 번호</th>
 					<th scope="col">대여일</th>
 					<th scope="col">반납일</th>
@@ -90,14 +90,25 @@
 				</tr>
 			</thead>
 			<tbody>
-				<td>F8001-어쩌고</td>
-				<td>삼성 어쩌고</td>
-				<td>대여가능</td>
-				<td>하나</td>
-				<td>010-0000-0000</td>
-				<td>2020-05-12</td>
-				<td>2020-어쩌고</td>
-				<td><button type="button" class="btn btn-success">반납</button></td>
+
+				<script>
+					function returnObject(pcode, uid) {
+						location.href="/rentList?mode=return&pcode=" + pcode + "&uid=" + uid;
+						alert(pcode + '기자재가 반납되었습니다.')
+					}
+				</script>
+				<c:forEach items="${objList}" var="objectVO" varStatus="status">
+					<tr>
+						<td><c:out value="${ objectVO.code }" /></td>
+						<td><c:out value="${ objectVO.name }" /></td>
+						<td><c:out value="${ objectVO.userID }" /></td>
+						<td><c:out value="${ objectVO.userPhone }" /></td>
+						<td><c:out value="${ objectVO.rentDate }" /></td>
+						<td><c:out value="${ objectVO.returnDate }" /></td>
+						<td><button type="submit" class="btn btn-primary"
+								onclick="returnObject('${objectVO.code}', '${ objectVO.userID }');">반납</button></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 
 

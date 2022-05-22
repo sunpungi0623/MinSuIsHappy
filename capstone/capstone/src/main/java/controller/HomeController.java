@@ -62,7 +62,6 @@ public class HomeController {
          lVo.setID(userId);
          lVo.setPassword(password);
          LoginVO result = ldao.login(lVo);
-         System.out.println(lVo.getID()+" "+lVo.getPassword() + " " +result.getIsRented());
 
 
          if (result == null) {
@@ -137,7 +136,7 @@ public class HomeController {
          ldao.Rent(ses);
          temp.setName(oname);
          temp.setCode(ocode);
-         temp.setUserName(ses.getUserName());
+         temp.setUserID(ses.getID());
          temp.setUserPhone(ses.getUserPhone());
          temp.setStatus("승인대기중");
          temp.setRentDate(now.toString());
@@ -250,6 +249,17 @@ public class HomeController {
    
    @RequestMapping(value = "/reqList", method = RequestMethod.GET)
    public String reqList(HttpServletRequest req, Model model) throws Exception {
+	   
+	   String mode = req.getParameter("mode");
+	   String code = req.getParameter("code");
+	   if(mode.equals("ack")) { 
+		   ObjectVO ovo = new ObjectVO();
+		   ovo.setCode(code);
+		   ObjectVO temp = odao.showObject(ovo);
+		   temp.setStatus("대여중");
+		   odao.updateObject(temp);
+	   }
+	   
 	   List<ObjectVO> objList = odao.showReqObjects();
        model.addAttribute("objList", objList);
 
@@ -259,7 +269,26 @@ public class HomeController {
    
    @RequestMapping(value = "/rentList", method = RequestMethod.GET)
    public String rentList(HttpServletRequest req, Model model) throws Exception {
-	   List<ObjectVO> objList = odao.showReqObjects();
+	   String mode = req.getParameter("mode");
+	   String code = req.getParameter("pcode");
+	   String userID = req.getParameter("uid");
+	   
+	   if(mode.equals("return")) { 
+		   ldao.returnObj(userID);
+		   
+		   
+		   ObjectVO ovo = new ObjectVO();
+		   ovo.setCode(code);
+		   ObjectVO temp = odao.showObject(ovo);
+		   temp.setStatus("대여가능");
+		   temp.setRentDate(null);
+		   temp.setReturnDate(null);
+		   temp.setUserID(null);
+		   temp.setUserPhone(null);
+		   odao.updateObject(temp);
+	   }
+	   
+	   List<ObjectVO> objList = odao.showRentObjects();
        model.addAttribute("objList", objList);
 
       return "board/rentList";
