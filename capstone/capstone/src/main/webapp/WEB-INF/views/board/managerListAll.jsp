@@ -25,6 +25,7 @@
 
 </head>
 <body>
+<<<<<<< Updated upstream
 	<div class="contents">
 		<!-- 맨 윗상단 메뉴 -->
 		<div class="header">
@@ -120,5 +121,138 @@
 	<!— Bootstrap JS —>
 	<script
 		src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+=======
+   <div class="contents">
+      <!-- 맨 윗상단 메뉴 -->
+      <div class="header">
+         <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> <img
+            src="https://w.namu.la/s/1238e4e492e16357828d8f9621fcb625103edf44604af4a4f70da228cce0078e0624b2ddb1d37b7cd4090200bdd6dd68c3e818440b626260b092d73b069bdc481ab7b3ade2a8021060f7bc81d4b4366b"
+            , width=150> <a class="navbar-brand" href="#">&nbsp;&nbsp;기자재
+            대여 시스템</a>
+         <ul class="navbar-nav">
+            <!--Dropdown-->
+            <li class="nav-item dropdown"><a
+               class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+               role="button" aria-expanded="false">기자재 현황</a>
+               <ul class="dropdown-menu">
+                  <SCRIPT language="Javascript">
+                     function showSamsungs() {
+                        location.href = "/managerListAll?mode=sort&brand=samsung";
+                     }
+
+                     function showLGs() {
+                        location.href = "/managerListAll?mode=sort&brand=lg";
+                     }
+
+                     function showMSIs() {
+                        location.href = "/managerListAll?mode=sort&brand=msi";
+                     }
+
+                     function showApples() {
+                        location.href = "/managerListAll?mode=sort&brand=apple";
+                     }
+                     
+                     function showObjects() {
+                        location.href = "/managerListAll?mode=sort&brand=All";
+                     }
+                  </SCRIPT>
+                  <li><a class="dropdown-item" href="#"onclick="showObjects();">전체보기</a></li>
+                  <li><a class="dropdown-item" href="#"onclick="showSamsungs();">Samsung</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="showLGs();">LG</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="showMSIs();">MSI</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="showApples();">Apple</a></li>
+               </ul></li>
+            <li class="nav-item"><SCRIPT language="Javascript">
+               
+            </SCRIPT> 
+            </li>
+            <a class="nav-link" href="/reqList?mode=show" value="mypage">신청 현황</a>
+            <a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
+            </li>
+         </ul>
+         </nav>
+
+      </div>
+      <br>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th scope="col">코드</th>
+               <th scope="col">기자재명</th>
+               <th scope="col">상태</th>
+               <th scope="col" style="text-align: right"><a href="/addObject"><button type="button" class="btn btn-primary">추가</button></a></th>
+            </tr>
+         </thead>
+
+         <tbody>
+         <script>
+               function deleteObj(ocode) {
+                  location.href = "/managerListAll?mode=delete&code=" + ocode;
+                  alert(ocode + '물품이 삭제되었습니다.');
+               }
+            </script>
+            <c:forEach items="${objList}" var="objectVO" varStatus="status">
+               <tr>
+
+                  <td><c:out value="${objectVO.code}" /></td>
+                  <td><a href="javascript:void(0)"
+                     onclick="ObjectInfo('${objectVO.name}');"><c:out
+                           value="${objectVO.name}" /></a></td>
+                  <td><c:out value="${objectVO.status}" /></td>
+                  <td><button type="submit" class="btn btn-danger float-end" onclick="deleteObj('${ objectVO.code }');">삭제</button></td>
+               </tr>
+            </c:forEach>
+            <script>
+               function rentBtnPushed(pname, pcode) {
+                  console.log(pname);
+                  console.log(pcode);
+                  location.href = "/listAll?mode=rent&oname=" + pname
+                        + "&ocode=" + pcode;
+                  alert('대여 신청이 완료되었습니다.');
+
+               }
+               function notRent() {
+                  alert('대여가 불가능 합니다');
+
+               }
+               
+               function ObjectInfo(value) {
+                  location.href= "/Info?model="+value;
+               }
+               
+            </script>
+            <c:forEach items="${objList}" var="objectVO" varStatus="status">
+               <tr>
+
+                  <td><c:out value="${objectVO.code}" /></td>
+                  <td><a href="javascript:void(0)" onclick="ObjectInfo('${objectVO.name}');"><c:out value="${objectVO.name}"/></a></td>
+                  <td><c:out value="${objectVO.status}" /></td>
+                  <td id="${objectVO.code}button">
+                  <SCRIPT language="Javascript">
+                     var btn = document.getElementById("${objectVO.code}button");
+                  
+                     if ("${objectVO.status}" == "대여가능") {
+                        btn.innerHTML += "<button type=\"submit\" class=\"btn btn-danger float-end\" onclick=\"rentBtnPushed(\`${objectVO.name}\`,\`${objectVO.code}\`);\">삭제</button>";
+                     } else if ("${objectVO.status}" == "대여중") {
+                        btn.innerHTML += "<button type=\"submit\" class=\"btn btn-danger float-end\" onclick=\"notRent();\");\">불가</button>";
+
+                     }
+                  </SCRIPT>
+                  </td>
+                  <!-- <td><button type="submit" class="btn btn-dark float-end" onclick="rentBtnPushed(`${objectVO.name}`,`${objectVO.code}`);">대여</button></td> -->
+
+               </tr>
+            </c:forEach>
+
+
+         </tbody>
+      </table>
+   </div>
+
+
+   <!— Bootstrap JS —>
+   <script
+      src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+>>>>>>> Stashed changes
 </body>
 </html>

@@ -23,55 +23,32 @@
 
 </head>
 <body>
+	<body>
 	<div class="contents">
 		<!-- 맨 윗상단 메뉴 -->
 		<div class="header">
-			<nav class="navbar navbar-expand-sm navbar-dark bg-dark"> <img
-				src="https://w.namu.la/s/1238e4e492e16357828d8f9621fcb625103edf44604af4a4f70da228cce0078e0624b2ddb1d37b7cd4090200bdd6dd68c3e818440b626260b092d73b069bdc481ab7b3ade2a8021060f7bc81d4b4366b"
-				, width=150> <a class="navbar-brand" href="#">&nbsp;&nbsp;기자재
-				대여 시스템</a>
-			<ul class="navbar-nav">
-				<!--Dropdown-->
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-					role="button" aria-expanded="false">기자재 현황</a>
-					<ul class="dropdown-menu">
+			<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+				<img
+					src="https://w.namu.la/s/1238e4e492e16357828d8f9621fcb625103edf44604af4a4f70da228cce0078e0624b2ddb1d37b7cd4090200bdd6dd68c3e818440b626260b092d73b069bdc481ab7b3ade2a8021060f7bc81d4b4366b"
+					, width=150> <a class="navbar-brand" href="#">&nbsp;&nbsp;기자재
+					대여 시스템</a>
+				<ul class="navbar-nav">
+
+					<li class="nav-item"><a class="nav-link" href="#"
+						role="button" aria-expanded="false" onclick="showObjects();">HOME</a>
 						<SCRIPT language="Javascript">
-							function showSamsungs() {
-								location.href = "/managerListAll?mode=sort&brand=samsung";
-							}
-
-							function showLGs() {
-								location.href = "/managerListAll?mode=sort&brand=lg";
-							}
-
-							function showMSIs() {
-								location.href = "/managerListAll?mode=sort&brand=msi";
-							}
-
-							function showApples() {
-								location.href = "/managerListAll?mode=sort&brand=apple";
-							}
+							
 							function showObjects() {
 								location.href = "/managerListAll?mode=sort&brand=All";
 							}
 						</SCRIPT>
-						<li><a class="dropdown-item" href="#"
-							onclick="showObjects();">전체보기</a></li>
-						<li><a class="dropdown-item" href="#"
-							onclick="showSamsungs();">Samsung</a></li>
-						<li><a class="dropdown-item" href="#" onclick="showLGs();">LG</a></li>
-						<li><a class="dropdown-item" href="#" onclick="showMSIs();">MSI</a></li>
-						<li><a class="dropdown-item" href="#" onclick="showApples();">Apple</a></li>
-					</ul></li>
-				<li class="nav-item"><a class="nav-link" href="/notebookList"
-					value="mypage">기자재 정보</a></li>
+						
+				</li>
 				<a class="nav-link" href="/reqList?mode=show" value="mypage">신청
 					현황</a>
-				</li>
+				
 				<a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
-				</li>
-				</li>
+			
 			</ul>
 			</nav>
 
