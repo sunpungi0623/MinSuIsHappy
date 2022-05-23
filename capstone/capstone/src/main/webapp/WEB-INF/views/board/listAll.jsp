@@ -94,9 +94,14 @@
 					function rentBtnPushed(pname, pcode) {
 						console.log(pname);
 						console.log(pcode);
-						location.href = "/listAll?mode=rent&oname=" + pname
-								+ "&ocode=" + pcode;
-						alert('대여 신청이 완료되었습니다.');
+						var isRented = "${result.isRented}";
+						if (isRented == "0") {
+							location.href = "/listAll?mode=rent&oname=" + pname + "&ocode=" + pcode;
+							alert('대여 신청이 완료되었습니다.');
+						}
+						else{
+							alert('이미 신청하신 기자제가 있으므로 대여가 불가합니다');
+						}
 
 					}
 					function notRent() {
@@ -117,21 +122,19 @@
 									value="${objectVO.name}" /></a></td>
 						<td><c:out value="${objectVO.status}" /></td>
 
-						<c:if test="${ result.isRented == 0}">
-							<td id="${objectVO.code}button"><SCRIPT
-									language="Javascript">
-								var btn = document
-										.getElementById("${objectVO.code}button");
 
+						<td id="${objectVO.code}button"><SCRIPT language="Javascript">
+								var btn = document.getElementById("${objectVO.code}button");
+
+								
 								if ("${objectVO.status}" == "대여가능") {
 									btn.innerHTML += "<button type=\"submit\" class=\"btn btn-dark float-end\" onclick=\"rentBtnPushed(\`${objectVO.name}\`,\`${objectVO.code}\`);\">대여</button>";
-								} else if ("${objectVO.status}" == "대여중"
-										|| "${objectVO.status}" == "승인대기중") {
+								} else if ("${objectVO.status}" == "대여중" || "${objectVO.status}" == "승인대기중") {
 									btn.innerHTML += "<button type=\"submit\" style=\"background-color:red\" class=\"btn btn-dark float-end\" onclick=\"notRent();\");\">불가</button>";
-
 								}
-							</SCRIPT></td>
-						</c:if>
+								
+						</SCRIPT></td>
+
 						<!-- <td><button type="submit" class="btn btn-dark float-end" onclick="rentBtnPushed(`${objectVO.name}`,`${objectVO.code}`);">대여</button></td> -->
 
 					</tr>
