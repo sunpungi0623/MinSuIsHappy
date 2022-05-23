@@ -255,6 +255,13 @@ public class HomeController {
 				return "board/managerListAll";
 			}
 		} 
+		else if (mode.equals("delete")) {
+			ObjectVO obj = new ObjectVO();
+			obj.setCode(code);
+			ObjectVO delObj = odao.showObject(obj);
+			odao.deleteObject(delObj);
+		}
+		
 		else {
 			
 		}
