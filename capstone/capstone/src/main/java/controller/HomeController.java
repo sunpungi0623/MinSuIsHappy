@@ -201,7 +201,6 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/managerListAll", method = RequestMethod.GET)
-<<<<<<< Updated upstream
 	public String showManagerListAll(HttpServletRequest req, Model model, HttpServletResponse res) throws Exception {
 		HttpSession session = req.getSession();
 		String brand = req.getParameter("brand");
@@ -272,77 +271,7 @@ public class HomeController {
 		return "board/managerListAll";
 	}
 
-=======
-	   public String showManagerListAll(HttpServletRequest req, Model model, HttpServletResponse res) throws Exception {
-	      HttpSession session = req.getSession();
-	      String brand = req.getParameter("brand");
-	      String mode = req.getParameter("mode");
-	      String code = req.getParameter("code");
-	      String name = req.getParameter("name");
 
-	      
-	      if (mode == null) {
-	         if (code != null && name != null) {
-	            ObjectVO addObj = new ObjectVO();
-
-	            addObj.setCode(code);
-	            addObj.setName(name);
-	            addObj.setStatus("대여가능");
-	            ObjectVO isBeing = odao.showObject(addObj);
-	            if (isBeing == null) {
-	               odao.insertObject(addObj);
-	            } else {
-	               // 에러처리!!
-	               return "board/addObject";
-	            }
-	         }
-	      }
-	      else if (mode.equals("sort")) {
-	         if (brand.equals("samsung")) {
-	            List<ObjectVO> objList = odao.showSamsungs();
-	            model.addAttribute("objList", objList);
-	            return "board/managerListAll";
-	         }
-
-	         if (brand.equals("lg")) {
-	            List<ObjectVO> objList = odao.showLGs();
-	            model.addAttribute("objList", objList);
-	            return "board/managerListAll";
-	         }
-
-	         if (brand.equals("msi")) {
-	            List<ObjectVO> objList = odao.showMSIs();
-	            model.addAttribute("objList", objList);
-	            return "board/managerListAll";
-	         }
-
-	         if (brand.equals("apple")) {
-	            List<ObjectVO> objList = odao.showApples();
-	            model.addAttribute("objList", objList);
-	            return "board/managerListAll";
-	         }
-	         if (brand.equals("All")) {
-	            List<ObjectVO> objList = odao.showObjects();
-	            model.addAttribute("objList", objList);
-	            return "board/managerListAll";
-	         }
-	      } 
-	      else if (mode.equals("delete")) {
-	         ObjectVO obj = new ObjectVO();
-	         obj.setCode(code);
-	         ObjectVO delObj = odao.showObject(obj);
-	         odao.deleteObject(delObj);
-	      }
-	      
-	      else {
-	         
-	      }
-	      
-	      List<ObjectVO> objList = odao.showObjects();
-	      model.addAttribute("objList", objList);
-	      return "board/managerListAll";
-	   }
->>>>>>> Stashed changes
 	@RequestMapping(value = "/reqList", method = RequestMethod.GET)
 	public String reqList(HttpServletRequest req, Model model) throws Exception {
 
