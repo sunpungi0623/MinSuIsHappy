@@ -2,7 +2,7 @@ package domain;
 
 public class LoginVO {
  
-    private String id;
+    public String id;
     private String Type;
     private String password;
     private String userName;

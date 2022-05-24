@@ -19,6 +19,12 @@
 		insert into User(id, password, userName, userPhone, Type, isRented) values(#{id},#{password},#{userName},#{userPhone},#{Type},0);
 	</insert>
 	
+	<select id="idChk" parameterType="domain.LoginVO" resultType="int">
+		select COUNT(*)
+		from User
+		where id = #{id}
+	</select>
+	
 	<update id="Rent" parameterType="domain.LoginVO">
 		update User set isRented = 1 where id = #{id}
 	</update>

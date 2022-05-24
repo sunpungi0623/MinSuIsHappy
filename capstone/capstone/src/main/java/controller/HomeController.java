@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.LoginDAO;
 import dao.ObjectDAO;
@@ -28,10 +29,10 @@ public class HomeController {
 
 	@Inject
 	private LoginDAO ldao;
+	
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response)
-			throws Exception {
+	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception { 
 
 		HttpSession session = req.getSession();
 		LoginVO member = ldao.login(vo);
@@ -46,6 +47,26 @@ public class HomeController {
 
 		} else if (mode.equals("register")) {
 			LoginVO lVo = new LoginVO();
+			lVo.id = userId;
+			if (userId.trim().length() != 7) {
+				response.setContentType("text/html; charset=euc-kr");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('학번을 다시 입력해주세요.'); </script>");
+				out.flush();
+				return "board/register";
+			}
+			int num = ldao.idChk(lVo);
+			System.out.println(num);
+			if (num != 0) {
+				response.setContentType("text/html; charset=euc-kr");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('이미 회원가입된 학번입니다.'); </script>");
+				out.flush();
+				return "board/register";
+			}
+			userPhone = userPhone.replace("-", "");
+			userPhone =userPhone.replace(" ", "");
+
 			lVo.setID(userId);
 			lVo.setPassword(password);
 			lVo.setTYPE("student");

@@ -24,25 +24,24 @@
                             <h4>회원가입</h4>
                             <div class="col-12">
                                 <label>ID</label>
-                                <input id="userId" type="text" class="form-control" placeholder="ID">
+                                <input id="userId" type="text" class="form-control" placeholder="학번을 입력해주세요.">
                             </div>
                             <div class="col-12">
                                 <label>Password</label>
-                                <input id="password" type="password" class="form-control" placeholder="Password">
+                                <input id="password" type="password" class="form-control" placeholder="비밀번호를 입력해주세요.">
                             </div>
                             <div class="col-12">
                                 <label>User name</label>
-                                <input id="userName" type="text" class="form-control" placeholder="name">
+                                <input id="userName" type="text" class="form-control" placeholder="이름을 입력해주세요.">
                             </div>
                             <div class="col-12">
                                 <label>User Phone number</label>
-                                <input id="userPhone" type="text" class="form-control" placeholder="phoneNumber">
+                                <input id="userPhone" type="text" class="form-control" placeholder="핸드폰번호를 입력해주세요.">
                             </div>
                             
                             <div class="col-12">
                             <SCRIPT language="Javascript">
                         	function submitRegister() {
-                        		console.log("ㅋㅋ");
                         		var userId = document.getElementById("userId").value;
                         		var userName = document.getElementById("userName").value;
                         		var password = document.getElementById("password").value;
@@ -53,7 +52,7 @@
                         	}
                         
                         </SCRIPT>
-							<input type="button" class="btn btn-dark float-end" value="submit" onclick="submitRegister();" />
+							<input type="button" class="btn btn-dark float-end" value="회원가입" onclick="submitRegister();" />
                             </div>
                         </form>
                     </div>

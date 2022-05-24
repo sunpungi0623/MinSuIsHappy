@@ -43,8 +43,13 @@ public class LoginDAOImp implements LoginDAO {
 	@Override
 	public void returnObj(String uid) throws Exception {
 		sqlSession.update(namespace+".returnObj", uid);
-		return;
-		
+		return;	
+	}
+	
+	@Override
+	public int idChk(LoginVO vo) throws Exception {
+		int num = sqlSession.selectOne(namespace+".idChk", vo);
+		return num;
 	}
     
 }
