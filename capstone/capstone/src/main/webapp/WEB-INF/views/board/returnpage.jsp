@@ -45,7 +45,7 @@
             </li>
             <a class="nav-link" href="/reqList?mode=show" value="mypage">신청 현황</a>
             <a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
-            <a class="nav-link" href="/rentList?mode=show" value="mypage">반납 현황</a>
+            <a class="nav-link" href="/returnpage" value="mypage">대여 기록</a>
          
          </ul>
          </nav>
@@ -65,25 +65,17 @@
          </thead>
          <tbody>
 
-            <script>
-               function returnObject(pcode, uid) {
-                  location.href="/rentList?mode=return&pcode=" + pcode + "&uid=" + uid;
-                  alert(pcode + '기자재가 반납되었습니다.')
-               }
-            </script>
-            <c:forEach items="${objList}" var="objectVO" varStatus="status">
+            <c:forEach items="${objList}" var="recordVO" varStatus="status">
                <tr>
-                  <td><c:out value="${ objectVO.code }" /></td>
-                  <td><c:out value="${ objectVO.name }" /></td>
-                  <td><c:out value="${ objectVO.userID }" /></td>
-                  <td><c:out value="${ objectVO.userPhone }" /></td>
-                  <td><c:out value="${ objectVO.rentDate }" /></td>
-                  <td><c:out value="${ objectVO.returnDate }" /></td>
+                  <td><c:out value="${ recordVO.code }" /></td>
+                  <td><c:out value="${ recordVO.name }" /></td>
+                  <td><c:out value="${ recordVO.userID }" /></td>
+                  <td><c:out value="${ recordVO.userPhone }" /></td>
+                  <td><c:out value="${ recordVO.rentDate }" /></td>
+                  <td><c:out value="${ recordVO.returnDate }" /></td>
                   </tr>
             </c:forEach>
          </tbody>
-
-
       </table>
    </div>
 

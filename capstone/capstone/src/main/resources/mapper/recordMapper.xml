@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="mapper.RecordMapper">
+
+	<insert id="insertRecord">
+		insert into record(code, name, userID, userPhone, rentDate, returnDate) values
+		(#{code}, #{name},  #{userID}, #{userPhone}, #{rentDate}, #{returnDate})
+	</insert>
+
+
+	<select id="showRecords" resultType="domain.RecordVO">
+		select * from record
+	</select>
+
+
+</mapper>

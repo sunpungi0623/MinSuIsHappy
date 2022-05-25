@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.LoginDAO;
 import dao.ObjectDAO;
+import dao.RecordDAO;
+
 import domain.LoginVO;
 import domain.ObjectVO;
+import domain.RecordVO;
 
 @RequestMapping("/")
 @Controller
@@ -29,6 +32,9 @@ public class HomeController {
 
 	@Inject
 	private LoginDAO ldao;
+	
+	@Inject
+	private RecordDAO rdao;
 	
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -322,13 +328,23 @@ public class HomeController {
 		String mode = req.getParameter("mode");
 		String code = req.getParameter("pcode");
 		String userID = req.getParameter("uid");
+		LocalDate now = LocalDate.now();
 
 		if (mode.equals("return")) {
 			ldao.returnObj(userID);
-
+			RecordVO rvo = new RecordVO();
+			
 			ObjectVO ovo = new ObjectVO();
 			ovo.setCode(code);
 			ObjectVO temp = odao.showObject(ovo);
+			rvo.setCode(temp.getCode());
+			rvo.setName(temp.getName());
+			rvo.setUserID(temp.getUserID());
+			rvo.setUserPhone(temp.getUserPhone());
+			rvo.setRentDate(temp.getRentDate());
+			rvo.setReturnDate(now.toString());
+			rdao.insertRecord(rvo);
+			
 			temp.setStatus("대여가능");
 			temp.setRentDate(null);
 			temp.setReturnDate(null);
@@ -342,6 +358,16 @@ public class HomeController {
 
 		return "board/rentList";
 	}
+	
+	@RequestMapping(value = "/returnpage", method = RequestMethod.GET)
+	public String showReturns(HttpServletRequest req, Model model) throws Exception {
+		
+		List<RecordVO> objList = rdao.showRecords();
+		model.addAttribute("objList", objList);
+
+		return "board/returnpage";
+	}
+	
 	   @RequestMapping(value = "/logout", method = RequestMethod.GET)
 	   public String logout(HttpServletRequest req) {
 	       HttpSession session1 = req.getSession();
