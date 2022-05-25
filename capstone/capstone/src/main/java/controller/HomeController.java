@@ -175,6 +175,13 @@ public class HomeController {
 
 		return "board/register";
 	}
+	
+	@RequestMapping(value = "/recopage", method = RequestMethod.GET)
+	public String getRecopage(HttpServletRequest req) throws Exception {
+
+		return "board/recopage";
+	}
+
 
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String getMypage(HttpServletRequest req, Model model) throws Exception {
