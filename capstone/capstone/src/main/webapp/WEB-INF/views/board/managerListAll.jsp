@@ -69,12 +69,10 @@
                </ul></li>
             <li class="nav-item"><SCRIPT language="Javascript">
                
-            </SCRIPT> <a class="nav-link" href="/notebookList" value="mypage">기자재
-                  정보</a></li>
-            <a class="nav-link" href="/reqList?mode=show" value="mypage">신청
-               현황</a>
-            <a class="nav-link" href="/rentList?mode=show" value="mypage">대여
-               현황</a>
+            </SCRIPT> <a class="nav-link" href="/notebookList" value="mypage">기자재 정보</a></li>
+            <a class="nav-link" href="/reqList?mode=show" value="mypage">신청 현황</a>
+            <a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
+            <a class="nav-link" href="/rentList?mode=show" value="mypage">반납 일지</a>
             </li>
          </ul>
          </nav>

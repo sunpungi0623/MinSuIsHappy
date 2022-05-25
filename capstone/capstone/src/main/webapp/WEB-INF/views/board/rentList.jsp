@@ -44,10 +44,11 @@
 						</SCRIPT>
 						
 				</li>
-				<a class="nav-link" href="/reqList?mode=show" value="mypage">신청
-					현황</a>
+				<a class="nav-link" href="/reqList?mode=show" value="mypage">신청 현황</a>
 				
 				<a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
+				
+				<a class="nav-link" href="/rentList?mode=show" value="mypage">반납 일지</a>
 			
 			</ul>
 			</nav>
@@ -62,7 +63,7 @@
 					<th scope="col">대여자 ID</th>
 					<th scope="col">대여자 번호</th>
 					<th scope="col">대여일</th>
-					<th scope="col">반납일</th>
+					<th scope="col">반납예정일</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>

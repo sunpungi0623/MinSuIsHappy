@@ -48,6 +48,8 @@
 				
 				<a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
 				
+				<a class="nav-link" href="/rentList?mode=show" value="mypage">반납 일지</a>
+				
 				
 			</ul>
 			</nav>
