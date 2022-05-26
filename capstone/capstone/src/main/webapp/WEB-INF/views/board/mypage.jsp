@@ -84,10 +84,22 @@
 							<th scope="col">비품명</th>
 							<th scope="col">대여 기간</th>
 							<th scope="col">반납 예정일</th>
-
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
+					
+					<script>
+					function cancelRent(pcode) {
+
+							location.href = "/mypage?mode=cancel&ocode=" + pcode;
+							alert('기자재 대여 신청이 취소되었습니다.');
+
+					}
+					function notCancel() {
+						alert('대여중인 기자재는 취소가 불가능 합니다');
+					}
+				</script>
 
 						<c:forEach items="${objList}" var="objectVO" varStatus="status">
 
@@ -97,7 +109,17 @@
 								<td><c:out value="${objectVO.getRentDate()}" /></td>
 								<td><c:out value="${objectVO.getReturnDate()}" /></td>
 
-								</td>
+								<td id="${objectVO.code}button"><SCRIPT
+										language="Javascript">
+									var btn = document
+											.getElementById("${objectVO.code}button");
+
+									if ("${objectVO.status}" == "승인대기중") {
+										btn.innerHTML += "<button type=\"submit\" style=\"background-color:red\" class=\"btn btn-dark float-end\" onclick=\"cancelRent(\`${objectVO.code}\`);\">취소</button>";
+									} else if ("${objectVO.status}" == "대여중") {
+										btn.innerHTML += "<button type=\"submit\" style=\"background-color:red\" class=\"btn btn-dark float-end\" onclick=\"notCancel();\");\">취소</button>";
+									}
+								</SCRIPT></td>
 							</tr>
 						</c:forEach>
 					</tbody>
