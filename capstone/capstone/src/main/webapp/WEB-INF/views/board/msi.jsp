@@ -17,9 +17,8 @@
           <br>
 
         <div class="col-lg-3 col-md-4">
-            <!-- 삼성 오디세이 -->
             <div class="card" style="width: 40rem;">
-                <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzAzMjBfMjU5/MDAxNDg5OTM3OTc0NDg2.i_jzKz9pCswKluUgqr6SjZrsXA28oFs-JKIv_f22LQAg.xWmNy1_154ot0Dx_AgOB9MF2fkItvHKYWo-mbxVMm7Eg.JPEG.iamsmartin/odyssey4.jpg?type=w800" class="card-img-top" alt="samsung odyssey" height="400">
+                <img src="http://photo3.enuri.info/data/images/service/big/69920000/69920947.jpg" alt="msi" height="400">
                 <div class="card-body">
                     <h3 class="card-title">MSI 소드</h3>
                     <p class="card-text"><h5>GF66-A11UD</h5></p>

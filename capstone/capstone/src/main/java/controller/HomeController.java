@@ -32,13 +32,13 @@ public class HomeController {
 
 	@Inject
 	private LoginDAO ldao;
-	
+
 	@Inject
 	private RecordDAO rdao;
-	
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception { 
+	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response)
+			throws Exception {
 
 		HttpSession session = req.getSession();
 		LoginVO member = ldao.login(vo);
@@ -71,7 +71,7 @@ public class HomeController {
 				return "board/register";
 			}
 			userPhone = userPhone.replace("-", "");
-			userPhone =userPhone.replace(" ", "");
+			userPhone = userPhone.replace(" ", "");
 
 			lVo.setID(userId);
 			lVo.setPassword(password);
@@ -82,6 +82,7 @@ public class HomeController {
 			return "board/login";
 
 		} else if (mode.equals("login")) {
+			
 			LoginVO lVo = new LoginVO();
 			lVo.setID(userId);
 			lVo.setPassword(password);
@@ -115,7 +116,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
-	public String getList(HttpServletRequest req, Model model) throws Exception {
+	public String getList(HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 
 		String brand = req.getParameter("brand");
 		String mode = req.getParameter("mode");
@@ -167,42 +168,115 @@ public class HomeController {
 
 		}
 
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
+
 		return "board/listAll";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String getRegister(HttpServletRequest req) throws Exception {
+	public String getRegister(HttpServletRequest req, HttpServletResponse response) throws Exception {
+		HttpSession session = req.getSession();
+
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
 
 		return "board/register";
 	}
-	
+
 	@RequestMapping(value = "/recopage", method = RequestMethod.GET)
-	public String getRecopage(HttpServletRequest req) throws Exception {
+	public String getRecopage(HttpServletRequest req, HttpServletResponse response) throws Exception {
+		HttpSession session = req.getSession();
+
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
 
 		return "board/recopage";
 	}
 
-
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String getMypage(HttpServletRequest req, Model model) throws Exception {
+	public String getMypage(HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 		HttpSession session = req.getSession();
-		LoginVO l2vo = (LoginVO) session.getAttribute("LoginVO");
-		List<ObjectVO> o2vo = odao.showMyObjects(l2vo);
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
 
-		model.addAttribute("userList", l2vo);
+		String mode = req.getParameter("mode");
+		String code = req.getParameter("ocode");
+
+		if (mode == null) {
+			
+			if (ses == null) {
+				response.setContentType("text/html; charset=euc-kr");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+				out.flush();
+				return "board/login";
+			}
+			
+			List<ObjectVO> o2vo = odao.showMyObjects(ses);
+			model.addAttribute("userList", ses);
+			model.addAttribute("objList", o2vo);
+
+			return "board/mypage";
+		} else {
+			ldao.returnObj(ses.getID());
+			ObjectVO ovo = new ObjectVO();
+			ovo.setCode(code);
+			ObjectVO temp = odao.showObject(ovo);
+
+			temp.setStatus("대여가능");
+			temp.setUserID(null);
+			temp.setUserPhone(null);
+			odao.updateObject(temp);
+		}
+
+		List<ObjectVO> o2vo = odao.showMyObjects(ses);
+
+		model.addAttribute("userList", ses);
 		model.addAttribute("objList", o2vo);
+		
+	
 
 		return "board/mypage";
 	}
 
 	@RequestMapping(value = "/notebookList", method = RequestMethod.GET)
-	public String getnotebookList(HttpServletRequest req) throws Exception {
+	public String getnotebookList(HttpServletRequest req, HttpServletResponse response, Model model) throws Exception {
+		HttpSession session = req.getSession();
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+	      model.addAttribute("userList", ses);
+
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
 
 		return "board/notebookList";
 	}
 
 	@RequestMapping(value = "/Info", method = RequestMethod.GET)
-	public String openInfo(HttpServletRequest req) throws Exception {
+	public String openInfo(HttpServletRequest req, HttpServletResponse response) throws Exception {
 		HttpSession session = req.getSession();
 		String model = (String) req.getParameter("model");
 		System.out.println("#########" + model);
@@ -225,24 +299,42 @@ public class HomeController {
 			return "/board/mac_air";
 		}
 
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
+
 		return "board/notebookList";
 	}
 
 	@RequestMapping(value = "/addObject", method = RequestMethod.GET)
-	public String addObject(HttpServletRequest req) throws Exception {
+	public String addObject(HttpServletRequest req, HttpServletResponse response) throws Exception {
+		HttpSession session = req.getSession();
+
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
 
 		return "board/addObject";
 	}
 
 	@RequestMapping(value = "/managerListAll", method = RequestMethod.GET)
-	public String showManagerListAll(HttpServletRequest req, Model model, HttpServletResponse res) throws Exception {
+	public String showManagerListAll(HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 		HttpSession session = req.getSession();
 		String brand = req.getParameter("brand");
 		String mode = req.getParameter("mode");
 		String code = req.getParameter("code");
 		String name = req.getParameter("name");
 
-		
 		if (mode == null) {
 			if (code != null && name != null) {
 				ObjectVO addObj = new ObjectVO();
@@ -258,8 +350,7 @@ public class HomeController {
 					return "board/addObject";
 				}
 			}
-		}
-		else if (mode.equals("sort")) {
+		} else if (mode.equals("sort")) {
 			if (brand.equals("samsung")) {
 				List<ObjectVO> objList = odao.showSamsungs();
 				model.addAttribute("objList", objList);
@@ -288,32 +379,33 @@ public class HomeController {
 				model.addAttribute("objList", objList);
 				return "board/managerListAll";
 			}
-		} 
-		else if (mode.equals("delete")) {
+		 else if (mode.equals("delete")) {
 			ObjectVO obj = new ObjectVO();
 			obj.setCode(code);
 			ObjectVO delObj = odao.showObject(obj);
 			odao.deleteObject(delObj);
 		}
-		
+
 		else {
-			
+
+			}
 		}
-		
+
 		List<ObjectVO> objList = odao.showObjects();
 		model.addAttribute("objList", objList);
 		return "board/managerListAll";
+
 	}
 
-
 	@RequestMapping(value = "/reqList", method = RequestMethod.GET)
-	public String reqList(HttpServletRequest req, Model model) throws Exception {
+	public String reqList(HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
+		HttpSession session = req.getSession();
 
 		String mode = req.getParameter("mode");
 		String code = req.getParameter("code");
-		
+
 		LocalDate now = LocalDate.now();
-		
+
 		if (mode.equals("ack")) {
 			ObjectVO ovo = new ObjectVO();
 			ovo.setCode(code);
@@ -324,6 +416,15 @@ public class HomeController {
 			odao.updateObject(temp);
 		}
 
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
+
 		List<ObjectVO> objList = odao.showReqObjects();
 		model.addAttribute("objList", objList);
 
@@ -331,7 +432,9 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/rentList", method = RequestMethod.GET)
-	public String rentList(HttpServletRequest req, Model model) throws Exception {
+	public String rentList(HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
+		HttpSession session = req.getSession();
+
 		String mode = req.getParameter("mode");
 		String code = req.getParameter("pcode");
 		String userID = req.getParameter("uid");
@@ -340,7 +443,7 @@ public class HomeController {
 		if (mode.equals("return")) {
 			ldao.returnObj(userID);
 			RecordVO rvo = new RecordVO();
-			
+
 			ObjectVO ovo = new ObjectVO();
 			ovo.setCode(code);
 			ObjectVO temp = odao.showObject(ovo);
@@ -351,7 +454,7 @@ public class HomeController {
 			rvo.setRentDate(temp.getRentDate());
 			rvo.setReturnDate(now.toString());
 			rdao.insertRecord(rvo);
-			
+
 			temp.setStatus("대여가능");
 			temp.setRentDate(null);
 			temp.setReturnDate(null);
@@ -363,23 +466,42 @@ public class HomeController {
 		List<ObjectVO> objList = odao.showRentObjects();
 		model.addAttribute("objList", objList);
 
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
+
 		return "board/rentList";
 	}
-	
+
 	@RequestMapping(value = "/returnpage", method = RequestMethod.GET)
-	public String showReturns(HttpServletRequest req, Model model) throws Exception {
-		
+	public String showReturns(HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
+		HttpSession session = req.getSession();
+
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
+
 		List<RecordVO> objList = rdao.showRecords();
 		model.addAttribute("objList", objList);
 
 		return "board/returnpage";
 	}
-	
-	   @RequestMapping(value = "/logout", method = RequestMethod.GET)
-	   public String logout(HttpServletRequest req) {
-	       HttpSession session1 = req.getSession();
-	      session1.invalidate();
-	      return "redirect:/login";
-	   }
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest req) {
+		HttpSession session1 = req.getSession();
+		session1.invalidate();
+		return "redirect:/login";
+	}
 
 }
