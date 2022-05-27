@@ -100,7 +100,7 @@
 	            		
 	            		else if (property=="2") {
 	            			//msi
-	            			location.href = "/Info ?model=MSI소드, GF66-A11UD";
+	            			location.href = "/Info?model=MSI소드, GF66-A11UD";
 	            		}
 	            	}
             	}	
