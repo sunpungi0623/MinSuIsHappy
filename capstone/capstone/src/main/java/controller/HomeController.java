@@ -37,8 +37,7 @@ public class HomeController {
 	private RecordDAO rdao;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response)
-			throws Exception {
+	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 
 		HttpSession session = req.getSession();
 		LoginVO member = ldao.login(vo);
@@ -212,7 +211,6 @@ public class HomeController {
 		return "board/recopage";
 	}
 
-	@SuppressWarnings("unused")
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String getMypage(HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 		HttpSession session = req.getSession();
@@ -246,14 +244,14 @@ public class HomeController {
 			temp.setUserID(null);
 			temp.setUserPhone(null);
 			odao.updateObject(temp);
+			
+			ldao.newsession(ses);
 		}
 
 		List<ObjectVO> o2vo = odao.showMyObjects(ses);
 
 		model.addAttribute("userList", ses);
 		model.addAttribute("objList", o2vo);
-		
-	
 
 		return "board/mypage";
 	}

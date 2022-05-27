@@ -9,4 +9,5 @@ public interface LoginDAO {
     public void Rent(LoginVO vo) throws Exception;
     public void returnObj(String uid) throws Exception;
     public int idChk(LoginVO vo) throws Exception;
+    public void newsession(LoginVO vo) throws Exception;
 }

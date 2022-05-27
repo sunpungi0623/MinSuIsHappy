@@ -1,13 +1,9 @@
 package dao;
- 
- 
-import java.awt.List;
 
 import javax.inject.Inject;
  
 import org.apache.ibatis.session.SqlSession;
 import domain.LoginVO;
-import domain.ObjectVO;
 
 import org.springframework.stereotype.Repository;
  
@@ -50,6 +46,12 @@ public class LoginDAOImp implements LoginDAO {
 	public int idChk(LoginVO vo) throws Exception {
 		int num = sqlSession.selectOne(namespace+".idChk", vo);
 		return num;
+	}
+	
+	@Override
+	public void newsession(LoginVO vo) throws Exception {
+		sqlSession.update(namespace+".newsession", vo);
+		return;	
 	}
     
 }

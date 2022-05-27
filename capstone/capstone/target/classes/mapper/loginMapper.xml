@@ -32,4 +32,8 @@
 	<update id="returnObj" parameterType="String">
 		update User set isRented = 0 where id = #{uid}
 	</update>
+	
+	<update id="newsession" parameterType="domain.LoginVO">
+		update User set isRented = 0 where id = #{id} and password = #{password}
+	</update>
 </mapper>
