@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>반납 현황</title>
+<title>대여 기록</title>
 <script type="text/javascript">
    function search() {
       var name = document.getElementById("searchName").value;
@@ -22,7 +22,7 @@
 
 </head>
 <body>
-   <body>
+
    <div class="contents">
       <!-- 맨 윗상단 메뉴 -->
       <div class="header">
@@ -50,7 +50,11 @@
 
       </div>
       <br>
-      <table class="table table-striped">
+      
+      <div class="container h-100">
+		<div class="row d-flex justify-content-center" style="width:auto;">
+      
+		<table class="table table-striped" style="border:2px solid black; background-color:white;">
          <thead>
             <tr>
                <th scope="col">코드</th>

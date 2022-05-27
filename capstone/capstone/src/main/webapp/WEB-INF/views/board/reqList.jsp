@@ -23,6 +23,7 @@
 
 </head>
 <body>
+
 	<div class="contents">
 		<!-- 맨 윗상단 메뉴 -->
 		<div class="header">
@@ -54,7 +55,11 @@
 
 		</div>
 		<br>
-		<table class="table table-striped">
+		
+		<div class="container h-100">
+		<div class="row d-flex justify-content-center" style="width:auto;">
+		
+		<table class="table table-striped" style="border:2px solid black; background-color:white;">
 			<thead>
 				<tr>
 					<th scope="col">코드</th>

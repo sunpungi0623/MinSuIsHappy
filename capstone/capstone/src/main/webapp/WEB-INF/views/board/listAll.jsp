@@ -25,6 +25,8 @@
 
 </head>
 <body>
+
+	  
 	<div class="contents">
 		<!-- 맨 윗상단 메뉴 -->
 		<div class="header">
@@ -33,9 +35,8 @@
 				<a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
 			<ul class="navbar-nav">
 				<!--Dropdown-->
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-					role="button" aria-expanded="false">기자재 현황</a>
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">기자재 현황</a>
 					<ul class="dropdown-menu">
 						<SCRIPT language="Javascript">
 							function showSamsungs() {
@@ -78,7 +79,11 @@
 
 		</div>
 		<br>
-		<table class="table table-striped">
+		<div class="container h-100">
+		<div class="row d-flex justify-content-center" style="width:auto;">
+
+		
+		<table class="table table-striped" style="border:2px solid black; background-color:white">
 			<thead>
 				<tr>
 					<th scope="col">코드</th>
@@ -122,7 +127,9 @@
 						<td><c:out value="${objectVO.status}" /></td>
 
 
-						<td id="${objectVO.code}button"><SCRIPT language="Javascript">
+						<td id="${objectVO.code}button">
+						
+						<SCRIPT language="Javascript">
 								var btn = document.getElementById("${objectVO.code}button");
 
 								
@@ -143,7 +150,7 @@
 
 			</tbody>
 		</table>
-	</div>
+	</div></div></div>
 
 
 	<!— Bootstrap JS —>

@@ -14,6 +14,7 @@
 
 </head>
 <body>
+
 	<div class="contents">
 		<!-- 맨 윗상단 메뉴 -->
 		<div class="header">
@@ -33,16 +34,14 @@
 						
 					</SCRIPT> <a class="nav-link" href="/notebookList" value="mypage">기자재 정보</a></li>
 
-
-
 				</ul>
 			</nav>
-
 		</div>
 
-
 		<br>
-
+		<div class="container h-100">
+		<div class="row d-flex justify-content-center" style="width:auto;">
+		
 		<div class="card text-white">
 			<div class="card-header bg-secondary">내 정보</div>
 			<div class="card-body text-dark">
@@ -125,7 +124,7 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
+		</div></div></div>
 
 
 		<!— Bootstrap JS —>

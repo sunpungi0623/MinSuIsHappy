@@ -69,7 +69,6 @@
 	            		}
 	            		
 	            		else if (property=="2") {
-	            			//오딧세
 	            			location.href = "/Info?model=삼성Odyssey, NT801G5H-X01/C";
 	            		}
 	            	}
@@ -105,9 +104,12 @@
             	}	
             </script>
             <br>
+            <div class="container h-100">
+			<div class="row d-flex justify-content-center" style="width:auto;">
 
-            <button type="button" class="btn btn-dark" onclick=recommend() style="width: 100;">제출</button>
+            <button type="button" class="btn btn-dark" onclick=recommend() style="width: 20">제출</button>
 
+			</div></div>
         <!— Bootstrap JS —>
         <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
     </body>
