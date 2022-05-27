@@ -11,16 +11,17 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <img src = "https://w.namu.la/s/1238e4e492e16357828d8f9621fcb625103edf44604af4a4f70da228cce0078e0624b2ddb1d37b7cd4090200bdd6dd68c3e818440b626260b092d73b069bdc481ab7b3ade2a8021060f7bc81d4b4366b", width = 150>
+            <img src = "/resources/img/logo.png", width = 150>
             <a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
           </nav>
           <br>
 
-        <div class="col-lg-3 col-md-4">
+        <div class="container h-100">
+		<div class="row d-flex justify-content-center">
             <!-- LG 그램 -->
-            <div class="card" style="width: 40rem;">
-                <img src="https://www.lge.co.kr/uploads/product/media/2019/12/15z90n-v.ar50k/usp_0305.jpg" class="card-img-top" alt="LG gram" height="400">
-                <div class="card-body">
+            <div class="card" style="width: 40rem; border:1px solid black;">
+                <img src="/resources/img/LG_gram.jpg" alt="LG gram" height="400">
+                <div class="card-body" style= "background-color:rgba(83, 83, 109, 0.747); color:white;">
                     <h3 class="card-title">LG 그램15</h3>
                     <p class="card-text"><h5>15Z90N-VP70ML</h5></p>
                 </div>
@@ -31,7 +32,7 @@
                     <li class="list-group-item"><h5>화면 : 39.6cm(15.6인치)</h5></li>
                     <li class="list-group-item"><h5>무게 : 1120g</h5></li>
                 </ul>
-            </div>
+            </div></div>
 
         <!-- Bootstrap JS -->
         <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>

@@ -18,16 +18,17 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <img src = "https://w.namu.la/s/1238e4e492e16357828d8f9621fcb625103edf44604af4a4f70da228cce0078e0624b2ddb1d37b7cd4090200bdd6dd68c3e818440b626260b092d73b069bdc481ab7b3ade2a8021060f7bc81d4b4366b", width = 150>
-            <a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
+				<img src = "/resources/img/logo.png", width = 150>
+				<a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
           </nav>
           <br>
 
-        <div class="col-lg-3 col-md-4">
-            <!-- LG 그램 -->
-            <div class="card" style="width: 40rem;">
-                <img src="https://static.coupangcdn.com/image/vendor_inventory/fbfd/4c25d32430764e085123d02133e43fec8f82270235150c5f44816e7f2158.jpg" class="card-img-top" alt="mackbook air" height="400">
-                <div class="card-body">
+        <div class="container h-100">
+		<div class="row d-flex justify-content-center">
+            <!-- 맥북 에어 -->
+            <div class="card" style="width: 40rem; border:1px solid black;">
+                <img src="/resources/img/macbookair.jpg" alt="mackbook air" height="400">
+                <div class="card-body" style= "background-color:rgba(83, 83, 109, 0.747); color:white;">
                     <h3 class="card-title">macbookAir</h3>
                     <p class="card-text"><h5>MGN63KH/A</h5></p>
                 </div>

@@ -12,7 +12,7 @@
     <body>
         <br><br>
   <DIV style = "text-align: center;">
-      <img src = "https://w.namu.la/s/1238e4e492e16357828d8f9621fcb625103edf44604af4a4f70da228cce0078e0624b2ddb1d37b7cd4090200bdd6dd68c3e818440b626260b092d73b069bdc481ab7b3ade2a8021060f7bc81d4b4366b", width = 400>
+      <img src = "/resources/img/logo.png", width = 400>
   </DIV>
         <body style = "background-color:#0E0C32">
 

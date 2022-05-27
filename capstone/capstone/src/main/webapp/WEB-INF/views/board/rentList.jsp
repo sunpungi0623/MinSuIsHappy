@@ -28,10 +28,8 @@
 		<!-- 맨 윗상단 메뉴 -->
 		<div class="header">
 			<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-				<img
-					src="https://w.namu.la/s/1238e4e492e16357828d8f9621fcb625103edf44604af4a4f70da228cce0078e0624b2ddb1d37b7cd4090200bdd6dd68c3e818440b626260b092d73b069bdc481ab7b3ade2a8021060f7bc81d4b4366b"
-					, width=150> <a class="navbar-brand" href="#">&nbsp;&nbsp;기자재
-					대여 시스템</a>
+				<img src = "/resources/img/logo.png", width = 150>
+				<a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
 				<ul class="navbar-nav">
 
 					<li class="nav-item"><a class="nav-link" href="#"
