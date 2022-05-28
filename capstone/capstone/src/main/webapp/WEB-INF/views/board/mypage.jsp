@@ -45,20 +45,20 @@
 		<div class="card text-white">
 			<div class="card-header bg-secondary">내 정보</div>
 			<div class="card-body text-dark">
-
+				
 
 				<h5 class="card-title">
 					<b>이름</b>
 				</h5>
 				<p class="card-text">
 					<c:out value="${userList.getUserName()}" />
-				</p>
+				</p><hr>
 				<h5 class="card-title">
 					<b>ID</b>
 				</h5>
 				<p class="card-text">
 					<c:out value="${userList.getID()}" />
-				</p>
+				</p><hr>
 				<h5 class="card-title">
 					<b>전화번호</b>
 				</h5>

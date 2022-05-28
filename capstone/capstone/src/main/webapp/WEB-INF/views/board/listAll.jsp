@@ -83,7 +83,7 @@
 		<div class="row d-flex justify-content-center" style="width:auto;">
 
 		
-		<table class="table table-striped" style="border:1px solid black; background-color:white">
+		<table class="table table-striped table-hover" style="border:1px solid black; background-color:white">
 			<thead>
 				<tr>
 					<th scope="col">코드</th>
