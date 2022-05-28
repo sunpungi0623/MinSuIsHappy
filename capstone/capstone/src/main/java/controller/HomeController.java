@@ -50,7 +50,8 @@ public class HomeController {
 		if (mode == null) {
 			return "board/login";
 
-		} else if (mode.equals("register")) {
+		}
+		else if (mode.equals("register")) {
 			LoginVO lVo = new LoginVO();
 			lVo.id = userId;
 			if (userId.trim().length() != 7) {
@@ -80,7 +81,8 @@ public class HomeController {
 			ldao.SignUp(lVo);
 			return "board/login";
 
-		} else if (mode.equals("login")) {
+		}
+		else if (mode.equals("login")) {
 			
 			LoginVO lVo = new LoginVO();
 			lVo.setID(userId);
@@ -168,6 +170,8 @@ public class HomeController {
 		}
 
 		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		model.addAttribute("result", ses);
+		System.out.println(ses.getIsRented());
 		if (ses == null) {
 			response.setContentType("text/html; charset=euc-kr");
 			PrintWriter out = response.getWriter();
@@ -180,17 +184,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String getRegister(HttpServletRequest req, HttpServletResponse response) throws Exception {
-		HttpSession session = req.getSession();
-
-		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
-		if (ses == null) {
-			response.setContentType("text/html; charset=euc-kr");
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
-			out.flush();
-			return "board/login";
-		}
+	public String getRegister(HttpServletRequest req) throws Exception {
 
 		return "board/register";
 	}
@@ -245,15 +239,17 @@ public class HomeController {
 			temp.setUserPhone(null);
 			odao.updateObject(temp);
 			
-			ldao.newsession(ses);
+			ldao.newsession(ses); // isRent 1 -> 0
+
+			LoginVO sesTemp = ldao.login(ses);
+			session.setAttribute("LoginVO", sesTemp);
+			System.out.println(sesTemp.getIsRented());
+			model.addAttribute("userList", sesTemp);
+			List<ObjectVO> o3vo = odao.showMyObjects(sesTemp);
+			model.addAttribute("objList", o3vo);
+
+			return "board/mypage";
 		}
-
-		List<ObjectVO> o2vo = odao.showMyObjects(ses);
-
-		model.addAttribute("userList", ses);
-		model.addAttribute("objList", o2vo);
-
-		return "board/mypage";
 	}
 
 	@RequestMapping(value = "/notebookList", method = RequestMethod.GET)
@@ -377,6 +373,7 @@ public class HomeController {
 				model.addAttribute("objList", objList);
 				return "board/managerListAll";
 			}
+		}
 		 else if (mode.equals("delete")) {
 			ObjectVO obj = new ObjectVO();
 			obj.setCode(code);
@@ -386,7 +383,6 @@ public class HomeController {
 
 		else {
 
-			}
 		}
 
 		List<ObjectVO> objList = odao.showObjects();

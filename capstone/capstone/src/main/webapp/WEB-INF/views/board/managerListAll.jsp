@@ -90,8 +90,7 @@
                <th scope="col">코드</th>
                <th scope="col">기자재명</th>
                <th scope="col">상태</th>
-               <th scope="col" style="text-align: right"><a href="/addObject"><button
-                        type="button" class="btn btn-primary">추가</button></a></th>
+               <th scope="col" style="text-align: right"><a href="/addObject"><button type="button" class="btn btn-primary">추가</button></a></th>
             </tr>
          </thead>
 
@@ -106,9 +105,7 @@
                <tr>
 
                   <td><c:out value="${objectVO.code}" /></td>
-                  <td><a href="javascript:void(0)"
-                     onclick="ObjectInfo('${objectVO.name}');"><c:out
-                           value="${objectVO.name}" /></a></td>
+                  <td><c:out value="${objectVO.name}" /></a></td>
                   <td><c:out value="${objectVO.status}" /></td>
                   <td><button type="submit" class="btn btn-danger float-end" onclick="deleteObj('${ objectVO.code }');">삭제</button></td>
                </tr>
