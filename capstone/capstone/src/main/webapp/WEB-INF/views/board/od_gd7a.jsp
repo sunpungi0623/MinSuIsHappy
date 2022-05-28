@@ -20,7 +20,7 @@
 		<div class="row d-flex justify-content-center">
             <!-- 삼성 오디세이 -->
             <div class="card" style="width: 40rem; border:1px solid black;">
-                <img src="/resources/img/odssey.jpg" alt="samsung odyssey" height="400">
+                <img src="/resources/img/odyssey.jpg" alt="samsung odyssey" height="400">
                 <div class="card-body" style= "background-color:rgba(83, 83, 109, 0.747); color:white;">
                     <h3 class="card-title">삼성Odyssey</h3>
                     <p class="card-text"><h5>NT800G5W-GD7A</h5></p>
