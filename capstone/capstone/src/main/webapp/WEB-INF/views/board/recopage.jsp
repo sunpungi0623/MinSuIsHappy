@@ -9,25 +9,28 @@
     </head>
     <body>
         <div class="header">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+			<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 				<img src = "/resources/img/logo.png", width = 150>
 				<a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
-               <ul class="navbar-nav">
-   
-                  <li class="nav-item"><a class="nav-link" href="#"
-                     role="button" aria-expanded="false" onclick="showObjects();">HOME</a>
-                     <SCRIPT language="Javascript">
-                        
-                        function showObjects() {
-                        	location.href = "/listAll?mode=sort&brand=All";
-                        }
-                     </SCRIPT>
-                     
-               </li>
+				<ul class="navbar-nav">
+
+					<li class="nav-item"><a class="nav-link" href="#"
+						role="button" aria-expanded="false" onclick="showObjects();">HOME</a>
+						<SCRIPT language="Javascript">
+							function showObjects() {
+								location.href = "/listAll?mode=sort&brand=All";
+							}
+						</SCRIPT>
+					<li class="nav-item">
+						<a class="nav-link" href="/mypage" value="mypage">마이페이지</a></li>
+						<a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a>
+						<a class="nav-link" href="/recopage" value="recopage">노트북 추천</a>
+						<a class="nav-link" href="/logout" value="logout">로그아웃</a>
+				</ul>
+			</nav>
+		</div>
             
-            </ul>
-            </nav>
-            </div><br>
+            <br>
 
             <div class="card" style="width: auto; margin-left: 20; margin-left: 20;">
                 <div class="card-header">

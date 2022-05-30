@@ -15,18 +15,26 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="position:fixed; top:0; left:0; right:0; z-index:2;">
 				<img src = "/resources/img/logo.png", width = 150>
 				<a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
 		<ul class="navbar-nav">
 
 			<li class="nav-item">
 				<c:if test="${ userList.getTYPE() == 'manager' }">
-					<a class="nav-link" href="#" role="button" aria-expanded="false"
-						onclick="managerObjects();">HOME</a>
-				</c:if> <c:if test="${ userList.getTYPE() == 'student' }">
-					<a class="nav-link" href="#" role="button" aria-expanded="false"
-						onclick="showObjects();">HOME</a>
+					<a class="nav-link" href="#" role="button" aria-expanded="false" onclick="managerObjects();">HOME</a></li>
+					<a class="nav-link" href="/notebookList" value="mypage">기자재 정보</a>
+           			<a class="nav-link" href="/reqList?mode=show" value="mypage">신청 현황</a>
+            		<a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
+            		<a class="nav-link" href="/returnpage" value="mypage">대여 기록</a>
+            		<a class="nav-link" href="/logout" value="logout">로그아웃</a>
+				</c:if>
+				<c:if test="${ userList.getTYPE() == 'student' }">
+					<a class="nav-link" href="#" role="button" aria-expanded="false" onclick="showObjects();">HOME</a></li>
+					<a class="nav-link" href="/mypage" value="notebookList">마이페이지</a>
+					<a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a>
+					<a class="nav-link" href="/recopage" value="recopage">노트북 추천</a>
+					<a class="nav-link" href="/logout" value="logout">로그아웃</a>
 				</c:if>
 				
 				<SCRIPT language="Javascript">
@@ -38,15 +46,11 @@
 						location.href = "/managerListAll?mode=sort&brand=All";
 					}
 				</SCRIPT>
-			<li class="nav-item">
-			<c:if test="${ userList.getTYPE() == 'student' }">
-					<a class="nav-link" href="/mypage" value="notebookList">마이페이지</a>
-				</c:if></li>
 		</ul>
 	</nav>
-	<br>
+	<br><br><br><br>
 	
-	<div class="container h-100">
+	<div class="container h-100" style="z-index:1;">
 	<div class="row d-flex justify-content-center" style="width:auto;">
 		<div class="col-lg-3 col-md-4">
 			<!-- 삼성 오디세이 -->

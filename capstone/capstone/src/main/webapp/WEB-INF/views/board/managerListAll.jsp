@@ -30,7 +30,7 @@
    <div class="contents">
       <!-- 맨 윗상단 메뉴 -->
       <div class="header">
-         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+         <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="position:fixed; top:0; left:0; right:0;">
 				<img src = "/resources/img/logo.png", width = 150>
 				<a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
          <ul class="navbar-nav">
@@ -60,26 +60,22 @@
                         location.href = "/managerListAll?mode=sort&brand=All";
                      }
                   </SCRIPT>
-                  <li><a class="dropdown-item" href="#"
-                     onclick="showObjects();">전체보기</a></li>
-                  <li><a class="dropdown-item" href="#"
-                     onclick="showSamsungs();">Samsung</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="showObjects();">전체보기</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="showSamsungs();">Samsung</a></li>
                   <li><a class="dropdown-item" href="#" onclick="showLGs();">LG</a></li>
                   <li><a class="dropdown-item" href="#" onclick="showMSIs();">MSI</a></li>
                   <li><a class="dropdown-item" href="#" onclick="showApples();">Apple</a></li>
                </ul></li>
-            <li class="nav-item"><SCRIPT language="Javascript">
-               
-            </SCRIPT> <a class="nav-link" href="/notebookList" value="mypage">기자재 정보</a></li>
-            <a class="nav-link" href="/reqList?mode=show" value="mypage">신청 현황</a>
-            <a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
-            <a class="nav-link" href="/returnpage" value="mypage">대여 기록</a>
-            </li>
+				<a class="nav-link" href="/notebookList" value="mypage">기자재 정보</a>
+            	<a class="nav-link" href="/reqList?mode=show" value="mypage">신청 현황</a>
+            	<a class="nav-link" href="/rentList?mode=show" value="mypage">대여 현황</a>
+            	<a class="nav-link" href="/returnpage" value="mypage">대여 기록</a>
+            	<a class="nav-link" href="/logout" value="logout">로그아웃</a>
          </ul>
          </nav>
 
       </div>
-      <br>
+      <br> <br> <br> <br>
       
       	<div class="container h-100">
 		<div class="row d-flex justify-content-center" style="width:auto;">
