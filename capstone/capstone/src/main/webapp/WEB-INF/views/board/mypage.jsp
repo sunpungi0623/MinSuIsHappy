@@ -22,9 +22,7 @@
 				<img src = "/resources/img/logo.png", width = 150>
 				<a class="navbar-brand" href="#">&nbsp;&nbsp;기자재 대여 시스템</a>
 				<ul class="navbar-nav">
-
-					<li class="nav-item"><a class="nav-link" href="#"
-						role="button" aria-expanded="false" onclick="showObjects();">HOME</a>
+					<li class="nav-item"><a class="nav-link" href="#" role="button" aria-expanded="false" onclick="showObjects();">HOME</a>
 						<SCRIPT language="Javascript">
 							function showObjects() {
 								location.href = "/listAll?mode=sort&brand=All";
