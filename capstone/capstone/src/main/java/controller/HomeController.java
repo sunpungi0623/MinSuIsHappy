@@ -122,6 +122,7 @@ public class HomeController {
 		String brand = req.getParameter("brand");
 		String mode = req.getParameter("mode");
 		HttpSession session = req.getSession();
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
 
 		LocalDate now = LocalDate.now();
 
@@ -152,9 +153,10 @@ public class HomeController {
 		} else if (mode.equals("rent")) {
 			String oname = req.getParameter("oname");
 			String ocode = req.getParameter("ocode");
-			LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
 			ObjectVO temp = new ObjectVO();
 			ldao.Rent(ses);
+			LoginVO sesTemp = ldao.login(ses);
+			session.setAttribute("LoginVO", sesTemp);
 			temp.setName(oname);
 			temp.setCode(ocode);
 			temp.setUserID(ses.getID());
@@ -169,9 +171,8 @@ public class HomeController {
 
 		}
 
-		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		ses = (LoginVO) session.getAttribute("LoginVO");
 		model.addAttribute("result", ses);
-		System.out.println(ses.getIsRented());
 		if (ses == null) {
 			response.setContentType("text/html; charset=euc-kr");
 			PrintWriter out = response.getWriter();
@@ -243,7 +244,6 @@ public class HomeController {
 
 			LoginVO sesTemp = ldao.login(ses);
 			session.setAttribute("LoginVO", sesTemp);
-			System.out.println(sesTemp.getIsRented());
 			model.addAttribute("userList", sesTemp);
 			List<ObjectVO> o3vo = odao.showMyObjects(sesTemp);
 			model.addAttribute("objList", o3vo);
