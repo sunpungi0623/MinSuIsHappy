@@ -29,7 +29,8 @@
 							}
 						</SCRIPT>
 					<li class="nav-item">
-						<a class="nav-link" href="/mypage" value="mypage">마이페이지</a></li>
+						<a class="nav-link" href="/info" value="info">공지사항</a></li>
+						<a class="nav-link" href="/mypage" value="mypage">마이페이지</a>
 						<a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a>
 						<a class="nav-link" href="/recopage" value="recopage">노트북 추천</a>
 						<a class="nav-link" href="/logout" value="logout">로그아웃</a>

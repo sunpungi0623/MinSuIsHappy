@@ -31,7 +31,8 @@
 				</c:if>
 				<c:if test="${ userList.getTYPE() == 'student' }">
 					<a class="nav-link" href="#" role="button" aria-expanded="false" onclick="showObjects();">HOME</a></li>
-					<a class="nav-link" href="/mypage" value="notebookList">마이페이지</a>
+					<a class="nav-link" href="/info" value="info">공지사항</a>
+					<a class="nav-link" href="/mypage" value="mypage">마이페이지</a>
 					<a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a>
 					<a class="nav-link" href="/recopage" value="recopage">노트북 추천</a>
 					<a class="nav-link" href="/logout" value="logout">로그아웃</a>
