@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 import javax.inject.Inject;
@@ -101,11 +102,17 @@ public class HomeController {
 
 				session.setAttribute("LoginVO", result);
 				List<ObjectVO> objList = odao.showObjects();
+				model.addAttribute("listCount", objList.size());
+				objList = objList.subList(0, 15);
 				model.addAttribute("result", result);
 				model.addAttribute("objList", objList);
+				model.addAttribute("brand", "All");
+				model.addAttribute("page", 1);
+				
 
 				if (result.getTYPE().equals("manager")) {
-
+					objList = odao.showObjects();
+					model.addAttribute("objList", objList);
 					return "board/managerListAll";
 				}
 				return "board/listAll";
@@ -121,35 +128,43 @@ public class HomeController {
 
 		String brand = req.getParameter("brand");
 		String mode = req.getParameter("mode");
+		int page;
+		try {
+			page = Integer.parseInt(req.getParameter("page"));
+		}catch(Exception e) {
+		    page = 1; 
+		}
+		
+		page--;
 		HttpSession session = req.getSession();
 		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
-
+		List<ObjectVO> objList = new ArrayList<ObjectVO>();
 		LocalDate now = LocalDate.now();
 
 		if (mode.equals("sort")) {
-			if (brand.equals("samsung")) {
-				List<ObjectVO> objList = odao.showSamsungs();
-				model.addAttribute("objList", objList);
+			if (brand.equals("samsung"))  objList= odao.showSamsungs();
+			
+			if (brand.equals("lg")) objList = odao.showLGs();
+			
+			if (brand.equals("msi")) objList = odao.showMSIs();
+			
+			if (brand.equals("apple")) objList = odao.showApples();
+			
+			if (brand.equals("All")) objList = odao.showObjects();
+			
+			model.addAttribute("brand", brand);
+			model.addAttribute("listCount", objList.size());
+			int start = page * 15;
+			int end = 15 + page * 15;
+			try {
+			objList = objList.subList(start, end);					
+			} catch(Exception e){
+				end = objList.size();
+				objList = objList.subList(start, end);
 			}
-
-			if (brand.equals("lg")) {
-				List<ObjectVO> objList = odao.showLGs();
-				model.addAttribute("objList", objList);
-			}
-
-			if (brand.equals("msi")) {
-				List<ObjectVO> objList = odao.showMSIs();
-				model.addAttribute("objList", objList);
-			}
-
-			if (brand.equals("apple")) {
-				List<ObjectVO> objList = odao.showApples();
-				model.addAttribute("objList", objList);
-			}
-			if (brand.equals("All")) {
-				List<ObjectVO> objList = odao.showObjects();
-				model.addAttribute("objList", objList);
-			}
+			model.addAttribute("objList", objList);
+			
+			
 		} else if (mode.equals("rent")) {
 			String oname = req.getParameter("oname");
 			String ocode = req.getParameter("ocode");
@@ -162,12 +177,14 @@ public class HomeController {
 			temp.setUserID(ses.getID());
 			temp.setUserPhone(ses.getUserPhone());
 			temp.setStatus("승인대기중");
-//			temp.setRentDate(now.toString());
-//			temp.setReturnDate(now.plusMonths(1).toString());
+
 			odao.updateObject(temp);
 
-			List<ObjectVO> objList = odao.showObjects();
+			objList = odao.showObjects();
+			model.addAttribute("listCount", objList.size());
+			objList = objList.subList(0, 15);
 			model.addAttribute("objList", objList);
+			model.addAttribute("brand", "All");
 
 		}
 
@@ -180,7 +197,7 @@ public class HomeController {
 			out.flush();
 			return "board/login";
 		}
-
+		model.addAttribute("page", page+1);
 		return "board/listAll";
 	}
 
@@ -328,6 +345,7 @@ public class HomeController {
 		String mode = req.getParameter("mode");
 		String code = req.getParameter("code");
 		String name = req.getParameter("name");
+		List<ObjectVO> objList = new ArrayList<ObjectVO>();
 
 		if (mode == null) {
 			if (code != null && name != null) {
@@ -340,39 +358,26 @@ public class HomeController {
 				if (isBeing == null) {
 					odao.insertObject(addObj);
 				} else {
-					// 에러처리!!
+					response.setContentType("text/html; charset=euc-kr");
+					PrintWriter out = response.getWriter();
+					out.println("<script>alert('이미 존재하는 코드입니다.'); </script>");
+					out.flush();
 					return "board/addObject";
 				}
 			}
 		} else if (mode.equals("sort")) {
-			if (brand.equals("samsung")) {
-				List<ObjectVO> objList = odao.showSamsungs();
-				model.addAttribute("objList", objList);
-				return "board/managerListAll";
-			}
-
-			if (brand.equals("lg")) {
-				List<ObjectVO> objList = odao.showLGs();
-				model.addAttribute("objList", objList);
-				return "board/managerListAll";
-			}
-
-			if (brand.equals("msi")) {
-				List<ObjectVO> objList = odao.showMSIs();
-				model.addAttribute("objList", objList);
-				return "board/managerListAll";
-			}
-
-			if (brand.equals("apple")) {
-				List<ObjectVO> objList = odao.showApples();
-				model.addAttribute("objList", objList);
-				return "board/managerListAll";
-			}
-			if (brand.equals("All")) {
-				List<ObjectVO> objList = odao.showObjects();
-				model.addAttribute("objList", objList);
-				return "board/managerListAll";
-			}
+			if (brand.equals("samsung"))objList = odao.showSamsungs();
+			
+			if (brand.equals("lg")) objList = odao.showLGs();
+			
+			if (brand.equals("msi")) objList = odao.showMSIs();
+			
+			if (brand.equals("apple")) objList = odao.showApples();
+			
+			if (brand.equals("All")) objList = odao.showObjects();
+			
+			model.addAttribute("objList", objList);
+			return "board/managerListAll";
 		}
 		 else if (mode.equals("delete")) {
 			ObjectVO obj = new ObjectVO();
@@ -381,11 +386,7 @@ public class HomeController {
 			odao.deleteObject(delObj);
 		}
 
-		else {
-
-		}
-
-		List<ObjectVO> objList = odao.showObjects();
+		objList = odao.showObjects();
 		model.addAttribute("objList", objList);
 		return "board/managerListAll";
 
