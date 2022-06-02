@@ -23,12 +23,12 @@
                     <form action="" method="" class="row g-3">
                         <h4>한성대학교 기자재실</h4>
                         <div class="col-12">
-                            <label>Username</label>
-                            <input id="userId"  type="text"  class="form-control" placeholder="UserId">
+                            <label>studentID</label>
+                            <input id="userId"  type="text"  class="form-control" placeholder="학번">
                         </div>
                         <div class="col-12">
                             <label >Password</label>
-                            <input id="password" type="password" class="form-control" placeholder="Password">
+                            <input id="password" type="password" class="form-control" placeholder="비밀번호">
                         </div>
                        
                         <div class="col-12">
