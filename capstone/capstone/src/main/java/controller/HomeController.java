@@ -498,5 +498,11 @@ public class HomeController {
 		session1.invalidate();
 		return "redirect:/login";
 	}
+	
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public String info(HttpServletRequest req) throws Exception {
+
+		return "board/info";
+	}
 
 }
