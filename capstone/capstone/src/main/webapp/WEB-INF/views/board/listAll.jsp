@@ -93,6 +93,7 @@
 							<th scope="col">코드</th>
 							<th scope="col">기자재명</th>
 							<th scope="col">상태</th>
+							<th scope="col" style="text-align:right;">반납 예정일</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
@@ -129,6 +130,7 @@
 									onclick="ObjectInfo('${objectVO.name}');"><c:out
 											value="${objectVO.name}" /></a></td>
 								<td><c:out value="${objectVO.status}" /></td>
+								<td style="text-align:right;"><strong><c:out value="${ objectVO.returnDate }" /></strong></td>
 
 
 								<td id="${objectVO.code}button"><SCRIPT
