@@ -139,7 +139,6 @@ public class HomeController {
 		HttpSession session = req.getSession();
 		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
 		List<ObjectVO> objList = new ArrayList<ObjectVO>();
-		LocalDate now = LocalDate.now();
 
 		if (mode.equals("sort")) {
 			if (brand.equals("samsung"))  objList= odao.showSamsungs();
