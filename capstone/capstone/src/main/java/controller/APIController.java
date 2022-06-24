@@ -70,11 +70,57 @@ public class APIController {
 
         return "board/APILogin";
     }
+    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    public String showAPI(HttpServletRequest req) throws Exception {
+        String brand = req.getParameter("brand");
+        List<ObjectVO> objList = new ArrayList<ObjectVO>();
+        String json = "";
 
-    @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public String info(HttpServletRequest req) throws Exception {
+        switch (brand) {
+            case "samsung" : {
+                objList= odao.showSamsungs();
 
-        return "board/info";
+
+
+                break;
+            }
+        }
+        int index = 0;
+        json += "{ \"Data\": [";
+        for(ObjectVO o: objList) {
+            ///json += "\""+index+"\": {";
+            json += "{ ";
+            json += "\"code\":"+"\""+o.getCode()+"\", ";
+            json += "\"rentDate\":"+"\""+o.getRentDate()+"\", ";
+            json += "\"returnDate\":"+"\""+o.getReturnDate()+"\", ";
+            json += "\"status\":"+"\""+o.getStatus()+"\", ";
+            json += "\"name\":"+"\""+o.getName()+"\", ";
+            json += "\"userId\":"+"\""+o.getUserID()+"\", ";
+            json += "\"userPhone\":"+"\""+o.getUserPhone()+"\"";
+            json += "}";
+
+            if (index == objList.size()-1) {
+                //json += ", \"size\":"+(index+1);
+
+            }
+            else {
+                index++;
+                json += ", ";
+
+            }
+        }
+
+
+        json += " ]}";
+
+        req.setAttribute("json", json);
+
+
+        return "board/APILogin";
     }
+
+
+
+
 
 }
