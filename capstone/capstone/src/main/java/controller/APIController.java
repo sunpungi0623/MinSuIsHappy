@@ -41,25 +41,31 @@ public class APIController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginAPI(HttpServletRequest req) throws Exception {
+
+        System.out.println("API request listen.");
         HttpSession session = req.getSession();
         String password = req.getParameter("password");
         String userId = req.getParameter("userId");
-
-
-        String json = "{ 'A' : 'Hello Json!!',"
-                + "'B' : '안녕하세요 제이슨',"
-                + "'C' : 'Json Data',"
-                + "'Boolean' : 'true',"
-                + "'Number' : 2020"
-                + "}";
-
 
         LoginVO lVo = new LoginVO();
         lVo.setID(userId);
         lVo.setPassword(password);
         LoginVO result = ldao.login(lVo);
 
-        req.setAttribute("json", json);
+        if (result ==null) {
+            req.setAttribute("json", "error");
+        }
+        else if (result != null) {
+            String json = "{ \"id\" : \"" + result.getID() + "\" ,"
+                    + "\"Type\" : \"" + result.getTYPE() + "\" ,"
+                    + "\"password\" : \"" + result.getPassword() + "\" ,"
+                    + "\"userName\" : \"" + result.getUserName() + "\" ,"
+                    + "\"userPhone\" : \"" + result.getUserPhone() + "\" ,"
+                    + "\"isRented\" : \"" + result.getIsRented() + "\" "
+                    + "}";
+            req.setAttribute("json", json);
+
+        }
 
 
         return "board/APILogin";
