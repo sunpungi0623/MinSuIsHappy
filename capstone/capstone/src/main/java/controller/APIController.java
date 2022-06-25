@@ -68,7 +68,7 @@ public class APIController {
         }
 
 
-        return "board/APILogin";
+        return "board/APIPage";
     }
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String showAPI(HttpServletRequest req) throws Exception {
@@ -79,9 +79,18 @@ public class APIController {
         switch (brand) {
             case "samsung" : {
                 objList= odao.showSamsungs();
-
-
-
+                break;
+            }
+            case "lg" : {
+                objList= odao.showLGs();
+                break;
+            }
+            case "msi" : {
+                objList= odao.showMSIs();
+                break;
+            }
+            case "apple" : {
+                objList= odao.showApples();
                 break;
             }
         }
@@ -116,7 +125,7 @@ public class APIController {
         req.setAttribute("json", json);
 
 
-        return "board/APILogin";
+        return "board/APIPage";
     }
 
 
