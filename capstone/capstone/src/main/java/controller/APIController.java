@@ -72,28 +72,10 @@ public class APIController {
     }
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String showAPI(HttpServletRequest req) throws Exception {
-        String brand = req.getParameter("brand");
         List<ObjectVO> objList = new ArrayList<ObjectVO>();
         String json = "";
 
-        switch (brand) {
-            case "samsung" : {
-                objList= odao.showSamsungs();
-                break;
-            }
-            case "lg" : {
-                objList= odao.showLGs();
-                break;
-            }
-            case "msi" : {
-                objList= odao.showMSIs();
-                break;
-            }
-            case "apple" : {
-                objList= odao.showApples();
-                break;
-            }
-        }
+        objList = odao.showObjects();
         int index = 0;
         json += "{ \"Data\": [";
         for(ObjectVO o: objList) {
