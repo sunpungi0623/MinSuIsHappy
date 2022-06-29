@@ -42,7 +42,7 @@ public class APIController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginAPI(HttpServletRequest req) throws Exception {
 
-        System.out.println("API request listen.");
+        System.out.println(req.getRequestURI());
         HttpSession session = req.getSession();
         String password = req.getParameter("password");
         String userId = req.getParameter("userId");
@@ -73,6 +73,7 @@ public class APIController {
     
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String showAPI(HttpServletRequest req) throws Exception {
+        System.out.println(req.getRequestURI());
         List<ObjectVO> objList = new ArrayList<ObjectVO>();
         String brand = req.getParameter("brand");
         String json = "";
@@ -121,13 +122,13 @@ public class APIController {
     
     @RequestMapping(value = "/showLog", method = RequestMethod.GET)
     public String showSpecipicAPI(HttpServletRequest req) throws Exception {
+        System.out.println(req.getRequestURI());
         String id = req.getParameter("userId");
         String json = "";
 
         
     	List<RecordVO> record = rdao.showSpecipicRecords(id);
-    	System.out.println(record.get(1).getCode());
-    	
+
         int index = 0;
         json += "{ \"Data\": [";
         for(RecordVO r : record) {
