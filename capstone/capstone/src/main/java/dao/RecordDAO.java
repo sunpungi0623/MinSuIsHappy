@@ -10,5 +10,7 @@ public interface RecordDAO {
    public void insertRecord(RecordVO vo);
 
    public List<RecordVO> showRecords();
+   public List<RecordVO> showSpecipicRecords(String id);
+
    
 }

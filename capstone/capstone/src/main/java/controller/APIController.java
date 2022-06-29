@@ -70,12 +70,12 @@ public class APIController {
 
         return "board/APIPage";
     }
+    
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String showAPI(HttpServletRequest req) throws Exception {
         List<ObjectVO> objList = new ArrayList<ObjectVO>();
         String brand = req.getParameter("brand");
         String json = "";
-
 
         switch (brand) {
             case "samsung" :
@@ -91,7 +91,6 @@ public class APIController {
                 objList = odao.showApples();
 
         }
-
 
         int index = 0;
         json += "{ \"Data\": [";
@@ -109,26 +108,52 @@ public class APIController {
 
             if (index == objList.size()-1) {
                 //json += ", \"size\":"+(index+1);
-
             }
             else {
                 index++;
                 json += ", ";
-
             }
         }
-
-
         json += " ]}";
-
         req.setAttribute("json", json);
-
-
         return "board/APIPage";
     }
+    
+    @RequestMapping(value = "/showLog", method = RequestMethod.GET)
+    public String showSpecipicAPI(HttpServletRequest req) throws Exception {
+        String id = req.getParameter("userId");
+        String json = "";
 
-
-
+        
+    	List<RecordVO> record = rdao.showSpecipicRecords(id);
+    	System.out.println(record.get(1).getCode());
+    	
+        int index = 0;
+        json += "{ \"Data\": [";
+        for(RecordVO r : record) {
+            ///json += "\""+index+"\": {";
+            json += "{ ";
+            json += "\"code\":"+"\""+r.getCode()+"\", ";
+            json += "\"rentDate\":"+"\""+r.getRentDate()+"\", ";
+            json += "\"returnDate\":"+"\""+r.getReturnDate()+"\", ";
+            json += "\"name\":"+"\""+r.getName()+"\", ";
+            json += "\"userId\":"+"\""+r.getUserID()+"\", ";
+            json += "\"userPhone\":"+"\""+r.getUserPhone()+"\"";
+            json += "}";
+            
+            if (index == record.size()-1) {
+                //json += ", \"size\":"+(index+1);
+            }
+            else {
+                index++;
+                json += ", ";
+            }
+        }
+        json += " ]}";
+        req.setAttribute("json", json);
+    	
+    	return "board/APIPage";
+    }
 
 
 }

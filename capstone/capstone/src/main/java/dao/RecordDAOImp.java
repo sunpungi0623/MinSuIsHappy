@@ -29,6 +29,12 @@ public class RecordDAOImp implements RecordDAO {
 		List<RecordVO> objs = sqlSession.selectList(namespace + ".showRecords");
 		return objs;
 	}
+	
+	@Override
+	public List<RecordVO> showSpecipicRecords(String id) {
+		List<RecordVO> objs = sqlSession.selectList(namespace + ".showSpecipicRecords", id);
+		return objs;
+	}
 
 
 	
