@@ -156,5 +156,23 @@ public class APIController {
     	return "board/APIPage";
     }
 
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
+    public String checkAPI(HttpServletRequest req) throws Exception {
+
+        System.out.println("checkAPI request listen.");
+        HttpSession session = req.getSession();
+
+        String code=req.getParameter("code");
+
+        ObjectVO result = odao.checkObjects(code);
+        
+        if (result.getStatus().equals("대여가능")) {
+        	req.setAttribute("json", "1");
+        }
+        else{
+        	req.setAttribute("json", "0");
+        }
+        return "board/APIPage";
+    }
 
 }
