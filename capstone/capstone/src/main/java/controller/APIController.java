@@ -156,22 +156,43 @@ public class APIController {
     	return "board/APIPage";
     }
 
-    @RequestMapping(value = "/check", method = RequestMethod.GET)
+    @RequestMapping(value = "/Rent", method = RequestMethod.GET)
     public String checkAPI(HttpServletRequest req) throws Exception {
         System.out.println(req.getRequestURI());
 
-        System.out.println("checkAPI request listen.");
-        HttpSession session = req.getSession();
-
-        String code=req.getParameter("code");
+        String code = req.getParameter("code");
+        String userId = req.getParameter("userId");
+        String userPhone = req.getParameter("userPhone");
+        String rentDate = req.getParameter("rentDate");
+        String returnDate = req.getParameter("returnDate");
 
         ObjectVO result = odao.checkObjects(code);
-        
+        LoginVO lvo = new LoginVO();
+        lvo.setID(userId);
+
+
         if (result.getStatus().equals("대여가능")) {
-        	req.setAttribute("json", "1");
+            result.setStatus("승인대기중");
+            result.setUserID(userId);
+            result.setUserPhone(userPhone);
+            result.setRentDate(rentDate);
+            result.setReturnDate(returnDate);
+            odao.updateObject(result);
+
+            RecordVO rvo = new RecordVO();
+            rvo.setCode(result.getCode());
+            rvo.setName(result.getName());
+            rvo.setUserID(userId);
+            rvo.setUserPhone(userPhone);
+            rvo.setRentDate(rentDate);
+            rvo.setReturnDate(returnDate);
+            rdao.insertRecord(rvo);
+            ldao.Rent(lvo);
+            req.setAttribute("json", "{\"result\" : \"1\"}");
+
         }
         else{
-        	req.setAttribute("json", "0");
+        	req.setAttribute("json", "{\"result\" : \"0\"}");
         }
         return "board/APIPage";
     }
