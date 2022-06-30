@@ -158,6 +158,7 @@ public class APIController {
 
     @RequestMapping(value = "/check", method = RequestMethod.GET)
     public String checkAPI(HttpServletRequest req) throws Exception {
+        System.out.println(req.getRequestURI());
 
         System.out.println("checkAPI request listen.");
         HttpSession session = req.getSession();
