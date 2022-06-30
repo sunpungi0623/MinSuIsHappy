@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import domain.LoginVO;
 import domain.ObjectVO;
+import domain.RecordVO;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -87,6 +89,13 @@ public class ObjectDAOImp implements ObjectDAO {
 		List<ObjectVO> objs = sqlSession.selectList(namespace + ".showRentObjects");
 	      return objs;
 	}
+	
+	@Override
+	public ObjectVO checkObjects(String code) {
+		ObjectVO objs = sqlSession.selectOne(namespace + ".checkObjects", code);
+		return objs;
+	}
+
 	
 
 }

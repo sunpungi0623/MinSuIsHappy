@@ -73,14 +73,19 @@
 	</select>
 
 	<update id="updateObject" parameterType="domain.ObjectVO">
-
 		update object set
 		rentDate=#{rentDate}, returnDate=#{returnDate},
 		status=#{status},userID=#{userID}, userPhone=#{userPhone}
 		where
 		code=#{code} and name=#{name}
-
-
 	</update>
+	
+	<select id="checkObjects" resultType="domain.ObjectVO" >
+		select * 
+		from object
+		where
+		code=#{code}
+		
+	</select>
 
 </mapper>
