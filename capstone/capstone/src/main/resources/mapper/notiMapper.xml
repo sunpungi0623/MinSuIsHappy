@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mapper.NotiMapper">
+	<insert id="insertNoti">
+		insert into noti(userId,date,detail) values
+		(#{userId}, #{date}, #{detail})
+	</insert>
+	
+	<select id="showNoti" resultType="domain.NotiVO">
+		select * from noti where userId=#{userid}
+	</select>
+</mapper>
