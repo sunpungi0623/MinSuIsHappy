@@ -24,7 +24,7 @@ public class NotiDAOImp implements NotiDAO {
     
     @Override
 	public List<NotiVO> showNoti(NotiVO vo) {
-		List<NotiVO> objs = sqlSession.selectList(namespace + ".showNoti");
+		List<NotiVO> objs = sqlSession.selectList(namespace + ".showNoti", vo);
 		return objs;
 	}
  
