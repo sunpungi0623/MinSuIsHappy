@@ -1,7 +1,8 @@
 # MinsuIsHappy
-### 한성대학교 기자재 대여 통합시스템 웹서버
+made by 조진웅 황윤규 권민수 이찬호 유지연 이하나
+한성대학교 기자재 대여 통합시스템 웹서버
 
-### 사용 스택rk
+### 사용 스택
 Java, Spring Framework, MySQL, JavaScript, BootStrap
 
 ### 비고
