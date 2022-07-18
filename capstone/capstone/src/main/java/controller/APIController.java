@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.NotiDAO;
+import domain.NotiVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +38,9 @@ public class APIController {
 
     @Inject
     private RecordDAO rdao;
+
+    @Inject
+    private NotiDAO ndao;
 
 
 
@@ -196,5 +201,41 @@ public class APIController {
         }
         return "board/APIPage";
     }
+    @RequestMapping(value = "/noti", method = RequestMethod.GET)
+    public String notiAPI(HttpServletRequest req) throws Exception {
+        System.out.println(req.getRequestURI());
 
+        String id = req.getParameter("userId");
+        String json = "";
+
+
+        NotiVO temp = new NotiVO();
+        temp.setUserId(id);
+
+        List<NotiVO> noti = ndao.showNoti(temp);
+        System.out.println(noti.size());
+
+        int index = 0;
+        json += "{ \"Data\": [";
+        for(NotiVO n : noti) {
+            ///json += "\""+index+"\": {";
+            json += "{ ";
+            json += "\"userId\":"+"\""+n.getUserId()+"\", ";
+            json += "\"date\":"+"\""+n.getDate()+"\", ";
+            json += "\"detail\":"+"\""+n.getDetail()+"\"";
+            json += "}";
+
+            if (index == noti.size()-1) {
+                //json += ", \"size\":"+(index+1);
+            }
+            else {
+                index++;
+                json += ", ";
+            }
+        }
+        json += " ]}";
+        req.setAttribute("json", json);
+
+        return "board/APIPage";
+    }
 }
