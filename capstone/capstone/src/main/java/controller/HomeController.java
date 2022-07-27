@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.FileInputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.LoginDAO;
 import dao.ObjectDAO;
@@ -47,6 +49,8 @@ public class HomeController {
 		String userId = req.getParameter("userId");
 		String userPhone = req.getParameter("userPhone");
 		String mode = req.getParameter("mode");
+
+
 
 		if (mode == null) {
 			return "board/login";
@@ -115,6 +119,7 @@ public class HomeController {
 					model.addAttribute("objList", objList);
 					return "board/managerListAll";
 				}
+
 				return "board/listAll";
 
 			}
@@ -204,6 +209,17 @@ public class HomeController {
 	public String getRegister(HttpServletRequest req) throws Exception {
 
 		return "board/register";
+	}
+	@RequestMapping(value = "/firebase", method = RequestMethod.GET)
+	public String firebase(HttpServletRequest req) throws Exception {
+
+		FirebaseCloudMessageService firebaseCloudMessageService = new FirebaseCloudMessageService();
+
+		String token = firebaseCloudMessageService.getAccessToken();
+
+		System.out.println(token);
+
+		return "board/firebase";
 	}
 
 	@RequestMapping(value = "/recopage", method = RequestMethod.GET)

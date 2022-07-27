@@ -13,7 +13,6 @@
   <DIV style = "text-align: center;">
       <img src = "/resources/img/logo.png", width = 400>
   </DIV>
-  
   <body style = "background-color:#0E0C32">
 
     <div class="container">
