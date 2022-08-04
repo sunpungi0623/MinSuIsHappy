@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+	body{
+		font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+	}
+
+	.login-container {
+		font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+		font-size: 20px;
+	}
+	.login-form{
+		width: 300px;
+		border:0;
+		border-radius : 5px;
+		background-color: white;
+		padding : 20px;
+		margin: 0 auto;
+		border: solid 1px;
+		
+	}
+	.login-input {
+  		width: 265px;
+  		height: 32px;
+  		font-size: 15px;
+  		border: solid 1px #606066;
+  		border-radius: 5px;
+  		outline: none;
+  		padding-left: 10px;
+  		background-color: white;
+  		margin: 10px;
+	}
+	.login-button {
+		background-color: #3378f7;
+		color: white;
+		border: 1px;
+		border-radius: 5px;
+		padding: 10px 20px;
+		text-align: center;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+	}
+	.login-button:hover {
+		cursor: pointer;
+	}
+	
+	.navbar {
+		background-color: white;
+		line-height: 70px;
+		height: 90px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		border-bottom: 1px solid black;
+		font-size: 18px;
+	}
+	.navbar a {
+		text-decoration-line: none;
+		color: inherit;
+	}
+	
+	ul {
+		list-style: none;		
+	}
+	li {
+		float: left;
+		margin-right: 30px;
+		display: inline;
+	}
+	body {
+		padding-top: 100px;
+		background-color: #f9f9f9;
+	}
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	.drop {
+		cursor: pointer;
+	}
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 150px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		text-align: center;
+		line-height: 40px;
+	}
+	.dropdwon-content a {
+		color: black;
+		text-decoration: none;
+		display: block;
+	}
+	.dropdown-content a:hover {
+		cursor: pointer;
+	}
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+	
+	.list {
+			border-collapse: collapse;
+			width: 80%;
+			margin: auto;
+			background-color: white;
+			white-space: nowrap;
+			font-size: 17px;
+		}  
+		.list th {
+			padding: 10px;
+			color: #168;
+			border-bottom: 3px solid #168;
+			text-align: left;
+		}
+		.list td {
+			color: black;
+			padding: 10px;
+			border-bottom: 1px solid #ddd;
+		}
+		.list tr:hover td {
+			background-color: #ced4da;
+		}
+		.list td a {
+			color: black;
+		}
+		
+		.paging {
+			float: left;
+			width: 100%;
+			text-align: center;
+		}
+		.pagination {
+        display: inline-block;
+        text-align: center;
+    	}
+
+    	.pagination a {
+        	color: black;
+        	float: left;
+        	padding: 8px 16px;
+        	text-decoration: none;
+        	border-radius:50%;
+    	}
+
+    	.pagination a:hover {background-color: silver;}
+
+	.btnblue {
+        		border: 0;
+                outline: 0;
+                cursor: pointer;
+                color: white;
+                background-color: #2979ff;
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 10px 15px;
+                display: inline-block;
+                min-height: 28px;
+                transition: background-color .24s,box-shadow .24s;
+                float: right;
+	}
+	.btnblue:hover {
+		box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+	}
+	.btngrey {
+				border: 0;
+                outline: 0;
+                cursor: pointer;
+                color: white;
+                background-color: #d3d3d3;
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 10px 15px;
+                display: inline-block;
+                min-height: 28px;
+                transition: background-color .24s,box-shadow .24s;
+                float: right;
+	}
+	.btngrey:hover {
+		box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+	}
