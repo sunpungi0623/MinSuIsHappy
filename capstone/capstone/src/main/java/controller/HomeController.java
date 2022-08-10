@@ -210,17 +210,6 @@ public class HomeController {
 
 		return "board/register";
 	}
-	@RequestMapping(value = "/firebase", method = RequestMethod.GET)
-	public String firebase(HttpServletRequest req) throws Exception {
-
-		FirebaseCloudMessageService firebaseCloudMessageService = new FirebaseCloudMessageService();
-
-		String token = firebaseCloudMessageService.getAccessToken();
-
-		System.out.println(token);
-
-		return "board/firebase";
-	}
 
 	@RequestMapping(value = "/recopage", method = RequestMethod.GET)
 	public String getRecopage(HttpServletRequest req, HttpServletResponse response) throws Exception {

@@ -1,9 +1,5 @@
 package controller;
 
-import com.google.auto.value.AutoValue;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.messaging.Message;
-import com.google.firebase.messaging.Notification;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,8 +7,7 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 @Getter
-public class FcmMessage {
-    public static FirebaseOptions appMessage;
+public class FCMMessage {
     private boolean validate_only;
     private Message message;
 
@@ -20,8 +15,8 @@ public class FcmMessage {
     @AllArgsConstructor
     @Getter
     public static class Message {
-        private Notification notification;
-        private String token;
+        private Notification notification; // 모든 mobile os를 아우를수 있는 Notification
+        private String token; // 특정 device에 알림을 보내기위해 사용
     }
 
     @Builder
@@ -32,4 +27,5 @@ public class FcmMessage {
         private String body;
         private String image;
     }
+
 }
