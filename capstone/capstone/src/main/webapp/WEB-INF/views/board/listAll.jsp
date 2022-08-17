@@ -76,7 +76,7 @@
 					<thead>
 						<tr>
 							<th scope="col">코드</th>
-							<th scope="col">기자재명</th>
+							<th scope="col">기자재명,모델명</th>
 							<th scope="col">상태</th>
 							<th scope="col" style="text-align:right;">반납 예정일</th>
 							<th scope="col"></th>

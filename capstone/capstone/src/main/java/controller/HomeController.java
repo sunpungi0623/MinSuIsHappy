@@ -26,7 +26,6 @@ import domain.LoginVO;
 import domain.ObjectVO;
 import domain.RecordVO;
 
-@RequestMapping("/")
 @Controller
 public class HomeController {
 
@@ -38,6 +37,11 @@ public class HomeController {
 
 	@Inject
 	private RecordDAO rdao;
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String welcome(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
+		return "redirect:/login";
+	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String submitLogin(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
@@ -209,17 +213,6 @@ public class HomeController {
 	public String getRegister(HttpServletRequest req) throws Exception {
 
 		return "board/register";
-	}
-	@RequestMapping(value = "/firebase", method = RequestMethod.GET)
-	public String firebase(HttpServletRequest req) throws Exception {
-
-		FirebaseCloudMessageService firebaseCloudMessageService = new FirebaseCloudMessageService();
-
-		String token = firebaseCloudMessageService.getAccessToken();
-
-		System.out.println(token);
-
-		return "board/firebase";
 	}
 
 	@RequestMapping(value = "/recopage", method = RequestMethod.GET)
