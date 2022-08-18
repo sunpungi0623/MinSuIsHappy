@@ -42,7 +42,7 @@
                     <p class="card-text"><h5>15Z90N-VP70ML</h5></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><h5>CPU : 10세대 쿼드코어 i7 </h5></li>
+                    <li class="list-group-item"><h5>CPU : i7-1065G7  </h5></li>
                     <li class="list-group-item"><h5>메모리 : 8GB</h5></li>
                     <li class="list-group-item"><h5>GPU : 인텔 Iris Plus Graphics</h5></li>
                     <li class="list-group-item"><h5>화면 : 39.6cm(15.6인치)</h5></li>

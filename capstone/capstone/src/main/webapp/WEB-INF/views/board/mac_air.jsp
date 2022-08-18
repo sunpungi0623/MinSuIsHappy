@@ -50,9 +50,9 @@
                     <p class="card-text"><h5>MGN63KH/A</h5></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><h5>CPU : 실리콘 M1</h5></li>
+                    <li class="list-group-item"><h5>CPU : Apple Silicon M1</h5></li>
                     <li class="list-group-item"><h5>메모리 : 8GB</h5></li>
-                    <li class="list-group-item"><h5>GPU : M1 7 core</h5></li>
+                    <li class="list-group-item"><h5>GPU :  Apple Silicon M1</h5></li>
                     <li class="list-group-item"><h5>화면 : 33.78cm(13.3인치)</h5></li>
                     <li class="list-group-item"><h5>무게 : 1.29kg</h5></li>
                 </ul>

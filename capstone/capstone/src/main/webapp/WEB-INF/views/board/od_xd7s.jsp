@@ -41,7 +41,7 @@
                     <p class="card-text"><h5>NT800G5W-XD7S</h5></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><h5>CPU : i7-7700HQ (2.8GHz)</h5></li>
+                    <li class="list-group-item"><h5>CPU : i7-7700HQ</h5></li>
                     <li class="list-group-item"><h5>메모리 : 8GB</h5></li>
                     <li class="list-group-item"><h5>GPU : GTX1050</h5></li>
                     <li class="list-group-item"><h5>화면 : 39.62cm(15.6인치)</h5></li>

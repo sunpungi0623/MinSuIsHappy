@@ -41,7 +41,7 @@
                     <p class="card-text"><h5>MVVJ2KH/A</h5></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><h5>CPU : i7-9750H (2.6GHz)</h5></li>
+                    <li class="list-group-item"><h5>CPU : i7-9750H</h5></li>
                     <li class="list-group-item"><h5>메모리 : 16GB</h5></li>
                     <li class="list-group-item"><h5>GPU : 라데온 Pro 5300M</h5></li>
                     <li class="list-group-item"><h5>화면 : 40.8cm(16인치)</h5></li>
