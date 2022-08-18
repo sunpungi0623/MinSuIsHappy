@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hansungrentsystem-73c03",
+  "private_key_id": "a7619c98de511a6bb6eb5113adb990559a37da5e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC4aKsYa/czH4jy\nksLkL/aHggFxNsEi74ovs83kkfRQXQxetTOVZ+R/BEQUfwdnak0GxZYmDVI3q3l4\ny+8e8ONQLGiR4N8xfqN+khy4LKWh+vr9c5pCXRzRfNESbIf5lic5HY8FDCbE2q2D\nyiXJutBOvElSq50uq6mitvu3mJg9NgolKwhypk3PGZKM5v79PyCYwgJkihvVjv+x\nvNIFFGPSrKCUwb5lqyPpXL9YNEid4atLdKYOpINhhwZjMGyTgbuUn8Qa7INVBLkq\noyNwoPNbEe8dQJG2+IKmIWd2mgCGdg46VwrfpcSMx+WXvrLSnKeleBs/0cxLD+Ta\nYfbZ94P1AgMBAAECggEABIbEyY8GExO5CC0/VxvXR9jsB9c7Rkwansehn05QcMC/\nJKIuTGji4RXd3u8ffSbmkgRurLhWFlnUgjkzp7u4p93jL86usJ4TAMpKcq0QrSLT\nBaTqBysWbnNYHwUZ3e/VC1ZoQL+dQjOhuTLdZ3ysQsmyQ6ZE1i57NdK0gVUfsLbn\n1C0yi6dYsoBQLEmTuLSfLDVi23TvI5dsfGHqieMTr6NNj7H3QSFFVLNPlrKMypid\noG6bE5gOZlHC1JOJgvkw2WSBUTR9FELaZJH67ge5anj9y4hAtypsGVhZ/tmsE8E0\n98DhDFdRW8/hSeuL4a9I6jKRLXIoVNHB3kyEmpwX8QKBgQDkoBLTqaYIWLS+W8HJ\nrYK20of7eKW/nbdF0Ene9Uny9cwMdg+HYfMzUGRNimR6I38HYipB64KSn68Dp6N+\nWWpi/vAQ24Mn961ykIMrBqcPMK+tZIgx8dBJ7D2CV0ZFdoIBB/LpwWZpxqvpyo1u\nWxUS7FQmAvubYoySAgkd+hdPcQKBgQDOfUC0JwOa67vbxl7e/zRWGY8Jc/Eft5UA\noAzdsE/+wd99FbFGqqTfiM2fLmlMa/tnGrjfW+6ooYtwz8AgskXoHYsMe8/koWx2\n79+lZ7MleBERnisI2mNnPWk9V1VdkEEWZLo9VJVKQBuJsskcO0C7Z6fnlNXYNR3d\nt6NZErCCxQKBgEunqPNABYBnklAX3xXVBBdprbQKpZa2IyrIFVnhg7oRmpdZDiR3\nxlnptXdvX3aHfoa79k3gGFJa4zhrZg/umOTvhhOeAFXegRgTOESpq+i77LaNOQCG\nC64arfQO22MrJzQeJEU0SaahJsxzyb+GBoA/kk0N2aL+xpOedtPjqYkRAoGAQBUp\nJn/RI5wzQgKvYL+NC4eFF6bu1ywPRxFkzMwyF1sts9EuokLFRkZboiIyNbBxZk8p\nvs/2Ikl4T/t5oewRu/anN6mZHFhopATPwLKNK3y2t2QB8Q5tuRWa+pmG+bGSMZPz\nJKOCbXe11CczONq+vSpvNnS/ZQkfCrc6L6OYOg0CgYAYhg6FJgn5P9Lua38Gu6LB\n4ZRc5EMKhmPkU6oYhIuLBStpAz5mhp8Veu8iJGfOeRNOrDLHZpMy3oyZf56JM+Zz\nWT7PjRdUEgthRNaiZSIh4qt/h57h/eHpMuG0HSTir2MdR6RzodorWV5dUSnvmTL7\nEjEGWAjt94gletow19AgBw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-8zn1k@hansungrentsystem-73c03.iam.gserviceaccount.com",
+  "client_id": "103758445012700834747",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-8zn1k%40hansungrentsystem-73c03.iam.gserviceaccount.com"
+}

@@ -40,6 +40,15 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
+		FileInputStream serviceAccount =
+				new FileInputStream("/Users/hwang-yoongyu/Documents/GitHub/MinSuIsHappy/capstone/capstone/src/main/resources/firebase/hansungrentsystem.json");
+
+		FirebaseOptions options = new FirebaseOptions.Builder()
+				.setCredentials(GoogleCredentials.fromStream(serviceAccount))
+				.build();
+
+		FirebaseApp.initializeApp(options);
+
 		return "redirect:/login";
 	}
 
