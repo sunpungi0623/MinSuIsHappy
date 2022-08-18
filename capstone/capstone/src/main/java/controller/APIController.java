@@ -1,22 +1,26 @@
 package controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
+import java.util.Optional;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.firebase.messaging.FirebaseMessagingException;
+import com.google.firebase.messaging.Message;
+import com.google.firebase.messaging.Notification;
 import dao.NotiDAO;
 import domain.NotiVO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import dao.LoginDAO;
 import dao.ObjectDAO;
@@ -41,6 +45,18 @@ public class APIController {
 
     @Inject
     private NotiDAO ndao;
+
+
+    FCMService firebaseCloudMessageService = new FCMService();
+
+
+    @PostMapping("/fcm")
+    public ResponseEntity pushMessage(@RequestParam String TargetToken, String Title, String Body) throws IOException {
+        System.out.println(TargetToken + ", "+ Title + ", " + Body);
+
+        firebaseCloudMessageService.sendMessageTo(TargetToken, Title, Body);
+        return ResponseEntity.ok().build();
+    }
 
 
 
