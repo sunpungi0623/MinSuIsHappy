@@ -89,9 +89,7 @@
                             <td style="color: blue;"><strong>대여중</strong></td>
                         </c:if>
                         <td>
-                            <button type="submit" class="btn btn-primary"
-                                    onclick="returnObject('${objectVO.code}', '${ objectVO.userID }');">반납
-                            </button>
+                            <button type="submit" class="btnblue" onclick="returnObject('${objectVO.code}', '${ objectVO.userID }');">반납</button>
                         </td>
                     </tr>
                 </c:forEach>
