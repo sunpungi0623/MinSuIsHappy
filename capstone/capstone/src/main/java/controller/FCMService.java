@@ -26,7 +26,7 @@ public class FCMService {
     @Value("${project.properties.firebase-create-scoped}")
     String fireBaseCreateScoped;
     private FirebaseMessaging instance;
-    private final String API_URL = "https://fcm.googleapis.com/v1/projects/hansungrentsystem/messages:send";
+    private final String API_URL = "https://fcm.googleapis.com/v1/projects/hansungrentsystem-73c03/messages:send";
     private ObjectMapper objectMapper = new ObjectMapper();
 
     public void sendMessageTo(String targetToken, String title, String body) throws IOException {
@@ -61,7 +61,7 @@ public class FCMService {
     }
 
     private String getAccessToken() throws IOException {
-        String firebaseConfigPath = "firebase/hansungrentsystem-firebase-adminsdk-h1zxv-4e9eac3ed1.json";
+        String firebaseConfigPath = "firebase/hansungrentsystem-73c03-firebase-adminsdk-8zn1k-b388f8dc7d.json";
 
         GoogleCredentials googleCredentials = GoogleCredentials
                 .fromStream(new ClassPathResource(firebaseConfigPath).getInputStream())
