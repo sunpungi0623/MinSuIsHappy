@@ -36,4 +36,8 @@
 	<update id="newsession" parameterType="domain.LoginVO">
 		update User set isRented = 0 where id = #{id} and password = #{password}
 	</update>
+
+	<update id="updateToken" parameterType="domain.LoginVO">
+		update User set token=#{token} where id = #{id} and password = #{password}
+	</update>
 </mapper>

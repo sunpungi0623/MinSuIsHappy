@@ -53,5 +53,10 @@ public class LoginDAOImp implements LoginDAO {
 		sqlSession.update(namespace+".newsession", vo);
 		return;	
 	}
-    
+	@Override
+	public void updateToken(LoginVO vo) throws  Exception {
+		sqlSession.update(namespace+".updateToken", vo);
+	}
+
+
 }

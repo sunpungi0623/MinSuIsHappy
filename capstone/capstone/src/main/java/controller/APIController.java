@@ -58,6 +58,20 @@ public class APIController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/fcm/set")
+    public String setToken(HttpServletRequest req, @RequestParam String token, String id, String password) throws Exception {
+        LoginVO lVo = new LoginVO();
+        lVo.setID(id);
+        lVo.setPassword(password);
+
+        lVo = ldao.login(lVo);
+        lVo.setToken(token);
+
+        ldao.updateToken(lVo);
+
+        req.setAttribute("json","{\"result\" : \"1\"}");
+        return "board/APIPage";
+    }
 
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

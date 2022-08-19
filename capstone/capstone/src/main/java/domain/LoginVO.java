@@ -8,6 +8,7 @@ public class LoginVO {
     private String userName;
     private String userPhone;
     private int isRented;
+    private String token;
   
     public LoginVO(){};
     
@@ -42,14 +43,16 @@ public class LoginVO {
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
-
     public int getIsRented() {
  	   return isRented;
     }
-    
     public void setIsRented(int isRented) {
  	   this.isRented = isRented;
     }
+    public String getToken() {return this.token;}
+    public void setToken(String token) { this.token = token; }
+
+
     
 
 }

@@ -10,4 +10,5 @@ public interface LoginDAO {
     public void returnObj(String uid) throws Exception;
     public int idChk(LoginVO vo) throws Exception;
     public void newsession(LoginVO vo) throws Exception;
+    public void updateToken(LoginVO vo) throws  Exception;
 }
