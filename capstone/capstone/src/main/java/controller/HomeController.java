@@ -38,6 +38,8 @@ public class HomeController {
 	@Inject
 	private RecordDAO rdao;
 
+	FCMService firebaseCloudMessageService = new FCMService();
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 
@@ -406,6 +408,15 @@ public class HomeController {
 	public String reqList(HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 		HttpSession session = req.getSession();
 
+		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
+		if (ses == null) {
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
+			out.flush();
+			return "board/login";
+		}
+
 		String mode = req.getParameter("mode");
 		String code = req.getParameter("code");
 
@@ -419,15 +430,9 @@ public class HomeController {
 			temp.setRentDate(now.toString());
 			temp.setReturnDate(now.plusMonths(1).toString());
 			odao.updateObject(temp);
-		}
+			firebaseCloudMessageService.sendMessageTo(ses.getToken(), "대여 승인", temp.getName()+" 승인 완료되었습니다. 과 사무실을 방문하세요.");
 
-		LoginVO ses = (LoginVO) session.getAttribute("LoginVO");
-		if (ses == null) {
-			response.setContentType("text/html; charset=euc-kr");
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('세션이 만료되었습니다. 다시 로그인 해주세요.'); </script>");
-			out.flush();
-			return "board/login";
+
 		}
 
 		List<ObjectVO> objList = odao.showReqObjects();
