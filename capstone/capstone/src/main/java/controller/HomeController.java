@@ -38,8 +38,9 @@ public class HomeController {
 	@Inject
 	private RecordDAO rdao;
 
-	FCMService firebaseCloudMessageService = new FCMService();
-
+	//FCMService firebaseCloudMessageService = new FCMService();
+	@Inject
+	FCMService firebaseCloudMessageService;
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(LoginVO vo, HttpServletRequest req, Model model, HttpServletResponse response) throws Exception {
 
