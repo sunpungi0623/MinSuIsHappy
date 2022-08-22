@@ -59,9 +59,9 @@ public class APIController {
     }
 
     @GetMapping("/fcm/set")
-    public String setToken(HttpServletRequest req, @RequestParam String token, String id, String password) throws Exception {
+    public String setToken(HttpServletRequest req, @RequestParam String token, String userId, String password) throws Exception {
         LoginVO lVo = new LoginVO();
-        lVo.setID(id);
+        lVo.setID(userId);
         lVo.setPassword(password);
 
         lVo = ldao.login(lVo);
