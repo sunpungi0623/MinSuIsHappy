@@ -46,8 +46,8 @@ public class APIController {
     @Inject
     private NotiDAO ndao;
 
-
-    FCMService firebaseCloudMessageService = new FCMService();
+    @Inject
+    private FCMService firebaseCloudMessageService;
 
 
     @PostMapping("/fcm")
