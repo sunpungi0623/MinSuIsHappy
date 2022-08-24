@@ -4,48 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-
     <title>mypage</title>
-
-    <style>
-        .navbar {
-            background-color: white;
-            line-height: 70px;
-            height: 90px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            border-bottom: 1px solid black;
-            font-size: 18px;
-            z-index: 1;
-        }
-
-        .navbar a {
-            text-decoration-line: none;
-            color: inherit;
-        }
-
-        .navbar ul {
-            list-style: none;
-        }
-
-        .navbar li {
-            float: left;
-            margin-right: 30px;
-            display: inline;
-        }
-
-        body {
-            padding-top: 100px;
-            background-color: #f9f9f9;
-        }
-    </style>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
           href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/main.css">
 
 </head>
 

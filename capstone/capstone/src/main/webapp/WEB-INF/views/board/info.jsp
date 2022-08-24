@@ -5,8 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>info</title>
+    <title>공지사항</title>
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/main.css">
 
 </head>
