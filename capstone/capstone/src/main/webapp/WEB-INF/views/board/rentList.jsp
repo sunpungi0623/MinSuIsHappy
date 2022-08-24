@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
@@ -17,7 +16,8 @@
             //location.href="/"+"?Option=Modify&Name=${dataVO.name}&PhoneNumber=${dataVO.phoneNumber}&Address1=${dataVO.address1}&Address2=${dataVO.address2}&Time=${dataVO.time}";
         }
     </script>
-
+    <link rel="stylesheet"
+          href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/main.css">
 
 </head>
@@ -40,7 +40,6 @@
 				</li>
 				<li><a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a></li>
 				<li><a class="nav-link" href="/reqList?mode=show" value="reqList">신청 현황</a></li>
-				<li><a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a></li>
 				<li><a class="nav-link" href="/rentList?mode=show" value="rentList">대여 현황</a></li>
 				<li><a class="nav-link" href="/returnpage" value="returnpage">대여 기록</a></li>
 				<li><a class="nav-link" href="/logout" value="logout">로그아웃</a></li>
