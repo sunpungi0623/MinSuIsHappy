@@ -1,23 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>notebook List</title>
+    <title>기자재 정보</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
           href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/main.css">
-
-
 </head>
-
-
 <body>
 
 <!-- 맨 윗상단 메뉴 -->
-<div class="header">
     <nav class="navbar">
         <ul class="nav-menu">
             <li><img src="/resources/img/logo5.png" width=200></li>
@@ -49,7 +44,6 @@
             </SCRIPT>
         </ul>
     </nav>
-</div>
 
 
 <div class="container h-100" style="z-index:2;">
