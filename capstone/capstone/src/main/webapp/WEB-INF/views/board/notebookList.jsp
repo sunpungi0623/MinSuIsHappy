@@ -63,9 +63,9 @@
                     <p class="card-text">NT800G5W-XD71</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CPU : i7-7700HQ (2.8GHz)</li>
+                    <li class="list-group-item">CPU : i7-7700HQ</li>
                     <li class="list-group-item">메모리 : 8GB</li>
-                    <li class="list-group-item">그래픽카드 : GTX1050</li>
+                    <li class="list-group-item">GPU : GTX1050</li>
                     <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
                     <li class="list-group-item">무게 : 2.5kg</li>
                 </ul>
@@ -83,9 +83,9 @@
                     <p class="card-text">NT800G5W-XD7S</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CPU : i7-7700HQ (2.8GHz)</li>
+                    <li class="list-group-item">CPU : i7-7700HQ</li>
                     <li class="list-group-item">메모리 : 8GB</li>
-                    <li class="list-group-item">그래픽카드 : GTX1050</li>
+                    <li class="list-group-item">GPU : GTX1050</li>
                     <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
                     <li class="list-group-item">무게 : 2.5kg</li>
                 </ul>
@@ -103,9 +103,9 @@
                     <p class="card-text">NT800G5W-GD7A</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CPU : i7-7700HQ (2.8GHz)</li>
+                    <li class="list-group-item">CPU : i7-7700HQ</li>
                     <li class="list-group-item">메모리 : 8GB</li>
-                    <li class="list-group-item">그래픽카드 : GTX1060</li>
+                    <li class="list-group-item">GPU : GTX1050</li>
                     <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
                     <li class="list-group-item">무게 : 2.5kg</li>
                 </ul>
@@ -120,12 +120,12 @@
                 <img src="/resources/img/odyssey.jpg" class="card-img-top" alt="samsung odyssey" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
                     <h5 class="card-title">삼성Odyssey</h5>
-                    <p class="card-text">NT801G5H-X01/C</p>
+                    <p class="card-text">NT800G5W-X01/C</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CPU : i7-7700HQ (2.8GHz)</li>
+                    <li class="list-group-item">CPU : i7-7700HQ</li>
                     <li class="list-group-item">메모리 : 16GB</li>
-                    <li class="list-group-item">그래픽카드 : GTX1060</li>
+                    <li class="list-group-item">GPU : GTX1060</li>
                     <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
                     <li class="list-group-item">무게 : 2.5kg</li>
                 </ul>
@@ -139,13 +139,13 @@
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/macbookpro.png" class="card-img-top" alt="macbook pro" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
-                    <h5 class="card-title">애플MacBookPro</h5>
+                    <h5 class="card-title">macbookPro</h5>
                     <p class="card-text">MVVJ2KH/A</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CPU : i7-9750H (2.6GHz)</li>
+                    <li class="list-group-item">CPU : i7-9750H</li>
                     <li class="list-group-item">메모리 : 16GB</li>
-                    <li class="list-group-item">그래픽카드 : 라데온 Pro 5300M</li>
+                    <li class="list-group-item">GPU : 라데온 Pro 5300M</li>
                     <li class="list-group-item">화면 : 40.8cm(16인치)</li>
                     <li class="list-group-item">무게 : 2.0kg</li>
                 </ul>
@@ -159,13 +159,13 @@
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/macbookair.jpg" class="card-img-top" alt="macbook air" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
-                    <h5 class="card-title">애플MacBookAir</h5>
+                    <h5 class="card-title">macbookAir</h5>
                     <p class="card-text">MGN63KH/A</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CPU : 실리콘 M1</li>
+                    <li class="list-group-item">CPU : Apple Silicon M1</li>
                     <li class="list-group-item">메모리 : 8GB</li>
-                    <li class="list-group-item">그래픽카드 : M1 7 core</li>
+                    <li class="list-group-item">GPU : Apple Silicon M1</li>
                     <li class="list-group-item">화면 : 33.78cm(13.3인치)</li>
                     <li class="list-group-item">무게 : 1.29kg</li>
                 </ul>
@@ -184,9 +184,9 @@
                     <p class="card-text">15Z90N-VP70ML</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CPU : 10세대 쿼드코어 i7</li>
+                    <li class="list-group-item">CPU : i7-1065G7</li>
                     <li class="list-group-item">메모리 : 8GB</li>
-                    <li class="list-group-item">그래픽카드 : 인텔 Iris Plus Graphics</li>
+                    <li class="list-group-item">GPU : 인텔 Iris Plus Graphics</li>
                     <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
                     <li class="list-group-item">무게 : 1120g</li>
                 </ul>
@@ -204,9 +204,9 @@
                     <p class="card-text">GF66-A11UD</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CPU : 코어i7-11세대</li>
+                    <li class="list-group-item">CPU : i7-11세대</li>
                     <li class="list-group-item">메모리 : 8GB</li>
-                    <li class="list-group-item">그래픽카드 : RTX3050 Ti</li>
+                    <li class="list-group-item">GPU : RTX3050 Ti</li>
                     <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
                     <li class="list-group-item">무게 : 2.25kg</li>
                 </ul>
