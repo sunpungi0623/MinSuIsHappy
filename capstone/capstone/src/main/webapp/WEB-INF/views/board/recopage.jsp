@@ -105,7 +105,7 @@
             if (property == "1") {
                 location.href = "/Info?model=LG그램15, 15Z90N-VP70ML";
             } else if (property == "2") {
-                location.href = "/Info?model=삼성Odyssey, NT801G5H-X01/C";
+                location.href = "/Info?model=삼성Odyssey, NT800G5W-X01/C";
             }
         } else if (use == "2") {
             if (property == "1") {
@@ -115,9 +115,9 @@
             }
         } else if (use == "3") {
             if (property == "1") {
-                location.href = "Info?model=애플MacBookAir, MGN63KH/A";
+                location.href = "Info?model=macbookAir, MGN63KH/A";
             } else if (property == "2") {
-                location.href = "/Info?model=애플MacBookPro, MVVJ2KH/A";
+                location.href = "/Info?model=macbookPro, MVVJ2KH/A";
             }
         } else if (use == "4") {
             if (property == "1") {
