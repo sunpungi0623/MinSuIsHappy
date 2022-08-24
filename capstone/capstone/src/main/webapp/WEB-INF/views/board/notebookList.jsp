@@ -27,7 +27,7 @@
                 <li><a class="nav-link" href="/info" value="info">공지사항</a></li>
                 <li><a class="nav-link" href="/mypage" value="mypage">마이페이지</a></li>
                 <li><a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a></li>
-                <li><a class="nav-link" href="/recopage" value="recopage">노트북 추천</a></li>
+<%--                <li><a class="nav-link" href="/recopage" value="recopage">노트북 추천</a></li>--%>
                 <li><a class="nav-link" href="/logout" value="logout">로그아웃</a></li>
             </c:if>
 
@@ -91,7 +91,7 @@
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/odyssey.jpg" class="card-img-top" alt="samsung odyssey" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
-                    <h5 class="card-title">삼성Odyssey</h5>
+                    <h5 class="card-title">삼성 Odyssey</h5>
                     <p class="card-text">NT800G5W-GD7A</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -111,7 +111,7 @@
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/odyssey.jpg" class="card-img-top" alt="samsung odyssey" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
-                    <h5 class="card-title">삼성Odyssey</h5>
+                    <h5 class="card-title">삼성 Odyssey</h5>
                     <p class="card-text">NT800G5W-X01/C</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -131,7 +131,7 @@
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/macbookpro.png" class="card-img-top" alt="macbook pro" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
-                    <h5 class="card-title">macbookPro</h5>
+                    <h5 class="card-title">Apple MacBook Pro</h5>
                     <p class="card-text">MVVJ2KH/A</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -151,7 +151,7 @@
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/macbookair.jpg" class="card-img-top" alt="macbook air" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
-                    <h5 class="card-title">macbookAir</h5>
+                    <h5 class="card-title">Apple MacBook Air</h5>
                     <p class="card-text">MGN63KH/A</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -172,7 +172,7 @@
                 <img
                         src="/resources/img/LG_gram.jpg" class="card-img-top" alt="LG gram" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
-                    <h5 class="card-title">LG그램15</h5>
+                    <h5 class="card-title">LG gram</h5>
                     <p class="card-text">15Z90N-VP70ML</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -180,7 +180,7 @@
                     <li class="list-group-item">메모리 : 8GB</li>
                     <li class="list-group-item">GPU : 인텔 Iris Plus Graphics</li>
                     <li class="list-group-item">화면 : 39.62cm(15.6인치)</li>
-                    <li class="list-group-item">무게 : 1120g</li>
+                    <li class="list-group-item">무게 : 1.12kg</li>
                 </ul>
             </div>
             <br>
@@ -192,7 +192,7 @@
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/MSI_sword.jpg" class="card-img-top" alt="MSI sword" height="200">
                 <div class="card-body" style="background-color:rgba(83, 83, 109, 0.747); color:white;">
-                    <h5 class="card-title">MSI소드</h5>
+                    <h5 class="card-title">MSI SWORD</h5>
                     <p class="card-text">GF66-A11UD</p>
                 </div>
                 <ul class="list-group list-group-flush">

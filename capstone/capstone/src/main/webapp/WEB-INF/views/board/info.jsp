@@ -15,29 +15,26 @@
 </head>
 
 <body>
-
 <!-- 맨 윗상단 메뉴 -->
-<div class="header">
-    <nav class="navbar">
-        <ul class="nav-menu">
-            <li><img src="/resources/img/logo5.png" width=200></li>
-            <li>
-                <a class="nav-link" role="button" aria-expanded="false" onclick="showObjects();">HOME</a>
-                <SCRIPT
-                        language="Javascript">
-                    function showObjects() {
-                        location.href = "/listAll?mode=sort&brand=All";
-                    }
-                </SCRIPT>
-            </li>
-            <li><a class="nav-link" href="/info" value="info">공지사항</a></li>
-            <li><a class="nav-link" href="/mypage" value="mypage">마이페이지</a></li>
-            <li><a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a></li>
-            <li><a class="nav-link" href="/recopage" value="recopage">노트북 추천</a></li>
-            <li><a class="nav-link" href="/logout" value="logout">로그아웃</a></li>
-        </ul>
-    </nav>
-</div>
+<nav class="navbar">
+    <ul class="nav-menu">
+        <li><img src="/resources/img/logo5.png" width=200></li>
+        <li>
+            <a class="nav-link" role="button" onclick="showObjects();">HOME</a>
+            <SCRIPT
+                    language="Javascript">
+                function showObjects() {
+                    location.href = "/listAll?mode=sort&brand=All";
+                }
+            </SCRIPT>
+        </li>
+        <li><a class="nav-link" href="/info" value="info">공지사항</a></li>
+        <li><a class="nav-link" href="/mypage" value="mypage">마이페이지</a></li>
+        <li><a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a></li>
+<%--        <li><a class="nav-link" href="/recopage" value="recopage">노트북 추천</a></li>--%>
+        <li><a class="nav-link" href="/logout" value="logout">로그아웃</a></li>
+    </ul>
+</nav>
 
 
 <div class="container" style="width: 80%; margin: auto; background-color: white;">

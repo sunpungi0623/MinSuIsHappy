@@ -5,6 +5,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/main.css">
     <title>대여 기록</title>
     <script type="text/javascript">
         function search() {
@@ -16,7 +18,6 @@
         }
     </script>
 
-    <link rel="stylesheet" href="/resources/css/main.css">
 
 
 </head>
@@ -37,7 +38,6 @@
             </li>
             <li><a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a></li>
             <li><a class="nav-link" href="/reqList?mode=show" value="reqList">신청 현황</a></li>
-            <li><a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a></li>
             <li><a class="nav-link" href="/rentList?mode=show" value="rentList">대여 현황</a></li>
             <li><a class="nav-link" href="/returnpage" value="returnpage">대여 기록</a></li>
             <li><a class="nav-link" href="/logout" value="logout">로그아웃</a></li>

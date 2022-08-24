@@ -32,7 +32,7 @@
             <li><a class="nav-link" href="/info" value="info">공지사항</a></li>
             <li><a class="nav-link" href="/mypage" value="mypage">마이페이지</a></li>
             <li><a class="nav-link" href="/notebookList" value="notebookList">기자재 정보</a></li>
-            <li><a class="nav-link" href="/recopage" value="recopage">노트북 추천</a></li>
+<%--            <li><a class="nav-link" href="/recopage" value="recopage">노트북 추천</a></li>--%>
             <li><a class="nav-link" href="/logout" value="logout">로그아웃</a></li>
         </ul>
     </nav>
@@ -111,8 +111,7 @@
                             <td><c:out value="${objectVO.getReturnDate()}"/></td>
 
                             <td id="${objectVO.code}button">
-                                <SCRIPT
-                                        language="Javascript">
+                                <SCRIPT language="Javascript">
                                     var btn = document
                                         .getElementById("${objectVO.code}button");
 
