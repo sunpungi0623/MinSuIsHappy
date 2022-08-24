@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     <title>기자재 정보</title>
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/main.css">
 </head>
 <body>

@@ -2,47 +2,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>recopage</title>
+    <title>노트북 추천</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
-    <style>
-        .navbar {
-            background-color: white;
-            line-height: 70px;
-            height: 90px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            border-bottom: 1px solid black;
-            font-size: 18px;
-            z-index: 1;
-        }
+    <link rel="stylesheet" href="/resources/css/main.css">
 
-        .navbar a {
-            text-decoration-line: none;
-            color: inherit;
-        }
-
-        .navbar ul {
-            list-style: none;
-        }
-
-        .navbar li {
-            float: left;
-            margin-right: 30px;
-            display: inline;
-        }
-
-        body {
-            padding-top: 100px;
-            background-color: #f9f9f9;
-        }
-    </style>
 </head>
 <body>
 <!-- 맨 윗상단 메뉴 -->
-<div class="header">
     <nav class="navbar">
         <ul class="nav-menu">
             <li><img src="/resources/img/logo5.png" width=200></li>
@@ -62,11 +29,9 @@
             <li><a class="nav-link" href="/logout" value="logout">로그아웃</a></li>
         </ul>
     </nav>
-</div>
 
 <br>
-
-<div class="card" style="width: auto; margin-left: 20; margin-left: 20;">
+<div class="container h-100" style="z-index:2;">
     <div class="card-header">
         #1
     </div>
@@ -79,19 +44,18 @@
             <option value="4">게임 개발</option>
         </select>
     </div>
-</div>
-<br>
-
-<div class="card">
-    <div class="card-header">
-        #2
-    </div>
-    <div class="card-body">
-        <legend>휴대성과 성능 중 더 중요한 쪽을 선택해주세요</legend>
-        <select id="property">
-            <option value="1">휴대성</option>
-            <option value="2">성능</option>
-        </select>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            #2
+        </div>
+        <div class="card-body">
+            <legend>휴대성과 성능 중 더 중요한 쪽을 선택해주세요</legend>
+            <select id="property">
+                <option value="1">휴대성</option>
+                <option value="2">성능</option>
+            </select>
+        </div>
     </div>
 </div>
 <br>
