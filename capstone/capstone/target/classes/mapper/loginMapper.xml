@@ -40,4 +40,10 @@
 	<update id="updateToken" parameterType="domain.LoginVO">
 		update User set token=#{token} where id = #{id} and password = #{password}
 	</update>
+
+	<select id="getUserToken" parameterType="String" resultType="String">
+		select token
+		from User
+		where id=#{userId}
+	</select>
 </mapper>

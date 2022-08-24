@@ -58,5 +58,9 @@ public class LoginDAOImp implements LoginDAO {
 		sqlSession.update(namespace+".updateToken", vo);
 	}
 
+	@Override
+	public String getUserToken(String userId) throws  Exception {
+		return sqlSession.selectOne(namespace+".getUserToken", userId);
+	}
 
 }

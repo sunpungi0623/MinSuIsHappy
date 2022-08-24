@@ -58,7 +58,7 @@ public class APIController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/fcm/set")
+    @RequestMapping(value = "/fcm/set", method = RequestMethod.GET)
     public String setToken(HttpServletRequest req, @RequestParam String token, String userId, String password) throws Exception {
         LoginVO lVo = new LoginVO();
         lVo.setID(userId);

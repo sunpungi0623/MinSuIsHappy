@@ -431,7 +431,10 @@ public class HomeController {
 			temp.setRentDate(now.toString());
 			temp.setReturnDate(now.plusMonths(1).toString());
 			odao.updateObject(temp);
-			firebaseCloudMessageService.sendMessageTo(ses.getToken(), "대여 승인", temp.getName()+" 승인 완료되었습니다. 과 사무실을 방문하세요.");
+
+			String token = ldao.getUserToken(temp.getUserID());
+			System.out.println(token);
+			firebaseCloudMessageService.sendMessageTo(token, "대여 승인", temp.getName()+" 대여 승인되었습니다. \n과 사무실을 방문하세요.");
 
 
 		}
