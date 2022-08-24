@@ -61,7 +61,7 @@
 		select *
 		from object
 		where name
-		like "%애플%"
+		like "%mac%"
 	</select>
 
 	<select id="showMyObjects" resultType="domain.ObjectVO"

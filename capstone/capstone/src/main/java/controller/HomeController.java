@@ -311,15 +311,15 @@ public class HomeController {
 			return "/board/od_xd7s";
 		} else if (model.equals("삼성Odyssey, NT800G5W-GD7A")) {
 			return "/board/od_gd7a";
-		} else if (model.equals("삼성Odyssey, NT801G5H-X01/C")) {
+		} else if (model.equals("삼성Odyssey, NT800G5W-X01/C")) {
 			return "/board/od_x01c";
-		} else if (model.equals("애플MacBookPro, MVVJ2KH/A")) {
+		} else if (model.equals("macbookPro, MVVJ2KH/A")) {
 			return "/board/mac_pro";
 		} else if (model.equals("MSI소드, GF66-A11UD")) {
 			return "/board/msi";
 		} else if (model.equals("LG그램15, 15Z90N-VP70ML")) {
 			return "/board/lg_gram";
-		} else if (model.equals("애플MacBookAir, MGN63KH/A")) {
+		} else if (model.equals("macbookAir, MGN63KH/A")) {
 			return "/board/mac_air";
 		}
 
