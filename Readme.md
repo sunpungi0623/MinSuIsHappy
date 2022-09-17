@@ -10,4 +10,5 @@ Java, Spring Framework, MySQL, JavaScript, BootStrap
 MySQL이 연동된 웹서버  
 MySQL서비스를 Json을 통해 받을 수 있는 API서버  
 Android, iOS앱에 알림을 보내는 FCM서버
-
+  
+[프로젝트 전체에 관한 내용은 이곳에 있습니다](https://dequista.tistory.com/33)
