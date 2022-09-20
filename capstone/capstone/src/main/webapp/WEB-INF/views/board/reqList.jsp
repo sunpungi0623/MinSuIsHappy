@@ -52,8 +52,8 @@
             <tr>
                 <th scope="col">코드</th>
                 <th scope="col">기자재명</th>
-                <th scope="col">대여자 ID</th>
-                <th scope="col">대여자 번호</th>&nbsp;&nbsp;&nbsp;&nbsp;
+                <th scope="col">학번</th>
+                <th scope="col">전화번호</th>&nbsp;&nbsp;&nbsp;&nbsp;
                 <th scope="col"></th>
             </tr>
             </thead>

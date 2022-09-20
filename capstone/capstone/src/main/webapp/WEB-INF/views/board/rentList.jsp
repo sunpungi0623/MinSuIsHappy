@@ -53,8 +53,8 @@
                 <tr>
                     <th scope="col">코드</th>
                     <th scope="col">기자재명</th>
-                    <th scope="col">대여자 ID</th>
-                    <th scope="col">대여자 번호</th>
+                    <th scope="col">학번</th>
+                    <th scope="col">전화번호</th>
                     <th scope="col">대여일</th>
                     <th scope="col">반납예정일</th>
                     <th scope="col">비고</th>
