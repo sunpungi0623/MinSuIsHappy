@@ -99,7 +99,6 @@ public class APIController {
                     + "\"isRented\" : \"" + result.getIsRented() + "\" "
                     + "}";
             req.setAttribute("json", json);
-
         }
 
 
@@ -161,7 +160,6 @@ public class APIController {
         String id = req.getParameter("userId");
         String json = "";
 
-        
     	List<RecordVO> record = rdao.showSpecipicRecords(id);
 
         int index = 0;

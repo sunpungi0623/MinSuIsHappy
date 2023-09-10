@@ -37,7 +37,6 @@
                             var userId = document.getElementById("userId").value;
                             var password = document.getElementById("password").value;
 
-
                             location.href = "/login?mode=login&userId=" + userId + "&password=" + password;
                         }
 
